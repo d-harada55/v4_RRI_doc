@@ -1,7 +1,7 @@
 Introduction
 ==================================================
 
-本書は **RRI on iRIC** の「事例集」です。
+本書は **RRI on iRIC** の「事例集」です。modeified by harada 20240810
 
 
 RRIについて
