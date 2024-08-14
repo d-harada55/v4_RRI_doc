@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. 流域地形データセットの取得 &mdash; RRI on iRIC Examples 1.0.0 ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=cd5db5fd" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=91613774"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="2. 降雨データセットの作成" href="02_rain_data.html" />
+    <link rel="prev" title="Overview:" href="../02_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RRI on iRIC Examples
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../02_overview.html">Overview:</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. 流域地形データセットの取得</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_rain_data.html">2. 降雨データセットの作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_cond.html">3. 計算条件設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_bound.html">4. 境界条件の設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_run.html">5. 計算実行</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_examples.html">Examples:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RRI on iRIC Examples</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../02_overview.html">Overview:</a></li>
+      <li class="breadcrumb-item active">1. 流域地形データセットの取得</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/02/01_basin_data.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>1. 流域地形データセットの取得<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<p>RRIは流域を対象とした計算モデルです。計算には同一格子形状で作成された以下のデータセットが必要になります。</p>
+<ul class="simple">
+<li><p>標高データ      :　各セルの標高 [必須]</p></li>
+<li><p>集水ピクセル数  :　各セルの上流集水ピクセル数 [必須]</p></li>
+<li><p>落水方向        :　各セルの落水方向（1, 2, 4, 8, 16, 32, 64, 128） [必須]</p></li>
+<li><p>土地利用種別      :　各セルの土地利用 [任意]</p></li>
+</ul>
+<p>つまり、RRIで流出・氾濫計算を行う場合、計算前に対象とした流域について上記データを準備する必要があります。
+（一社）iRIC-UCの会員は、　<a href="#id2"><span class="problematic" id="id3">`</span></a>UC tools &lt;<a class="reference external" href="https://tools.i-ric.info/login/">https://tools.i-ric.info/login/</a>&gt;`を利用してデータを入手することができます。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>UC toolsを利用すると、日本全国の流域の地形データセットを抽出・ダウンロードすることができます。
+ダウンロードできるデータは、メッシュサイズ（１秒メッシュ）となっています。</p>
+<p>オリジナルデータは、東京大学、生産技術研究所の山崎大准教授らにより作成され、2020年9月時点で山崎大准教授のWebpageで公開されている「日本表面流向マップ」データです。
+「流域データ抽出」サイトでは、それらオリジナルデータから必要な流域のデータを抽出する機能を付与し、データを取得、利用できるようにしています。
+そのため、データ自体は山崎大准教授のホームページに記載されているライセンスに準拠しているため、それらライセンスをご確認の上、データをご利用いただければと思います。</p>
+<p><a class="reference external" href="http://hydro.iis.u-tokyo.ac.jp/~yamadai/JapanDir/">詳細はこちら</a></p>
+</div>
+<p>以下に取得手順を示します。</p>
+<ul>
+<li><p>[1]  <a class="reference external" href="https://tools.i-ric.info/login/">「流域データ抽出」</a>  にアクセス</p></li>
+<li><dl>
+<dt>[2] STEP1:対象流域河道の下流端をクリックします。（下図は豊平川の下流端点です。クリックした位置にピンマークが表示されます。）</dt><dd><img alt="../_images/extract_basin_1_click.jpg" src="../_images/extract_basin_1_click.jpg" />
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>[3] STEP2:「検索」ボタンをクリックします。しばらく待つと[2]で指定した地点を下流端とする流域が表示されます。</dt><dd><img alt="../_images/extract_basin_2_extracted.jpg" src="../_images/extract_basin_2_extracted.jpg" />
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>[4] STEP3:「取得」ボタンをクリックします。[2]で抽出された流域の地形データセットをダウンロードすることができます。ダウンロードしたファイルを解凍すると以下データが格納されていることが確認できます。</dt><dd><ul class="simple">
+<li><p>dir_export.asc　表面流向データ(*)</p></li>
+<li><p>elv_export.asc　水文補正標高(*)</p></li>
+<li><p>hnd_export.asc　直近の河道からの相対高さ(*)</p></li>
+<li><p>upa_export.asc　上流集水面積(*)</p></li>
+<li><p>upg_export.asc　上流集水グリッド数(*)</p></li>
+<li><p>wth_export.asc　河道幅(*)</p></li>
+<li><p>ldu_export.asc　土地利用データ(**)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>(*)各データの詳細については、  <a class="reference external" href="http://hydro.iis.u-tokyo.ac.jp/~yamadai/JapanDir/">「日本域表面流向マップ」</a>   をご確認ください。</p>
+<p>(**) 土地利用データは、RRIの開発者である佐山敬洋准教授（京都大学防災研究所）らが中心になって整備されたデータで、日本全国のデータがあります。データはRRI実行のための参考として貸与、配布許可いただいたもので、内容の正確性を保証するものではありません。ご利用は自己責任でお願いいたします。</p>
+<ul class="simple">
+<li><p>[5] [4]でダウンロードしたデータは、QGISなどGISソフトで開き内容を確認することができます。RRIの計算には以下必須（３種類）＋任意（１種類）のデータを利用します。</p></li>
+</ul>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../_images/elv_img.png"><img alt="" src="../_images/elv_img.png" style="width: 830.0px; height: 452.5px;" /></a>
+<figcaption>
+<p><span class="caption-number">図 1 </span><span class="caption-text">水文補正標高を可視化</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../_images/dir_img.png"><img alt="" src="../_images/dir_img.png" style="width: 830.0px; height: 452.5px;" /></a>
+<figcaption>
+<p><span class="caption-number">図 2 </span><span class="caption-text">表面流向データを可視化　値は1,2,4,8,16,32,64,128の8方向</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../_images/acc_img.png"><img alt="" src="../_images/acc_img.png" style="width: 830.0px; height: 452.5px;" /></a>
+<figcaption>
+<p><span class="caption-number">図 3 </span><span class="caption-text">上流集水グリッド数を可視化</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../_images/ldu_img.png"><img alt="" src="../_images/ldu_img.png" style="width: 830.0px; height: 452.5px;" /></a>
+<figcaption>
+<p><span class="caption-number">図 4 </span><span class="caption-text">土地利用データを可視化。土地利用を5種類に区分している。オリジナルデータは「国土数値情報 土地利用細分メッシュデータ」です。</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../02_overview.html" class="btn btn-neutral float-left" title="Overview:" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_rain_data.html" class="btn btn-neutral float-right" title="2. 降雨データセットの作成" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, iRIC organization.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

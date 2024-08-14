@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example1：2016年8月 空知川 &mdash; RRI on iRIC Examples 1.0.0 ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=cd5db5fd" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=91613774"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="Example2：2020年7月 球磨川" href="example_2.html" />
+    <link rel="prev" title="Examples:" href="../03_examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RRI on iRIC Examples
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_overview.html">Overview:</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../03_examples.html">Examples:</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Example1：2016年8月 空知川</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">0. サンプルデータ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">１．流域地形データセットの取得</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">２．降雨データセットの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">３．計算条件設定</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id12">3.1 格子・格子属性の作成・確認</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">3.2 降雨条件の設定</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">3.3 計算時間の設定</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">3.4 河道シミュレーション設定</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">3.5 斜面シミュレーション設定</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">４．計算実行</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">５．計算結果分析・可視化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">まとめ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="example_2.html">Example2：2020年7月 球磨川</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RRI on iRIC Examples</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../03_examples.html">Examples:</a></li>
+      <li class="breadcrumb-item active">Example1：2016年8月 空知川</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/03/example_1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="example1-20168">
+<h1>Example1：2016年8月 空知川<a class="headerlink" href="#example1-20168" title="Link to this heading">¶</a></h1>
+<p>2016年8月29日から31日の大雨で空知川幾寅地区で堤防決壊による河川氾濫が生じました。大雨や氾濫の状況などについては調査報告書 <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> や石田義明らの論文 <a class="footnote-reference brackets" href="#id5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> 等に詳しく記載されています。
+ここでは、そのときの空知川流域（幾寅地区よりも上流）の状況をRRI on iRICでシミュレーションする手順を示します。</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://committees.jsce.or.jp/report/system/files/2016%E5%B9%B48%E6%9C%88%E5%8C%97%E6%B5%B7%E9%81%93%E8%B1%AA%E9%9B%A8%E5%9C%9F%E6%9C%A8%E5%AD%A6%E4%BC%9A%E8%AA%BF%E6%9F%BB%E5%9B%A3%E5%A0%B1%E5%91%8A%E6%9B%B8_20170501.pdf">2016 年 8 月北海道豪雨災害 調査団報告書, 土木学会災害調査団</a></p>
+</aside>
+<aside class="footnote brackets" id="id5" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://www.jstage.jst.go.jp/article/jscejhe/73/4/73_I_1429/_pdf">2016年8月北海道豪雨における空知川幾寅地区の氾濫被害に関する調査および要因検証, 土木学会論文集B1（水工学）Vol.73, No.4, I_1429-I_1434, 2017.</a></p>
+</aside>
+</aside>
+<hr class="docutils" />
+<section id="id6">
+<h2>0. サンプルデータ<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
+<p>この事例で利用するサンプルデータは以下からダウンロードすることができます。</p>
+<ul class="simple">
+<li><p>地形および降雨データセット → <a class="reference external" href="https://uc.i-ric.org/uc_products/rri_examples/data_1.7z">data_1</a></p></li>
+<li><p>iRICソフトウェア用プロジェクトファイル　→ <a class="reference external" href="https://uc.i-ric.org/uc_products/rri_examples/2016_minami-furano.ipro">data_1_iRIC</a></p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>１．流域地形データセットの取得<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<p>流域地形データセットは、「0.サンプルデータ」でダウンロードできるデータの中に入っていますが、以下の方法でも取得することができます。</p>
+<ul>
+<li><p>[1]  <a class="reference external" href="http://153.126.130.135/RiverInformationDL/RiverInfoApi_Merit_6y.html">「流域データ抽出」</a>  にアクセスします</p></li>
+<li><p>[2] ここでは3秒メッシュであるMERIT Hydroのデータをダウンロードします。</p></li>
+<li><p>[3] STEP1 空知川幾寅地区を拡大し、対象流域の下流端をクリックします。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/step1_click.jpg"><img alt="../_images/step1_click.jpg" src="../_images/step1_click.jpg" style="width: 640px;" /></a>
+</div></blockquote>
+</li>
+<li><p>[4] STEP2 「検索」ボタンをクリックすると、対象流域が抽出されます。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/step2_extract.jpg"><img alt="../_images/step2_extract.jpg" src="../_images/step2_extract.jpg" style="width: 640px;" /></a>
+</div></blockquote>
+</li>
+<li><p>[5] STEP3 「取得」ボタンをクリックし、抽出されたデータを適当な場所にダウンロードしてください。</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id9">
+<h2>２．降雨データセットの作成<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
+<p>降雨データセット、「0.サンプルデータ」ダウンロードできるデータの&quot;data_1/02_rain&quot;の中に対象地域の対象期間の解析雨量を切り出したデータを格納しています。
+解析雨量については、 <a class="reference external" href="https://www.jma.go.jp/jma/kishou/know/kurashi/kaiseki.html#:~:text=%E8%A7%A3%E6%9E%90%E9%9B%A8%E9%87%8F%E3%81%A8%E9%80%9F%E5%A0%B1%E7%89%88,%E3%81%94%E3%81%A8%E3%81%AB%E4%BD%9C%E6%88%90%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%E3%80%82">気象庁のホームページ</a> をご確認ください。
+ファイル名に含まれる時刻の降雨データがそれぞれASC形式のファイルに格納されています。時刻はUTCです。なおASC形式のデータはGISで可視化表示することができます。
+&quot;asc2raindat.py&quot;は、フォルダに含まれるASC形式のデータから、RRI用の降雨データ形式のファイルを作成するPythonスクリプトです。Python実行環境がある方はそれを利用してみてください。
+Python実行環境がなくても、すでにRRI用の降雨データ形式に変換したファイル&quot;rain.dat&quot;も一緒に格納しています。</p>
+<p><strong>&lt;データ確認&gt;</strong></p>
+<p>iRIC上で時系列のASC形式ファイルを以下の手順で可視化確認することができます。
+<strong>ここでインポートするデータは計算には利用されません。あくまでも確認のために可視化する機能です。</strong></p>
+<ul>
+<li><p>iRICを起動し、RRIを選択します</p></li>
+<li><p>「オブジェクトブラウザー＞Rain[mm/h]:Data Check Only」を右クリックし、インポートを選択します。</p></li>
+<li><p>時系列、ASC形式で降雨データが格納されているフォルダで、一つファイルを選択、「開く」をクリックします</p></li>
+<li><p>ファイルのデータに利用されている座標系を指定する画面が表示されるので「OK」をクリックします</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/set_coordinates_for_file.jpg"><img alt="../_images/set_coordinates_for_file.jpg" class="align-center" src="../_images/set_coordinates_for_file.jpg" style="width: 480px;" /></a>
+</div></blockquote>
+</li>
+<li><p>ここではEPSG:4326: WGS84指定し、「OK」をクリックします。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/set_coordinates_for_file_2.jpg"><img alt="../_images/set_coordinates_for_file_2.jpg" class="align-center" src="../_images/set_coordinates_for_file_2.jpg" style="width: 480px;" /></a>
+</div></blockquote>
+</li>
+<li><p>iRICではファイル名に年月日時刻が含まれていることを前提にしています。ここではそのフォーマットを指定しています。</p></li>
+<li><p>認識結果に適当な年月日時刻が表示されればOKです。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/set_datetime.jpg"><img alt="../_images/set_datetime.jpg" class="align-center" src="../_images/set_datetime.jpg" style="width: 480px;" /></a>
+</div></blockquote>
+</li>
+<li><p>正しく認識されたデータの一覧が表示されます。「OK」をクリックします。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/import_list.jpg"><img alt="../_images/import_list.jpg" class="align-center" src="../_images/import_list.jpg" style="width: 480px;" /></a>
+</div></blockquote>
+</li>
+<li><p>プロジェクトで利用する座標系を指定する画面が表示されるので、「OK」をクリックします。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/set_coordinates_for_prj.jpg"><img alt="../_images/set_coordinates_for_prj.jpg" class="align-center" src="../_images/set_coordinates_for_prj.jpg" style="width: 480px;" /></a>
+</div></blockquote>
+</li>
+<li><p>ここではEPSG:4326: WGS84指定し、「OK」をクリックします。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/set_coordinates_for_file_2.jpg"><img alt="../_images/set_coordinates_for_file_2.jpg" class="align-center" src="../_images/set_coordinates_for_file_2.jpg" style="width: 480px;" /></a>
+</div></blockquote>
+</li>
+<li><p>インポートが開始されます。インポートが完了する以下のように降雨データを可視化することができます。時系列変化を確認することもできます。背景画像に「国土地理院（標準地図）」などを表示するとより確認しやすくなります。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/finish_import_data.jpg"><img alt="../_images/finish_import_data.jpg" class="align-center" src="../_images/finish_import_data.jpg" style="width: 640px;" /></a>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id11">
+<h2>３．計算条件設定<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h2>
+<section id="id12">
+<h3>3.1 格子・格子属性の作成・確認<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
+<p>「計算条件＞設定」から計算条件設定画面を開きます。「グループ＞基本条件」で以下のように条件を設定します。</p>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-number">表 7 </span><span class="caption-text">基本条件グループ</span><a class="headerlink" href="#id20" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 70.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>画面</p></th>
+<th class="head"><p>条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><img alt="../_images/cond_11.jpg" src="../_images/cond_11.jpg" />
+</td>
+<td><div class="line-block">
+<div class="line">モード：「格子・格子属性生成」</div>
+</div>
+<div class="line-block">
+<div class="line">データファイル設定</div>
+<div class="line-block">
+<div class="line">- DEM: 水文補正標高(elv_export.asc)</div>
+<div class="line">- Acc: 上流集水グリッド数(upg_export.asc)</div>
+<div class="line">- Dir: 表面流向データ(dir_export.asc)</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">河道形状をパラメータ-</div>
+<div class="line-block">
+<div class="line">- <span class="math notranslate nohighlight">\(C_w=5, S_w=0.35\)</span></div>
+<div class="line">- <span class="math notranslate nohighlight">\(C_d=0.95, S_d=0.2\)</span></div>
+<div class="line">- 堤防高[m]=2, 堤防セル閾値=1000</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>「保存して閉じる」をクリックし、「計算＞実行」をクリックします。
+以下のような警告が表示されるかもしれませんが、問題ないので無視してください。</p>
+<dl>
+<dt>「いいえ」をクリックします。</dt><dd><a class="reference internal image-reference" href="../_images/warning_mapping.jpg"><img alt="../_images/warning_mapping.jpg" class="align-center" src="../_images/warning_mapping.jpg" style="width: 480px;" /></a>
+</dd>
+<dt>「はい」をクリックします。</dt><dd><a class="reference internal image-reference" href="../_images/warning_nogrid.jpg"><img alt="../_images/warning_nogrid.jpg" class="align-center" src="../_images/warning_nogrid.jpg" style="width: 480px;" /></a>
+</dd>
+<dt>計算実行前に必ずプロジェクトを保存してください。</dt><dd><a class="reference internal image-reference" href="../_images/info_save1.jpg"><img alt="../_images/info_save1.jpg" class="align-center" src="../_images/info_save1.jpg" style="width: 480px;" /></a>
+</dd>
+<dt>保存はipro形式としてください。</dt><dd><a class="reference internal image-reference" href="../_images/save_ipro.jpg"><img alt="../_images/save_ipro.jpg" class="align-center" src="../_images/save_ipro.jpg" style="width: 480px;" /></a>
+</dd>
+<dt>データ処理が始まると以下の画面が表示されます。</dt><dd><a class="reference internal image-reference" href="../_images/running.jpg"><img alt="../_images/running.jpg" class="align-center" src="../_images/running.jpg" style="width: 640px;" /></a>
+</dd>
+<dt>処理が完了すると以下の画面が表示されます。</dt><dd><a class="reference internal image-reference" href="../_images/end_run.jpg"><img alt="../_images/end_run.jpg" class="align-center" src="../_images/end_run.jpg" style="width: 240px;" /></a>
+</dd>
+</dl>
+<p>プロジェクトを保存し、「ファイル＞開く」から再度プロジェクトを開いてください。</p>
+<p>「オブジェクトブラウザ＞格子」の格子形状、および、セル属性で作成された値を確認することができます。</p>
+<dl>
+<dt>格子形状（293×481=140933）</dt><dd><a class="reference internal image-reference" href="../_images/ini_grid1.jpg"><img alt="../_images/ini_grid1.jpg" class="align-center" src="../_images/ini_grid1.jpg" style="width: 640px;" /></a>
+</dd>
+<dt>Elevation[m] 各セルの標高値です。</dt><dd><a class="reference internal image-reference" href="../_images/ini_elv1.jpg"><img alt="../_images/ini_elv1.jpg" class="align-center" src="../_images/ini_elv1.jpg" style="width: 640px;" /></a>
+</dd>
+<dt>ACC　各セルの上流集水ピクセル数です。セル面積を乗じると上流集水面積:Aになります。</dt><dd><a class="reference internal image-reference" href="../_images/ini_acc1.jpg"><img alt="../_images/ini_acc1.jpg" class="align-center" src="../_images/ini_acc1.jpg" style="width: 640px;" /></a>
+</dd>
+<dt>DIR　各セルの流向です。East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)。</dt><dd><a class="reference internal image-reference" href="../_images/ini_dir1.jpg"><img alt="../_images/ini_dir1.jpg" class="align-center" src="../_images/ini_dir1.jpg" style="width: 640px;" /></a>
+</dd>
+<dt>Width[m]　上流集水面積:Aと指定したパラメータによる関数 <span class="math notranslate nohighlight">\(W = C_w A^{S_w}\)</span> で河道幅が設定されています。</dt><dd><a class="reference internal image-reference" href="../_images/ini_width1.jpg"><img alt="../_images/ini_width1.jpg" class="align-center" src="../_images/ini_width1.jpg" style="width: 640px;" /></a>
+</dd>
+<dt>Depth[m]　上流集水面積:Aと指定したパラメータによる関数 <span class="math notranslate nohighlight">\(D = C_d A^{S_d}\)</span> で河道深が設定されています。</dt><dd><a class="reference internal image-reference" href="../_images/ini_depth.jpg"><img alt="../_images/ini_depth.jpg" class="align-center" src="../_images/ini_depth.jpg" style="width: 640px;" /></a>
+</dd>
+<dt>Height[m]　上流集水ピクセル数が堤防セル閾値以上の箇所に、堤防高で指定された堤防が設定されています。</dt><dd><a class="reference internal image-reference" href="../_images/ini_height1.jpg"><img alt="../_images/ini_height1.jpg" class="align-center" src="../_images/ini_height1.jpg" style="width: 640px;" /></a>
+</dd>
+</dl>
+</section>
+<hr class="docutils" />
+<section id="id13">
+<h3>3.2 降雨条件の設定<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
+<p>降雨条件は、「2.降雨データセットの作成」で示したデータ&quot;rain.dat&quot;を利用します。
+&quot;rain.dat&quot;には、2016年8月29日 0:00UTCから2016年8月31日 23:30UTC（71.5時間分）の北海道付近の降雨データが30分間隔で格納されています。
+ASCファイルをテキストエディタで開くことで、データ詳細を確認することができます。</p>
+<p>「計算条件＞設定」で計算条件設定画面を表示し、「グループ＞降雨データ」を選択し、以下のように設定します。</p>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-number">表 8 </span><span class="caption-text">降雨データ　グループ</span><a class="headerlink" href="#id21" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 70.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>画面</p></th>
+<th class="head"><p>条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><img alt="../_images/cond_21.jpg" src="../_images/cond_21.jpg" />
+</td>
+<td><div class="line-block">
+<div class="line">降雨データファイル：サンプルデータとして</div>
+<div class="line">ダウンロードした&quot;rain.dat&quot;を指定します。</div>
+</div>
+<div class="line-block">
+<div class="line">xllcorner_rain:139</div>
+<div class="line">yllcorner_rain:41</div>
+<div class="line">cellsize_rain_x:0.0125</div>
+<div class="line">cellsize_rain_y:0.0083333</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>以上で降雨データを設定は完了です。</p>
+</section>
+<hr class="docutils" />
+<section id="id14">
+<h3>3.3 計算時間の設定<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
+<p>計算条件設定画面で、「グループ＞時間管理」を選択し、以下のように設定します。</p>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-number">表 9 </span><span class="caption-text">時間管理　グループ</span><a class="headerlink" href="#id22" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 70.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>画面</p></th>
+<th class="head"><p>条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><img alt="../_images/cond_31.jpg" src="../_images/cond_31.jpg" />
+</td>
+<td><div class="line-block">
+<div class="line">シミュレーション時間[hour]：70</div>
+<div class="line">斜面計算タイムステップ[sec]：600</div>
+<div class="line">河道計算タイムステップ[sec]：60</div>
+<div class="line">出力回数：70</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="id15">
+<h3>3.4 河道シミュレーション設定<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h3>
+<p>ここでは、河道セルの判定値と河道セルと認識されたセルのマニング粗度係数を指定します。</p>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-number">表 10 </span><span class="caption-text">河道シミュレーション　グループ</span><a class="headerlink" href="#id23" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 70.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>画面</p></th>
+<th class="head"><p>条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><img alt="../_images/cond_41.jpg" src="../_images/cond_41.jpg" />
+</td>
+<td><div class="line-block">
+<div class="line">河道のマニング粗度係数：0.03</div>
+<div class="line">河道セル判定閾値：100</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id16">
+<h3>3.5 斜面シミュレーション設定<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
+<p>斜面シミュレーションは、セル属性&quot;Land Use Type&quot;と関連してパラメータ設定を行います。
+この事例では、&quot;Land Use Type&quot;を全く指定していないため、すべてのセルの&quot;Land Use Type&quot;は&quot;Region1&quot;となります。
+ここでは地下浸透、地下水流れは考慮しないことにするため、以下のように設定します。</p>
+<table class="docutils align-default" id="id24">
+<caption><span class="caption-number">表 11 </span><span class="caption-text">斜面シミュレーション　グループ</span><a class="headerlink" href="#id24" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 70.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>画面</p></th>
+<th class="head"><p>条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><img alt="../_images/cond_51.jpg" src="../_images/cond_51.jpg" />
+</td>
+<td><div class="line-block">
+<div class="line">Region1のパラメータのみ有効</div>
+</div>
+<div class="line-block">
+<div class="line">Green-Ampt ...</div>
+<div class="line">ksv[m/s]：0</div>
+</div>
+<div class="line-block">
+<div class="line">lateral subsurface...</div>
+<div class="line">ka[m/s]：0</div>
+</div>
+<div class="line-block">
+<div class="line">上記以外のデフォルトのまま</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id17">
+<h2>４．計算実行<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h2>
+<p>計算条件画面で、「基本条件」の実行モードを「計算実行」にします。
+「保存して閉じる」で、計算条件設定画面を閉じます。</p>
+<a class="reference internal image-reference" href="../_images/cond_0.jpg"><img alt="../_images/cond_0.jpg" class="align-center" src="../_images/cond_0.jpg" style="width: 480px;" /></a>
+<p>「計算＞実行」から計算を実行してください。
+計算実行前には必ず、データを保存してください。
+計算が開始されると以下の画面が表示されます。</p>
+<a class="reference internal image-reference" href="../_images/calc_status.jpg"><img alt="../_images/calc_status.jpg" class="align-center" src="../_images/calc_status.jpg" style="width: 640px;" /></a>
+<p>計算が終了すると、終了を知らせる画面が表示されます。</p>
+</section>
+<hr class="docutils" />
+<section id="id18">
+<h2>５．計算結果分析・可視化<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h2>
+<p>計算が正常に終了すると、可視化ウィンドウの表示が可能となります。
+RRI on iRICは以下の値を計算結果として出力しています。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>表示名</p></th>
+<th class="head"><p>意味</p></th>
+<th class="head"><p>補足</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>total_qp_t[mm]</p></td>
+<td><p>総雨量[mm]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>qp_t[mm/h]</p></td>
+<td><p>雨量強度[mm/h]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>hs[m]</p></td>
+<td><p>氾濫原水深[m]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>hr[m]</p></td>
+<td><p>河道水深[m]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>qr[m]</p></td>
+<td><p>河道流量[m3/s]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>qu</p></td>
+<td><p>斜面流量x方向[m/s]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>qv</p></td>
+<td><p>斜面流量y方向[m/s]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>hg[m]</p></td>
+<td><p>地下水深[m]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>gu</p></td>
+<td><p>地下流量x方向[m/s]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>gv</p></td>
+<td><p>地下流量y方向[m/s]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>gampt_ff</p></td>
+<td><p>Green-Ampt cumulative water depth [m]</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>iRICソフトウェアの基本機能を利用して、様々な角度から計算結果を確認することができます。
+以下に可視化例を表示します。</p>
+<dl>
+<dt>流域総雨量：2016年8月29日 0:00UTCから2016年8月31日 22:00UTC（70時間）の間に500mm以上降った箇所が複数地点あることが確認できます</dt><dd><a class="reference internal image-reference" href="../_images/res_sum_rain.png"><img alt="../_images/res_sum_rain.png" class="align-center" src="../_images/res_sum_rain.png" style="width: 640px;" /></a>
+</dd>
+<dt>河道流出流量（i=107, j=163)　ピーク流量は1100m3/s程度であったという結果でした。</dt><dd><a class="reference internal image-reference" href="../_images/res_runoff.png"><img alt="../_images/res_runoff.png" class="align-center" src="../_images/res_runoff.png" style="width: 640px;" /></a>
+</dd>
+<dt>ピーク時（2016年8月31日 1:00時）の河道水深と斜面水深</dt><dd><a class="reference internal image-reference" href="../_images/res_depth.png"><img alt="../_images/res_depth.png" class="align-center" src="../_images/res_depth.png" style="width: 640px;" /></a>
+</dd>
+<dt>ピーク時（2016年8月31日 1:00時）の河道水深と斜面水深　市街地部分を拡大。市街地部分で氾濫が生じている様子が確認できます。</dt><dd><a class="reference internal image-reference" href="../_images/res_depth_2.png"><img alt="../_images/res_depth_2.png" class="align-center" src="../_images/res_depth_2.png" style="width: 640px;" /></a>
+</dd>
+</dl>
+</section>
+<hr class="docutils" />
+<section id="id19">
+<h2>まとめ<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h2>
+<p>ここではRRI on iRICの使い方として、地形と降雨データを準備、それらを計算条件として設定し、計算を実行し、計算結果を可視化、確認する流れを紹介しました。
+得られた計算結果と実現象との比較は、ここでは行いません。各自実践してみてください。
+必要に応じて、パラメータを調整し再計算するなどして、現象に対する理解を深めていただければと思います。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../03_examples.html" class="btn btn-neutral float-left" title="Examples:" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example_2.html" class="btn btn-neutral float-right" title="Example2：2020年7月 球磨川" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, iRIC organization.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
