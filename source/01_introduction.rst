@@ -3,13 +3,13 @@ Introduction
 
 This document is a user manual for RRI on iRIC. (This is a test page v13 edited by Harada.)
 
-About RRI
-RRI stands for Rain Runoff Inundation model, which is a model that simulate the process of rainfall-runoff and inundation processes within a basin.
-
+About RRI:   
+The Rainfall-Runoff-Inundataion (RRI) model was developed by Sayama et al.,  [1]_ ,  [2]_ ,  [3]_ .   
 Since May 2016, the RRI model has been made available for free on the `ICHARM website <https://www.pwri.go.jp/icharm/research/rri/index.html>`_
-
-For more details on the model, please refer to the manual included in the data downloadable from the above site, or refer to the following references  [1]_ ,  [2]_ ,  [3]_ .
-
+  
+For details, including the governing equations of the RRI model, please refer to the RRI manual included with the RRI model download.   
+This document focuses on explaining how to use this program, RRI on iRIC, within the iRIC interface. 
+  
 .. [1] `Sayama, T., Ozawa, G., Kawakami, T., Nabesaka, S., Fukami, K. (2012) Rainfall-Runoff-Inundation analysis of the 2010 Pakistan flood in the Kabul River basin, Hydrological Science Journal, 57(2), 298-312. <https://www.tandfonline.com/doi/full/10.1080/02626667.2011.644245>`_
 .. [2] `Sayama, T., Tatebe, Y., Tanaka, S. (2015a) An emergency response-type rainfall-runoff- inundation simulation for 2011 Thailand floods, Journal of Flood Risk Management, 1-8 doi:10.1111/jfr3.12147 (in print). <https://onlinelibrary.wiley.com/doi/full/10.1111/jfr3.12147>`_ 
 .. [3] `Sayama, T., Tatebe, Y., Iwami, Y., Tanaka, S. (2015b) Hydrologic sensitivity of flood runoff and inundation: 2011 Thailand floods in the Chao Phraya River basin, Nat. Hazards Earth Syst. Sci., 15, pp. 1617-1630, doi:10.5194/nhess-15-1617-2015. <https://www.researchgate.net/publication/282201567_Hydrologic_sensitivity_of_flood_runoff_and_inundation_2011_Thailand_floods_in_the_Chao_Phraya_River_basin>`_ 
