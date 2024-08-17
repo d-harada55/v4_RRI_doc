@@ -1,7 +1,7 @@
 Introduction
 ==================================================
 
-This document is a user manual for RRI on iRIC. (This is a test page v12.4.8 edited by Harada.)
+This document is a user manual for RRI on iRIC. (This is a test page v12.4.9 edited by Harada.)
 
 About RRI
 RRI stands for Rain Runoff Inundation model, which is a model that simulate the process of rainfall-runoff and inundation processes within a basin.
@@ -44,7 +44,7 @@ Preparing to Use RRI on iRIC
 
 - 3. When you launch the iRIC software, RRI will be available for selection.
 
-    .. image:: img/rri_v1.jpg
+    .. image:: img/RRI_v4_en3.jpg
 
 
 
