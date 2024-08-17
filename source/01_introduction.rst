@@ -22,6 +22,7 @@ RRI on iRIC is modified and released based on items ii and iii of Chapter 1 of t
 Therefore, when publishing or distributing the calculation results using RRI on iRIC (hereafter referred to as "this program"), please clearly state the following:
 
 ---
+
 - The copyright of the original work of this program (hereafter referred to as "RRI") belongs to the Public Works Research Institute (ICHARM).
 - This program is a derivative work of RRI.
 - The calculation results are derived from the modified program (this program) based on RRI.
@@ -31,17 +32,17 @@ Therefore, when publishing or distributing the calculation results using RRI on 
 
 -----
 
-RRI on iRICを利用する準備
+Preparing to Use RRI on iRIC
 ------------------------------
 
-- 1. RRI on iRIC をダウンロード
+- 1. Download RRI on iRIC  (the url must be modified later)
 
     - `rri_v1 <https://uc.i-ric.org/uc_products/rri_on_iric/v4_rri_240521.zip>`_
 
 
-- 2. ダウンロードしたデータを展開して、iRICのソルバフォルダにコピー＆ペースト。デフォルトでは、"C:/Users/[ユーザー名]/iRIC_v4/private/solvers"
+- 2. Extract the downloaded data and copy & paste it into the solver folder of iRIC. By default, this folder is located at "C:/Users/username/iRIC_v4/private/solvers"
 
-- 3. 完了。iRICソフトウェアを起動するとRRIが選択できるようになっています。
+- 3. Done. When you launch the iRIC software, RRI will be available for selection.
 
     .. image:: img/rri_v1.jpg
         :width: 640px
@@ -50,7 +51,7 @@ RRI on iRICを利用する準備
 
 
 
-以上。
+End
 
 
 
