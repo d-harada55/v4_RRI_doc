@@ -1,14 +1,14 @@
 Introduction
 ==================================================
 
-本書は **RRI on iRIC** の「事例集」です。これはテストページv10です。
+This document is a user manual for RRI on iRIC. (This is a test page v12.)
 
-RRIについて
-------------------------------
-RRIはRain Runoff Inundationモデルの略で、流域に降った雨が河川に集まる現象、洪水が河川を流下する現象、河川を流れる水が氾濫原に溢れる現象を流域一体で予測するモデルです。
-2016年5月からは、RRIモデルを `ICHARMホームページ  <https://www.pwri.go.jp/icharm/research/rri/index_j.html>`_  でも公開し、誰でも無料で入手できます。
+About RRI
+RRI stands for Rain Runoff Inundation model, which is a model that simulate the process of rainfall-runoff and inundation processes within a basin.
 
-モデル詳細については、上記ダウンロードサイトからダウンロードできるデータに同梱されているマニュアルを参照するか、以下の文献 [1]_ ,  [2]_ ,  [3]_ を参照ください。
+Since May 2016, the RRI model has been made available for free on the `ICHARM website <https://www.pwri.go.jp/icharm/research/rri/index.html>`_
+
+For more details on the model, please refer to the manual included in the data downloadable from the above site, or refer to the following references  [1]_ ,  [2]_ ,  [3]_ .
 
 .. [1] `Sayama, T., Ozawa, G., Kawakami, T., Nabesaka, S., Fukami, K. (2012) Rainfall-Runoff-Inundation analysis of the 2010 Pakistan flood in the Kabul River basin, Hydrological Science Journal, 57(2), 298-312. <https://www.tandfonline.com/doi/full/10.1080/02626667.2011.644245>`_
 .. [2] `Sayama, T., Tatebe, Y., Tanaka, S. (2015a) An emergency response-type rainfall-runoff- inundation simulation for 2011 Thailand floods, Journal of Flood Risk Management, 1-8 doi:10.1111/jfr3.12147 (in print). <https://onlinelibrary.wiley.com/doi/full/10.1111/jfr3.12147>`_ 

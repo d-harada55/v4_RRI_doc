@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "v4_RRI_doc",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"iis.activeFolder": "1.4.2.4",
+		"esbonio.server.enabled": false
+	}
+}
