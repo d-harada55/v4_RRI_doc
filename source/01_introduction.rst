@@ -44,7 +44,7 @@ Preparing to Use RRI on iRIC
 
 - 3. When you launch the iRIC software, RRI will be available for selection.
 
-    .. image:: img/RRI_v4_en2.jpg
+    .. image:: img/rri_v1.jpg
         :width: 640px
 
 
