@@ -1,6 +1,6 @@
 1. Preparation for the Basin Terrain Dataset
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-First, we need to prepare the following Watershed Terrain Datasets, which should be created using the same grid structure:
+First, we need to prepare the following Basin Terrain Datasets. All data must be prepared using the same grid structure:
 
 - Elevation data (DEM): Elevation of each cell [Required]
 - Flow accumulation (ACC): Number of upstream flow accumulation pixels for each cell [Required]
@@ -9,7 +9,7 @@ First, we need to prepare the following Watershed Terrain Datasets, which should
 
 For instructions on preparing these datasets, please refer to Chapter 3 of the `RRI_Manual <https://www.pwri.go.jp/icharm/research/rri/index.html>`_ for the method using GIS software, and Chapter 9 for the method using the RRI-GUI.
 
-Members of iRIC-UC can obtain the data using `UC tools <https://tools.i-ric.info/login/>`, which currently provides Japanese domestic data only.
+Members of iRIC-UC can obtain the data using `UC tools <https://tools.i-ric.info/login/>`_, which currently provides Japanese domestic data only.
 
 .. note::
    By using UC tools, you can extract and download watershed terrain datasets across Japan.
