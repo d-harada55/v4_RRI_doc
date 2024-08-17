@@ -1,7 +1,7 @@
 Introduction
 ==================================================
 
-This document is a user manual for RRI on iRIC. (This is a test page v12.)
+This document is a user manual for RRI on iRIC. (This is a test page v12 edited by Harada.)
 
 About RRI
 RRI stands for Rain Runoff Inundation model, which is a model that simulate the process of rainfall-runoff and inundation processes within a basin.
@@ -16,16 +16,15 @@ For more details on the model, please refer to the manual included in the data d
 
 -----
 
-RRI on iRICについて
+About RRI on iRIC
 ------------------------------
-RRI on iRICは、 `「降雨流出氾濫（RRI）モデルプログラム利用規約 <https://www.pwri.go.jp/icharm/research/rri/rri_contract_j.html>`_ 」、第1章ⅱ、ⅲの項目に基づき改変公開しているものです。
-そのため、RRI on iRIC(以降、本プログラム)による計算結果の公表、頒布する場合は下記内容を明記してください。
+RRI on iRIC is modified and released based on items ii and iii of Chapter 1 of the `Rainfall-Runoff-Inundation (RRI) Model Program Terms of Use <https://www.pwri.go.jp/icharm/research/rri/rri_contract_j.html>`_
+Therefore, when publishing or distributing the calculation results using RRI on iRIC (hereafter referred to as "this program"), please clearly state the following:
 
 ---
-
-- 本プログラムの原著作物（以降、RRI）の著作権は、土木研究所（ICHARM）にあります
-- 本プログラムは、RRIの二次著作物にあたります。
-- 計算結果は、RRIを改変したプログラム（本プログラム）によるものです
+- The copyright of the original work of this program (hereafter referred to as "RRI") belongs to the Public Works Research Institute (ICHARM).
+- This program is a derivative work of RRI.
+- The calculation results are derived from the modified program (this program) based on RRI.
 
 ---
 
