@@ -1,7 +1,7 @@
 Introduction
 ==================================================
 
-This document is a user manual for RRI on iRIC. (This is a test page v13 edited by Harada.)
+This document is a user manual for RRI on iRIC. (This is a test page v14 edited by Harada.)
 
 About RRI:   
 The RRI model is to simulate a Rainfall-Runoff-Inundataion processes  [1]_ ,  [2]_ ,  [3]_ .   

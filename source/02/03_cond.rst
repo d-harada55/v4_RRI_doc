@@ -1,40 +1,40 @@
-3. 計算条件設定
+3. Set calculation conditions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-iRICソフトウェアを起動し、「新しいプロジェクト」から"Rainfll-Runoff-Inundation v1.4.2.3"を選択します。
-警告ウィンドウが表示されますが、無視して「OK」ボタンをクリックしてください。
+Launch the iRIC software and select "Rainfall-Runoff-Inundation v1.4.2.3" from "New Project."
 
-オブジェクトブラウザーに地理情報としていくつか属性が表示されますが、RRI on iRICは「計算条件」から格子、格子属性の値を指定、作成することを基本としています。
-「計算条件＞設定」をクリックしてください。
+RRI on iRIC primarily involves specifying and creating grid and grid attribute values through the "Calculation Conditions" menu.
+
+Click on "Calculation Conditions > Settings."
 
 
-3.1 格子・格子属性作成・確認
-++++++++++++++++++++++++++++++
-"RRI on iRIC"では、計算格子を作成しない代わりに、計算条件の基本条件グループで入力された値をもとに格子、格子属性を自動生成します。
+3.1 Creating Grids and Grid Attributes
++++++++++++++++++++++++++++++++++++++++
+In "RRI on iRIC," grids and grid attributes are created based on the values entered in the Basic Conditions group of the calculation conditions.
 
-.. list-table:: 基本条件グループ
+.. list-table:: Basic Conditions Group
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img/cond_1.jpg
-     - | モード：
-       |  「格子・格子属性生成」を選択
+   * - Screen
+     - Condition
+   * - .. image:: img/cond_1_en.jpg
+     - | Runtype：
+       |  Select 'Make Geographic Condition Only'
 
-       | 1.でダウンロードしたファイルを指定
-       |  - DEM: 水文補正標高
-       |  - Acc: 上流集水グリッド数
-       |  - Dir: 表面流向データ
+       | Specify the files downloaded in step 1
+       |  - DEM: Hydrologically corrected elevation
+       |  - Acc: Number of upstream drainage grids
+       |  - Dir: Surface flow direction data
 
-       | 河道形状をパラメータ指定
-       |  - 河道幅: :math:`W = C_w A^{S_w}`
-       |  - 河道深: :math:`D = C_D A^{S_D}`
-       |  - 堤防: 堤防高[m], 堤防セル閾値
+       | Specify river channel parameters
+       |  - River width: :math:`W = C_w A^{S_w}`
+       |  - River depth: :math:`D = C_D A^{S_D}`
+       |  - Levee: Levee height [m], Levee cell threshold
 
 
-基本条件グループの値を設定後、「保存して閉じる」ボタンをクリックしてください。
-「計算＞実行」から計算を実行します。以下の警告が表示されますが、問題ありませんので「はい」をクリックしてください。
+After setting these values, click the "OK" button.
+Run the calculation by ckicking "Run" button. A warning will appear, but it is not an issue, so click "Yes."
 
 .. figure:: img/nogrid_error.jpg
    :scale: 80%

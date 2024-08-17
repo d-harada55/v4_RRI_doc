@@ -16,7 +16,7 @@ You can use any type of data, but the rainfall data for RRI calculations must be
    :scale: 50%
    :alt:
 
-   Rainfall data format  
+   Rainfall data format:  
    The header row repeats for each time step with `time (sec)`, `ncols`, and `nrows`.
    The mesh size must be consistent.
 
