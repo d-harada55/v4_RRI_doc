@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2. 降雨データセットの作成 &mdash; RRI on iRIC Examples 1.0.0 ドキュメント</title>
+  <title>2. Preparation for a rainfall dataset &mdash; RRI on iRIC Examples 1.0.0 ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=cd5db5fd" />
 
@@ -21,7 +21,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="3. 計算条件設定" href="03_cond.html" />
-    <link rel="prev" title="1. 流域地形データセットの取得" href="01_basin_data.html" /> 
+    <link rel="prev" title="1. Preparation for the Basin Terrain Dataset" href="01_basin_data.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,8 +49,8 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../01_introduction.html">Introduction</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../02_overview.html">Overview:</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01_basin_data.html">1. 流域地形データセットの取得</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2. 降雨データセットの作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_basin_data.html">1. Preparation for the Basin Terrain Dataset</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Preparation for a rainfall dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_cond.html">3. 計算条件設定</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_bound.html">4. 境界条件の設定</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_run.html">5. 計算実行</a></li>
@@ -74,7 +74,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../02_overview.html">Overview:</a></li>
-      <li class="breadcrumb-item active">2. 降雨データセットの作成</li>
+      <li class="breadcrumb-item active">2. Preparation for a rainfall dataset</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/02/02_rain_data.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -84,28 +84,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="id1">
-<h1>2. 降雨データセットの作成<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
-<p>RRIで流出・氾濫計算を行うためには、対象流域の対象期間の降雨データセットが必要になります。
-降雨データセットは、計算対象流域は包括するデータで、対象期間（例えば、2020年7月2日 20:00から2020年7月4日 10:00まで）、一定時間間隔（例えば、1時間間隔）の降雨強度のデータです。
-降雨強度のデータは、観測、予測含め様々なデータが気象庁で作成され配信されています。また、研究者によっては個別にメソスケールモデル等を利用した降雨データを作成していることと想像されます。
-いずれのデータを利用しても良いのですが、RRIの計算に以下の形式の降雨データ必要となります。</p>
-<figure class="align-default" id="id2">
+  <section id="preparation-for-a-rainfall-dataset">
+<h1>2. Preparation for a rainfall dataset<a class="headerlink" href="#preparation-for-a-rainfall-dataset" title="Link to this heading">¶</a></h1>
+<p>A rainfall dataset for the target basin during a specific period is required for the calculation.
+The dataset should include rainfall data that covers the target watershed, for the specified period (e.g., from July 2, 2020, 20:00 to July 4, 2020, 10:00), at regular time intervals (e.g., hourly intervals).</p>
+<p>Rainfall intensity data, including both observed and forecasted data, is created and distributed by the Japan Meteorological Agency. Additionally, researchers may generate their own rainfall data using mesoscale models or other methods.</p>
+<p>For instructions on preparing the rainfall dataset, please refer to Chapter 4 or Chapter 9 of the RRI_Manual.
+The iRIC-UC tool also provides a tool for extracting rainfall data within Japan.</p>
+<p>You can use any type of data, but the rainfall data for RRI calculations must be in the following format:</p>
+<figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../_images/rain_dat_fmt.jpg"><img alt="" src="../_images/rain_dat_fmt.jpg" style="width: 480.5px; height: 360.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 5 </span><span class="caption-text">降雨データのフォーマット
-ヘッダー行は、time（sec)　ncols nrows　でtime分繰り返しになります。
-メッシュサイズは同一である必要があります。</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 5 </span><span class="caption-text">Rainfall data format
+The header row repeats for each time step with <cite>time (sec)</cite>, <cite>ncols</cite>, and <cite>nrows</cite>.
+The mesh size must be consistent.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>RRI on iRICでは、解析雨量データを用いて計算することを想定しています。</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="01_basin_data.html" class="btn btn-neutral float-left" title="1. 流域地形データセットの取得" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_basin_data.html" class="btn btn-neutral float-left" title="1. Preparation for the Basin Terrain Dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="03_cond.html" class="btn btn-neutral float-right" title="3. 計算条件設定" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
