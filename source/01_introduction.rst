@@ -1,7 +1,7 @@
 Introduction
 ==================================================
 
-This document is a user manual for RRI on iRIC. (This is a test page v12 edited by Harada.)
+This document is a user manual for RRI on iRIC. (This is a test page v12.3 edited by Harada.)
 
 About RRI
 RRI stands for Rain Runoff Inundation model, which is a model that simulate the process of rainfall-runoff and inundation processes within a basin.
@@ -42,9 +42,9 @@ Preparing to Use RRI on iRIC
 
 - 2. Extract the downloaded data and copy & paste it into the solver folder of iRIC. By default, this folder is located at "C:/Users/username/iRIC_v4/private/solvers"
 
-- 3. Done. When you launch the iRIC software, RRI will be available for selection.
+- 3. When you launch the iRIC software, RRI will be available for selection.
 
-    .. image:: img/rri_v1.jpg
+    .. image:: img/rri_v4_en.png
         :width: 640px
 
 
