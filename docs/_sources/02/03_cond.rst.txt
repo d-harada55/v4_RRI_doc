@@ -39,25 +39,25 @@ After setting these values, click the "OK" button.
 Run the calculation by ckicking "Run" button. A warning will appear, but it is not an issue, so click "Yes."
 
 .. figure:: img/nogrid_error_en.jpg
-   :scale: 80%
+   :scale: 40%
    :alt:
 
 A message recommending that you save the data before running the calculation will appear. Click "Yes."
 
 .. figure:: img/info_save_en.jpg
-   :scale: 80%
+   :scale: 40%
    :alt:
 
 Next, a screen will prompt you to choose a save method. Select "Save to file (ipro)" and click the "OK" button. Then, set an appropriate name and save the file.
 
 .. figure:: img/save_type_en.jpg
-   :scale: 80%
+   :scale: 40%
    :alt:
 
 Data processing will begin, and the following window will be displayed. There are processes from STEP1 to STEP8 or 10.
 
 .. figure:: img/rri_exe_console_en.jpg
-   :scale: 80%
+   :scale: 100%
    :alt:
 
 Once processing is complete, click the "OK" button and **save the project**.
