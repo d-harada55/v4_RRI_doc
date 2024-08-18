@@ -64,33 +64,39 @@ Once processing is complete, click the "OK" button and **save the project**.
 
 -----
 
-上記処理が完了すると、RRIの計算で利用する格子、および、格子属性が確認できるようになります。**「ファイル＞開く」から、先程保存したファイルを再度開いてください** 。
-ファイルを開くと上記処理によって作成された格子および格子属性を以下のように確認することができます。
+Once the above process is complete, you will be able to review the grids and grid attributes for the calculation. **Please reopen the file you saved earlier by selecting "File > Open."**
 
-.. figure:: img/ini_grid.jpg
+To review the grids and grid attributes, it is necessary to decignate the coordinate system. After setting your own coordinate, click 'OK'.
+
+.. figure:: img/coordinate_en.png
    :scale: 80%
    :alt:
 
-   格子　574,112 = 932 × 616
+After setting the coordinate system, you will be able to review the grid shape and grid atteibutes.
 
-
-.. figure:: img/ini_elv.jpg
+.. figure:: img/grid_shape_en.jpg
    :scale: 80%
    :alt:
 
-   格子属性：Elavation[m]　水文補正標高値。
+   Grid system
 
-.. figure:: img/ini_dir.jpg
+.. figure:: img/ini_elv_en.jpg
    :scale: 80%
    :alt:
 
-   格子属性：DIR　流向。East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)
+   Cell attributes：Elavation[m]　DEM 
 
-.. figure:: img/ini_acc.jpg
+.. figure:: img/ini_dir_en.jpg
    :scale: 80%
    :alt:
 
-   格子属性：ACC　上流集水ピクセル数。1セルあたりの面積は同じとしているため、この値に１セルあたりの面積を乗じると、そのセルの集水面積が算出できる。
+   Cell attributes：DIR　Flow direction; East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)
+
+.. figure:: img/ini_acc_en.jpg
+   :scale: 80%
+   :alt:
+
+   Cell attributes：ACC;　Number of upstream cells. Since cell size is set to be uniform for the entire basin, multiplying this value by the area per cell will give the upstream drainage area for that cell.
 
 .. figure:: img/ini_width.jpg
    :scale: 80%
