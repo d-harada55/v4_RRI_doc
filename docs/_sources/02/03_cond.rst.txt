@@ -22,11 +22,13 @@ In "RRI on iRIC," grids and grid attributes are created based on the values ente
      - | Runtype：
        |  Select 'Make Geographic Condition Only'
 
+       | Geograpic Data file：
        | Specify the files downloaded in step 1
        |  - DEM: Hydrologically corrected elevation
        |  - Acc: Number of upstream drainage grids
        |  - Dir: Surface flow direction data
 
+       | River Shape parameters：
        | Specify river channel parameters
        |  - River width: :math:`W = C_w A^{S_w}`
        |  - River depth: :math:`D = C_D A^{S_D}`
@@ -36,35 +38,29 @@ In "RRI on iRIC," grids and grid attributes are created based on the values ente
 After setting these values, click the "OK" button.
 Run the calculation by ckicking "Run" button. A warning will appear, but it is not an issue, so click "Yes."
 
-.. figure:: img/nogrid_error.jpg
+.. figure:: img/nogrid_error_en.jpg
    :scale: 80%
    :alt:
 
-計算実行前にデータを保存を推奨するメッセージが表示されますので、「はい」をクリックしてください。
+A message recommending that you save the data before running the calculation will appear. Click "Yes."
 
-.. figure:: img/info_save.jpg
+.. figure:: img/info_save_en.jpg
    :scale: 80%
    :alt:
 
-さらに保存方法を選択する画面が表示されますので、「ファイルに保存（ipro）」を選択して「OK」ボタンをクリックし、適当な名前を設定して保存してください。
+Next, a screen will prompt you to choose a save method. Select "Save to file (ipro)" and click the "OK" button. Then, set an appropriate name and save the file.
 
-.. figure:: img/save_type.jpg
+.. figure:: img/save_type_en.jpg
    :scale: 80%
    :alt:
 
-データ処理が始まりまり以下のウィンドウが表示されます。STEP1からSTEP8までの処理があります。
+Data processing will begin, and the following window will be displayed. There are processes from STEP1 to STEP8 or 10.
 
-.. figure:: img/rri_exe_console.jpg
+.. figure:: img/rri_exe_console_en.jpg
    :scale: 80%
    :alt:
 
-
-処理が完了すると、以下のウィンドウが表示されます。
-「OK」ボタンをクリックし、 **プロジェクトを保存してください** 。
-
-.. figure:: img/calc_end.jpg
-   :scale: 80%
-   :alt:
+Once processing is complete, click the "OK" button and **save the project**.
 
 -----
 
