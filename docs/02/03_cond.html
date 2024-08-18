@@ -54,11 +54,11 @@
 <li class="toctree-l2"><a class="reference internal" href="02_rain_data.html">2. Preparation for a rainfall dataset</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">3. Set calculation conditions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-grids-and-grid-attributes">3.1 Creating Grids and Grid Attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">3.2 降雨条件の設定</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">3.3 計算時間の設定</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">3.4 河道シミュレーション設定</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">3.5 斜面シミュレーション設定</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">3.6 ホットスタート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-rainfall-conditions">3.2 Set rainfall conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">3.3 計算時間の設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.4 河道シミュレーション設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.5 斜面シミュレーション設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.6 ホットスタート</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="04_bound.html">4. 境界条件の設定</a></li>
@@ -101,8 +101,8 @@
 <section id="creating-grids-and-grid-attributes">
 <h2>3.1 Creating Grids and Grid Attributes<a class="headerlink" href="#creating-grids-and-grid-attributes" title="Link to this heading">¶</a></h2>
 <p>In &quot;RRI on iRIC,&quot; grids and grid attributes are created based on the values entered in the Basic Conditions group of the calculation conditions.</p>
-<table class="docutils align-default" id="id6">
-<caption><span class="caption-number">表 1 </span><span class="caption-text">Basic Conditions Group</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-number">表 1 </span><span class="caption-text">Basic Conditions Group</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 70.0%" />
 <col style="width: 30.0%" />
@@ -165,79 +165,79 @@ Run the calculation by ckicking &quot;Run&quot; button. A warning will appear, b
 <p>Once the above process is complete, you will be able to review the grids and grid attributes for the calculation. <strong>Please reopen the file you saved earlier by selecting &quot;File &gt; Open.&quot;</strong></p>
 <p>To review the grids and grid attributes, it is necessary to decignate the coordinate system. After setting your own coordinate, click 'OK'.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/coordinate_en.png"><img alt="" src="../_images/coordinate_en.png" style="width: 1012.8px; height: 675.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/coordinate_en.jpg"><img alt="" src="../_images/coordinate_en.jpg" style="width: 675.2px; height: 431.6px;" /></a>
 </figure>
 <p>After setting the coordinate system, you will be able to review the grid shape and grid atteibutes.</p>
-<figure class="align-default" id="id7">
-<a class="reference internal image-reference" href="../_images/grid_shape_en.jpg"><img alt="" src="../_images/grid_shape_en.jpg" style="width: 675.6px; height: 432.0px;" /></a>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../_images/grid_shape_en.jpg"><img alt="" src="../_images/grid_shape_en.jpg" style="width: 563.0px; height: 360.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 6 </span><span class="caption-text">Grid system</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 6 </span><span class="caption-text">Grid system</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../_images/ini_elv_en.jpg"><img alt="" src="../_images/ini_elv_en.jpg" style="width: 563.0px; height: 360.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">図 7 </span><span class="caption-text">Cell attributes：Elavation[m]　DEM</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id8">
-<a class="reference internal image-reference" href="../_images/ini_elv_en.jpg"><img alt="" src="../_images/ini_elv_en.jpg" style="width: 675.6px; height: 432.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/ini_dir_en.jpg"><img alt="" src="../_images/ini_dir_en.jpg" style="width: 563.0px; height: 360.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 7 </span><span class="caption-text">Cell attributes：Elavation[m]　DEM</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 8 </span><span class="caption-text">Cell attributes：DIR　Flow direction; East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id9">
-<a class="reference internal image-reference" href="../_images/ini_dir_en.jpg"><img alt="" src="../_images/ini_dir_en.jpg" style="width: 675.6px; height: 432.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/ini_acc_en.jpg"><img alt="" src="../_images/ini_acc_en.jpg" style="width: 563.0px; height: 360.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 8 </span><span class="caption-text">Cell attributes：DIR　Flow direction; East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 9 </span><span class="caption-text">Cell attributes：ACC;　Number of upstream cells. Since cell size is set to be uniform for the entire basin, multiplying this value by the area per cell will give the upstream drainage area for that cell.</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id10">
-<a class="reference internal image-reference" href="../_images/ini_acc_en.jpg"><img alt="" src="../_images/ini_acc_en.jpg" style="width: 900.8000000000001px; height: 576.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/ini_width_en.jpg"><img alt="" src="../_images/ini_width_en.jpg" style="width: 563.0px; height: 360.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 9 </span><span class="caption-text">Cell attributes：ACC;　Number of upstream cells. Since cell size is set to be uniform for the entire basin, multiplying this value by the area per cell will give the upstream drainage area for that cell.</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 10 </span><span class="caption-text">Cell attributes：Width[m]　River width; Defined as <span class="math notranslate nohighlight">\(W = C_w A^{S_w}\)</span></span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id11">
-<a class="reference internal image-reference" href="../_images/ini_width.jpg"><img alt="" src="../_images/ini_width.jpg" style="width: 683.2px; height: 526.4px;" /></a>
+<a class="reference internal image-reference" href="../_images/ini_dep_en.jpg"><img alt="" src="../_images/ini_dep_en.jpg" style="width: 563.0px; height: 360.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 10 </span><span class="caption-text">格子属性：Width[m]　河道幅。指定されたパラメータと上流流域面積の関数 <span class="math notranslate nohighlight">\(W = C_w A^{S_w}\)</span> で河道幅が設定されている。</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 11 </span><span class="caption-text">Cell attributes：Depth[m] River depth; Defined as <span class="math notranslate nohighlight">\(D = C_d A^{S_d}\)</span></span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id12">
-<a class="reference internal image-reference" href="../_images/ini_dep.jpg"><img alt="" src="../_images/ini_dep.jpg" style="width: 683.2px; height: 526.4px;" /></a>
+<a class="reference internal image-reference" href="../_images/ini_height_en.jpg"><img alt="" src="../_images/ini_height_en.jpg" style="width: 563.0px; height: 360.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 11 </span><span class="caption-text">格子属性：Depth[m] 河道深さ。指定されたパラメータをと上流流域面積の関数 <span class="math notranslate nohighlight">\(D = C_d A^{S_d}\)</span> で河道深さが設定されている。</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
-</figcaption>
-</figure>
-<figure class="align-default" id="id13">
-<a class="reference internal image-reference" href="../_images/ini_height.jpg"><img alt="" src="../_images/ini_height.jpg" style="width: 683.2px; height: 526.4px;" /></a>
-<figcaption>
-<p><span class="caption-number">図 12 </span><span class="caption-text">格子属性：堤防フラグ。赤い箇所に堤防が設置されている。
-堤防セル閾値よりも上流集水ピクセル数が大きいセルに、堤防高[m]で指定した高さの堤防が一律に設置されることになります。</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 12 </span><span class="caption-text">Cell attributes：Levees are set in the red-colored locations.
+Levees with the height specified by the levee height [m] are uniformly set in cells where the number of upstream drainage pixels exceeds the levee cell threshold.</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <hr class="docutils" />
-<section id="id1">
-<h2>3.2 降雨条件の設定<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
-<p>格子および格子属性の確認が完了したら、次に降雨条件の設定を行います。
-計算対象地域、期間の降雨データを「2.降雨データセットの作成」に示したフォーマットで準備します。
-準備したデータについて以下の値を設定します。</p>
-<table class="docutils align-default" id="id14">
-<caption><span class="caption-number">表 2 </span><span class="caption-text">降雨データの設定</span><a class="headerlink" href="#id14" title="Link to this table">¶</a></caption>
+<section id="set-rainfall-conditions">
+<h2>3.2 Set rainfall conditions<a class="headerlink" href="#set-rainfall-conditions" title="Link to this heading">¶</a></h2>
+<p>The next step is to set the rainfall conditions.
+Prepare the rainfall data for the target region and period in the format described in &quot;2. Preparation for a rainfall dataset&quot;.
+Set the following values for the prepared data:</p>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-number">表 2 </span><span class="caption-text">Rainfall Data Settings</span><a class="headerlink" href="#id13" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 70.0%" />
 <col style="width: 30.0%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>画面</p></th>
-<th class="head"><p>条件</p></th>
+<tr class="row-odd"><th class="head"><p>Screen</p></th>
+<th class="head"><p>Conditions</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><img alt="../_images/cond_2.jpg" src="../_images/cond_2.jpg" />
+<tr class="row-even"><td><img alt="../_images/cond_2_en.jpg" src="../_images/cond_2_en.jpg" />
 </td>
 <td><div class="line-block">
-<div class="line">- 降雨データファイルを指定</div>
-<div class="line">- xllcorner_rainを経度(radian)で指定</div>
-<div class="line">- yllcorner_rainを緯度(radian)で指定</div>
-<div class="line">- cellsize_rain_xをdx(radian)で指定</div>
-<div class="line">- cellsize_rain_yをdy(radian)で指定</div>
+<div class="line">- Specify the rainfall data file</div>
+<div class="line">- Specify xllcorner_rain in longitude (radians)</div>
+<div class="line">- Specify yllcorner_rain in latitude (radians)</div>
+<div class="line">- Specify cellsize_rain_x as dx (radians)</div>
+<div class="line">- Specify cellsize_rain_y as dy (radians)</div>
 </div>
 </td>
 </tr>
@@ -245,14 +245,14 @@ Run the calculation by ckicking &quot;Run&quot; button. A warning will appear, b
 </table>
 </section>
 <hr class="docutils" />
-<section id="id2">
-<h2>3.3 計算時間の設定<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<section id="id1">
+<h2>3.3 計算時間の設定<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <p>シミュレーションを行う時間数を指定します。
 降雨データや境界データの時間数に関わらず、ここで設定する値で計算対象時間が決定されます。
 斜面計算と河道計算のタイムステップは別々に指定することができます。
 計算結果出力回数を指定します。初期値は除いて指定します。</p>
-<table class="docutils align-default" id="id15">
-<caption><span class="caption-number">表 3 </span><span class="caption-text">降雨データの設定</span><a class="headerlink" href="#id15" title="Link to this table">¶</a></caption>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-number">表 3 </span><span class="caption-text">降雨データの設定</span><a class="headerlink" href="#id14" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 70.0%" />
 <col style="width: 30.0%" />
@@ -277,15 +277,15 @@ Run the calculation by ckicking &quot;Run&quot; button. A warning will appear, b
 </table>
 </section>
 <hr class="docutils" />
-<section id="id3">
-<h2>3.4 河道シミュレーション設定<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<section id="id2">
+<h2>3.4 河道シミュレーション設定<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <p>河道シミュレーションのパラメータは以下２つです。</p>
 <ul class="simple">
 <li><p>河道セル判定閾値で指定した値よりも上流集水ピクセル数が大きいセルが河道となります。</p></li>
 <li><p>河道セルと判定された箇所のマニング粗度係数を以下で指定できます。</p></li>
 </ul>
-<table class="docutils align-default" id="id16">
-<caption><span class="caption-number">表 4 </span><span class="caption-text">河道シミュレーション設定</span><a class="headerlink" href="#id16" title="Link to this table">¶</a></caption>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-number">表 4 </span><span class="caption-text">河道シミュレーション設定</span><a class="headerlink" href="#id15" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 70.0%" />
 <col style="width: 30.0%" />
@@ -308,38 +308,38 @@ Run the calculation by ckicking &quot;Run&quot; button. A warning will appear, b
 </table>
 </section>
 <hr class="docutils" />
-<section id="id4">
-<h2>3.5 斜面シミュレーション設定<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<section id="id3">
+<h2>3.5 斜面シミュレーション設定<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <p>斜面シミュレーションのパラメータは、土地利用属性ごとに指定することができます。
 土地利用属性は、格子属性として各セルに1から5まで（最大５種類）の値を設定することができます。
 ここでは「オブジェクトブラウザ＞Land Use Type」を右クリック、インポートから「1.流域地形データセットの取得」でダウンロードした土地利用データ:ldu_export.ascをインポートします。
 インポートが終了すると以下のように土地利用フラグにより、色付け表示されます。</p>
-<figure class="align-default" id="id17">
+<figure class="align-default" id="id16">
 <a class="reference internal image-reference" href="../_images/geo_lnd.jpg"><img alt="" src="../_images/geo_lnd.jpg" style="width: 420pt;" /></a>
 <figcaption>
-<p><span class="caption-number">図 13 </span><span class="caption-text">インポートした土地利用データ</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 13 </span><span class="caption-text">インポートした土地利用データ</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>インポートしたデータから格子属性：Land Use Typeを作成します。
 「格子＞属性のマッピング」から「実行」をクリックすると、
 マッピングする属性を指定する画面が表示されるので、「Land Use Type」を選択し、「OK」ボタンをクリックします。</p>
-<figure class="align-default" id="id18">
+<figure class="align-default" id="id17">
 <a class="reference internal image-reference" href="../_images/select_attr.jpg"><img alt="../_images/select_attr.jpg" src="../_images/select_attr.jpg" style="width: 210pt;" /></a>
 <figcaption>
-<p><span class="caption-number">図 14 </span><span class="caption-text">マッピング属性選択画面</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 14 </span><span class="caption-text">マッピング属性選択画面</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>マッピングが完了すると、
 「格子＞セル属性＞Land Use Type」にチェック入れて、格子属性：Land Use Typeを確認することができるようになります。</p>
-<figure class="align-default" id="id19">
+<figure class="align-default" id="id18">
 <a class="reference internal image-reference" href="../_images/ini_lnd.jpg"><img alt="" src="../_images/ini_lnd.jpg" style="width: 420pt;" /></a>
 <figcaption>
-<p><span class="caption-number">図 15 </span><span class="caption-text">格子属性：Land Use Type</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 15 </span><span class="caption-text">格子属性：Land Use Type</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>格子属性として各セルに設定した1から5の数値に応じたモデルパラメータ群を以下画面で指定します。</p>
-<table class="docutils align-default" id="id20">
-<caption><span class="caption-number">表 5 </span><span class="caption-text">斜面シミュレーション設定</span><a class="headerlink" href="#id20" title="Link to this table">¶</a></caption>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-number">表 5 </span><span class="caption-text">斜面シミュレーション設定</span><a class="headerlink" href="#id19" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 70.0%" />
 <col style="width: 30.0%" />
@@ -362,14 +362,14 @@ Run the calculation by ckicking &quot;Run&quot; button. A warning will appear, b
 </table>
 </section>
 <hr class="docutils" />
-<section id="id5">
-<h2>3.6 ホットスタート<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<section id="id4">
+<h2>3.6 ホットスタート<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
 <p>ホットスタートは、以前行った計算結果を初期値として計算を開始するような場合に利用します。
 そのため出力と入力の設定があります。
 出力設定では、ホットスタート用の出力を「行う/行わない」スイッチと、行う場合にはその出力先フォルダを指定します。出力先にはホットスタートの入力設定に必要なファイルが出力されます。
 入力設定では、出力された斜面水深、河道水深、gampt_ffのファイルを指定しています。</p>
-<table class="docutils align-default" id="id21">
-<caption><span class="caption-number">表 6 </span><span class="caption-text">ホットスタート設定</span><a class="headerlink" href="#id21" title="Link to this table">¶</a></caption>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-number">表 6 </span><span class="caption-text">ホットスタート設定</span><a class="headerlink" href="#id20" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 70.0%" />
 <col style="width: 30.0%" />

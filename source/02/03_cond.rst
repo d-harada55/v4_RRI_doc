@@ -69,7 +69,7 @@ Once the above process is complete, you will be able to review the grids and gri
 To review the grids and grid attributes, it is necessary to decignate the coordinate system. After setting your own coordinate, click 'OK'.
 
 .. figure:: img/coordinate_en.jpg
-   :scale: 50%
+   :scale: 40%
    :alt:
 
 After setting the coordinate system, you will be able to review the grid shape and grid atteibutes.
@@ -119,24 +119,25 @@ After setting the coordinate system, you will be able to review the grid shape a
 
 ----
 
-3.2 降雨条件の設定
+3.2 Set rainfall conditions
 ++++++++++++++++++++++++++++++
-格子および格子属性の確認が完了したら、次に降雨条件の設定を行います。
-計算対象地域、期間の降雨データを「2.降雨データセットの作成」に示したフォーマットで準備します。
-準備したデータについて以下の値を設定します。
+The next step is to set the rainfall conditions.  
+Prepare the rainfall data for the target region and period in the format described in "2. Preparation for a rainfall dataset".
+Set the following values for the prepared data:
 
-.. list-table:: 降雨データの設定
+.. list-table:: Rainfall Data Settings
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img/cond_2.jpg
-     - | - 降雨データファイルを指定
-       | - xllcorner_rainを経度(radian)で指定
-       | - yllcorner_rainを緯度(radian)で指定
-       | - cellsize_rain_xをdx(radian)で指定
-       | - cellsize_rain_yをdy(radian)で指定
+   * - Screen
+     - Conditions
+   * - .. image:: img/cond_2_en.jpg
+     - | - Specify the rainfall data file
+       | - Specify xllcorner_rain in longitude (radians)
+       | - Specify yllcorner_rain in latitude (radians)
+       | - Specify cellsize_rain_x as dx (radians)
+       | - Specify cellsize_rain_y as dy (radians)
+
 
 ----
 
