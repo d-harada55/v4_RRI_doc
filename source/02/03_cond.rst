@@ -68,55 +68,54 @@ Once the above process is complete, you will be able to review the grids and gri
 
 To review the grids and grid attributes, it is necessary to decignate the coordinate system. After setting your own coordinate, click 'OK'.
 
-.. figure:: img/coordinate_en.png
-   :scale: 60%
+.. figure:: img/coordinate_en.jpg
+   :scale: 50%
    :alt:
 
 After setting the coordinate system, you will be able to review the grid shape and grid atteibutes.
 
 .. figure:: img/grid_shape_en.jpg
-   :scale: 60%
+   :scale: 50%
    :alt:
 
    Grid system
 
 .. figure:: img/ini_elv_en.jpg
-   :scale: 60%
+   :scale: 50%
    :alt:
 
    Cell attributes：Elavation[m]　DEM 
 
 .. figure:: img/ini_dir_en.jpg
-   :scale: 60%
+   :scale: 50%
    :alt:
 
    Cell attributes：DIR　Flow direction; East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)
 
 .. figure:: img/ini_acc_en.jpg
-   :scale: 80%
+   :scale: 50%
    :alt:
 
    Cell attributes：ACC;　Number of upstream cells. Since cell size is set to be uniform for the entire basin, multiplying this value by the area per cell will give the upstream drainage area for that cell.
 
-.. figure:: img/ini_width.jpg
-   :scale: 80%
+.. figure:: img/ini_width_en.jpg
+   :scale: 50%
    :alt:
    
-   格子属性：Width[m]　河道幅。指定されたパラメータと上流流域面積の関数 :math:`W = C_w A^{S_w}` で河道幅が設定されている。
+   Cell attributes：Width[m]　River width; Defined as :math:`W = C_w A^{S_w}` 
 
-.. figure:: img/ini_dep.jpg
-   :scale: 80%
+.. figure:: img/ini_dep_en.jpg
+   :scale: 50%
    :alt:
 
-   格子属性：Depth[m] 河道深さ。指定されたパラメータをと上流流域面積の関数 :math:`D = C_d A^{S_d}` で河道深さが設定されている。
+   Cell attributes：Depth[m] River depth; Defined as :math:`D = C_d A^{S_d}`
 
-.. figure:: img/ini_height.jpg
-   :scale: 80%
+.. figure:: img/ini_height_en.jpg
+   :scale: 50%
    :alt:
 
-   格子属性：堤防フラグ。赤い箇所に堤防が設置されている。
-   堤防セル閾値よりも上流集水ピクセル数が大きいセルに、堤防高[m]で指定した高さの堤防が一律に設置されることになります。
-
+   Cell attributes：Levees are set in the red-colored locations.  
+   Levees with the height specified by the levee height [m] are uniformly set in cells where the number of upstream drainage pixels exceeds the levee cell threshold.
 
 ----
 
