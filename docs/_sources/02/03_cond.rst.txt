@@ -145,13 +145,13 @@ Set the following values for your own prepared data:
 3.3 Calculation time control
 ++++++++++++++++++++++++++++++
 Set the number of hours for the simulation.  
-Regardless of the duration of the rainfall data or boundary data, the calculation period will be determined by the value set here.   
+Regardless of the duration of the rainfall data or boundary data, the calculation period will be determined by the value set here.  
 Though the calculation time step is automatically controled by the adaptive Runge-Kutta method,
 initial time steps for slope calculations and river channel calculations can be specified separately.  
 Set the number of output times for the calculation results, excluding the initial time output.
 
 .. list-table:: Calculation time control
-   :widths: 70 30
+   :widths: 80 20
    :header-rows: 1
 
    * - Screen
