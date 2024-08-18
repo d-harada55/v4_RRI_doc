@@ -122,8 +122,9 @@ After setting the coordinate system, you will be able to review the grid shape a
 3.2 Set rainfall conditions
 ++++++++++++++++++++++++++++++
 The next step is to set the rainfall conditions.  
-Prepare the rainfall data for the target region and period in the format described in "2. Preparation for a rainfall dataset".
-Set the following values for the prepared data:
+Prepare the rainfall data for the target region and period in the format described in "2. Preparation for a rainfall dataset".  
+
+Set the following values for your own prepared data:
 
 .. list-table:: Rainfall Data Settings
    :widths: 70 30
@@ -141,24 +142,25 @@ Set the following values for the prepared data:
 
 ----
 
-3.3 計算時間の設定
+3.3 Calculation time control
 ++++++++++++++++++++++++++++++
-シミュレーションを行う時間数を指定します。
-降雨データや境界データの時間数に関わらず、ここで設定する値で計算対象時間が決定されます。
-斜面計算と河道計算のタイムステップは別々に指定することができます。
-計算結果出力回数を指定します。初期値は除いて指定します。
+Set the number of hours for the simulation.  
+Regardless of the duration of the rainfall data or boundary data, the calculation period will be determined by the value set here.   
+Though the calculation time step is automatically controled by the adaptive Runge-Kutta method,
+initial time steps for slope calculations and river channel calculations can be specified separately.  
+Set the number of output times for the calculation results, excluding the initial time output.
 
-.. list-table:: 降雨データの設定
+.. list-table:: Calculation time control
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img/cond_3.jpg
-     - | - シミュレーション時間(hour)
-       | - 斜面計算タイムステップ(sec)
-       | - 河道計算タイムステップ(sec)
-       | - 計算結果出力回数（初期値出力はカウントしない）
+   * - Screen
+     - Conditions
+   * - .. image:: img/cond_3_en.jpg
+     - | - Simulation Time (hour)
+       | - Time Step for Slope Simulation (sec)
+       | - Time Step for River channel Simulation (sec)
+       | - Number for output times（excluding the initial time output）
 
 ----
 
