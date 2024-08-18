@@ -69,25 +69,25 @@ Once the above process is complete, you will be able to review the grids and gri
 To review the grids and grid attributes, it is necessary to decignate the coordinate system. After setting your own coordinate, click 'OK'.
 
 .. figure:: img/coordinate_en.png
-   :scale: 80%
+   :scale: 60%
    :alt:
 
 After setting the coordinate system, you will be able to review the grid shape and grid atteibutes.
 
 .. figure:: img/grid_shape_en.jpg
-   :scale: 80%
+   :scale: 60%
    :alt:
 
    Grid system
 
 .. figure:: img/ini_elv_en.jpg
-   :scale: 80%
+   :scale: 60%
    :alt:
 
    Cell attributes：Elavation[m]　DEM 
 
 .. figure:: img/ini_dir_en.jpg
-   :scale: 80%
+   :scale: 60%
    :alt:
 
    Cell attributes：DIR　Flow direction; East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)
