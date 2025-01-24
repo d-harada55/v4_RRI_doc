@@ -166,7 +166,7 @@ Set the number of output times for the calculation results, excluding the initia
 
 3.4 River channel settings
 ++++++++++++++++++++++++++++++
-河道シミュレーションのパラメータは以下２つです。
+The parameters for the river channel simulation are as follows:
 
 - 河道セル判定閾値で指定した値よりも上流集水ピクセル数が大きいセルが河道となります。
 - 河道セルと判定された箇所のマニング粗度係数を以下で指定できます。
