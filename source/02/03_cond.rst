@@ -164,7 +164,7 @@ Set the number of output times for the calculation results, excluding the initia
 
 ----
 
-3.4 河道シミュレーション設定
+3.4 River channel settings
 ++++++++++++++++++++++++++++++
 河道シミュレーションのパラメータは以下２つです。
 
