@@ -119,7 +119,7 @@ After setting the coordinate system, you will be able to review the grid shape a
 
 ----
 
-3.2 Set rainfall conditions
+3.2 Rainfall conditions
 ++++++++++++++++++++++++++++++
 The next step is to set the rainfall conditions.  
 Prepare the rainfall data for the target region and period in the format described in "2. Preparation for a rainfall dataset".  
@@ -142,7 +142,7 @@ Set the following values for your own prepared data:
 
 ----
 
-3.3 Calculation time control
+3.3 Time control
 ++++++++++++++++++++++++++++++
 Set the number of hours for the simulation.  
 Regardless of the duration of the rainfall data or boundary data, the calculation period will be determined by the value set here.  
@@ -164,7 +164,7 @@ Set the number of output times for the calculation results, excluding the initia
 
 ----
 
-3.4 River channel settings
+3.4 River simulation parameters
 ++++++++++++++++++++++++++++++
 The parameters for the river channel simulation are as follows:
 
@@ -183,36 +183,42 @@ The parameters for the river channel simulation are as follows:
 
 ----
 
-3.5 斜面シミュレーション設定
+3.5 Slope simulation parameters
 ++++++++++++++++++++++++++++++
+The parameters for the slope simulation can be defined individually for each land use category. 
+Land use categories are assigned to each grid cell as attributes, with values from 1 to 5, allowing for up to five distinct categories. 
+To set these up, import the land use data file (ldu_export.asc downloaded in step "1. Preparation for the Basin Terrain Dataset") by right-clicking "Land Use Type" in the Object Browser and selecting "Import". 
+Once imported, the display will visually differentiate the cells by color, based on their assigned land use flags.
+
 斜面シミュレーションのパラメータは、土地利用属性ごとに指定することができます。
 土地利用属性は、格子属性として各セルに1から5まで（最大５種類）の値を設定することができます。
 ここでは「オブジェクトブラウザ＞Land Use Type」を右クリック、インポートから「1.流域地形データセットの取得」でダウンロードした土地利用データ:ldu_export.ascをインポートします。
 インポートが終了すると以下のように土地利用フラグにより、色付け表示されます。
 
-.. figure:: img/geo_lnd.jpg
+.. figure:: img/geo_lnd_en.jpg
    :width: 420pt
    :alt:
 
-   インポートした土地利用データ
+   Imported Land Use Data
 
-インポートしたデータから格子属性：Land Use Typeを作成します。
-「格子＞属性のマッピング」から「実行」をクリックすると、
-マッピングする属性を指定する画面が表示されるので、「Land Use Type」を選択し、「OK」ボタンをクリックします。
+Mapping the Imported Land Use Data to the Grid:
+To map the imported land use data to the grid, go to "Grid" > "Attribute Mapping" and click "Execute". 
+This will open a window where you can specify the attribute to map. Select "Land Use Type" and click the "OK" button.
 
-.. figure:: img/select_attr.jpg
+.. figure:: img/select_attr_en.jpg
    :width: 210pt
 
-   マッピング属性選択画面
+   Attribute Mapping Selection Window
 
-マッピングが完了すると、
-「格子＞セル属性＞Land Use Type」にチェック入れて、格子属性：Land Use Typeを確認することができるようになります。
+Once the mapping process is finished, the land use types will be associated with the grid cells. 
+You can verify this by navigating to "Grid" > "Cell Attributes" in the menu and then checking the box labeled "Land Use Type". 
+This will display the mapped land use type as a cell attribute.
 
-.. figure:: img/ini_lnd.jpg
+.. figure:: img/ini_lnd_en.jpg
    :width: 420pt
    :alt:
 
-   格子属性：Land Use Type
+   Cell attributes：Land Use Type
 
 格子属性として各セルに設定した1から5の数値に応じたモデルパラメータ群を以下画面で指定します。
 
