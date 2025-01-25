@@ -217,14 +217,15 @@ This will display the mapped land use type as a cell attribute.
 
 The following screen allows you to specify model parameter sets. Each set corresponds to the numerical values 1 to 5 assigned as grid attributes to each cell.
 
-.. list-table:: 斜面シミュレーション設定
+.. list-table:: Slope simulation parameters
    :widths: 70 30
    :header-rows: 1
 
    * - Screen
      - Conditions
    * - .. image:: img/cond_5_en.jpg
-     - | - Information regarding model parameters can be found in the `RRI manual <https://www.pwri.go.jp/icharm/research/rri/rri_top.html>`_ .
+     - | - Information regarding model parameters can be found 
+     - in the `RRI manual <https://www.pwri.go.jp/icharm/research/rri/rri_top.html>`_ .
 
 ----
 
