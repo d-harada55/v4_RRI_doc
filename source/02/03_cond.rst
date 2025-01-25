@@ -231,19 +231,24 @@ The following screen allows you to specify model parameter sets. Each set corres
 
 ----
 
-3.6 ホットスタート
+3.6 Hotstart
 ++++++++++++++++++++++++++++++
-ホットスタートは、以前行った計算結果を初期値として計算を開始するような場合に利用します。
-そのため出力と入力の設定があります。
-出力設定では、ホットスタート用の出力を「行う/行わない」スイッチと、行う場合にはその出力先フォルダを指定します。出力先にはホットスタートの入力設定に必要なファイルが出力されます。
-入力設定では、出力された斜面水深、河道水深、gampt_ffのファイルを指定しています。
+Hot start is used when you want to start a calculation using the results of a previous calculation as initial values. Therefore, it has both output and input settings.
 
-.. list-table:: ホットスタート設定
+Output Settings:
+
+The output settings include an "Enable/Disable" switch for hot start output and, if enabled, a field to specify the output folder. The necessary files for hot start input will be saved in the specified output folder.
+
+Input Settings:
+
+In the input settings, you specify the files for the previously outputted slope water depth, river channel water depth, and gampt_ff.
+
+.. list-table:: Hotstart
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img/cond_8.jpg
-     - | - ホットスタート設定
+   * - Screen
+     - Conditions
+   * - .. image:: img/cond_8_en.jpg
+     - | - Hotstart 
 
