@@ -159,8 +159,10 @@ Set the number of output times for the calculation results, excluding the initia
    * - .. image:: img/cond_3_en.jpg
      - | - Simulation Time (hour)
        | - Time Step for Slope Simulation (sec)
-       | - Time Step for River channel Simulation (sec)
-       | - Number for output times（excluding the initial time output）
+       | - Time Step for River channel
+       |   Simulation (sec)
+       | - Number for output times
+       |（excluding the initial time output）
 
 ----
 
@@ -224,8 +226,9 @@ The following screen allows you to specify model parameter sets. Each set corres
    * - Screen
      - Conditions
    * - .. image:: img/cond_5_en.jpg
-     - | - Information regarding model parameters
-       | can be found in the `RRI manual <https://www.pwri.go.jp/icharm/research/rri/rri_top.html>`_ .
+     - | - Information regarding
+     - | model parameters can be
+       | found in the `RRI manual <https://www.pwri.go.jp/icharm/research/rri/rri_top.html>`_ .
 
 ----
 
