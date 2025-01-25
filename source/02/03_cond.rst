@@ -181,7 +181,7 @@ The parameters for the river channel simulation are as follows:
      - Conditions
    * - .. image:: img/cond_4_en.jpg
      - | - Manning's roughness for River Region
-       | - Threshold of flow accumulation
+     - | - Threshold of flow accumulation
 
 ----
 
@@ -228,7 +228,7 @@ The following screen allows you to specify model parameter sets. Each set corres
    * - .. image:: img/cond_5_en.jpg
      - | - Information regarding
      - | model parameters can be
-       | found in the `RRI manual <https://www.pwri.go.jp/icharm/research/rri/rri_top.html>`_ .
+     - | found in the `RRI manual <https://www.pwri.go.jp/icharm/research/rri/rri_top.html>`_ .
 
 ----
 
