@@ -225,7 +225,7 @@ The following screen allows you to specify model parameter sets. Each set corres
      - Conditions
    * - .. image:: img/cond_5_en.jpg
      - | - Information regarding model parameters
-       | - can be found in the `RRI manual <https://www.pwri.go.jp/icharm/research/rri/rri_top.html>`_ .
+       | can be found in the `RRI manual <https://www.pwri.go.jp/icharm/research/rri/rri_top.html>`_ .
 
 ----
 
