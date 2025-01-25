@@ -233,15 +233,7 @@ The following screen allows you to specify model parameter sets. Each set corres
 
 3.6 Hotstart
 ++++++++++++++++++++++++++++++
-Hot start is used when you want to start a calculation using the results of a previous calculation as initial values. Therefore, it has both output and input settings.
-
-Output Settings:
-
-The output settings include an "Enable/Disable" switch for hot start output and, if enabled, a field to specify the output folder. The necessary files for hot start input will be saved in the specified output folder.
-
-Input Settings:
-
-In the input settings, you specify the files for the previously outputted slope water depth, river channel water depth, and gampt_ff.
+Hot start is used when you want to start a calculation using the results of a previous calculation as the initial values. This screen allows you to set the previously calculated slope water depth (hs), river channel water depth (hr), etc., as initial conditions.
 
 .. list-table:: Hotstart
    :widths: 70 30
