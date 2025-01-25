@@ -168,19 +168,18 @@ Set the number of output times for the calculation results, excluding the initia
 ++++++++++++++++++++++++++++++
 The parameters for the river channel simulation are as follows:
 
-- 河道セル判定閾値で指定した値よりも上流集水ピクセル数が大きいセルが河道となります。
-- 河道セルと判定された箇所のマニング粗度係数を以下で指定できます。
+- Threshold of flow accumulation: Cells are designated as river channels if their upstream contributing area (number of cells) exceeds this threshold
+- Manning's roughness for River Region: This parameter sets the Manning's roughness coefficient for cells identified as river channels.
 
-.. list-table:: 河道シミュレーション設定
+.. list-table:: River channel settings
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img/cond_4.jpg
-     - | - 河道マニング粗度係数
-       | - 河道セル閾値
-
+   * - Screen
+     - Conditions
+   * - .. image:: img/cond_4_en.jpg
+     - | - Manning's roughness for River Region
+       | - Threshold of flow accumulation
 
 ----
 
