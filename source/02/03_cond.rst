@@ -190,11 +190,6 @@ Land use categories are assigned to each grid cell as attributes, with values fr
 To set these up, import the land use data file (ldu_export.asc downloaded in step "1. Preparation for the Basin Terrain Dataset") by right-clicking "Land Use Type" in the Object Browser and selecting "Import". 
 Once imported, the display will visually differentiate the cells by color, based on their assigned land use flags.
 
-斜面シミュレーションのパラメータは、土地利用属性ごとに指定することができます。
-土地利用属性は、格子属性として各セルに1から5まで（最大５種類）の値を設定することができます。
-ここでは「オブジェクトブラウザ＞Land Use Type」を右クリック、インポートから「1.流域地形データセットの取得」でダウンロードした土地利用データ:ldu_export.ascをインポートします。
-インポートが終了すると以下のように土地利用フラグにより、色付け表示されます。
-
 .. figure:: img/geo_lnd_en.jpg
    :width: 420pt
    :alt:
@@ -220,17 +215,16 @@ This will display the mapped land use type as a cell attribute.
 
    Cell attributes：Land Use Type
 
-格子属性として各セルに設定した1から5の数値に応じたモデルパラメータ群を以下画面で指定します。
+The following screen allows you to specify model parameter sets. Each set corresponds to the numerical values 1 to 5 assigned as grid attributes to each cell.
 
 .. list-table:: 斜面シミュレーション設定
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img/cond_5.jpg
-     - | - モデルパラメータについては
-       | - `RRIのマニュアル <https://www.pwri.go.jp/icharm/research/rri/rri_top.html>`_ を参照ください。
+   * - Screen
+     - Conditions
+   * - .. image:: img/cond_5_en.jpg
+     - | - Information regarding model parameters can be found in the `RRI manual <https://www.pwri.go.jp/icharm/research/rri/rri_top.html>`_ .
 
 ----
 
