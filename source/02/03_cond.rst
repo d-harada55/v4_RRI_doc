@@ -162,7 +162,6 @@ Set the number of output times for the calculation results, excluding the initia
        | - Time Step for River channel
        | Simulation (sec)
        | - Number for output times
-       |（excluding the initial time output）
 
 ----
 
