@@ -1,24 +1,24 @@
-4. 境界条件の設定
+4. Boundary condition settings
 ==============================
 
-「オブジェクトブラウザ＞境界条件設定」を右クリックすると以下選択肢が表示されます。
+Right-clicking on "Object Browser > Boundary Condition Setting" displays the following options.
 
-    .. image:: img/bound_select.jpg
+    .. image:: img/bound_select_en.jpg
         :width: 480px
         :align: center
 
 
 
-============== ========================================== ==============================
-境界条件名           境界条件概要                             RRIマニュアル関連セクション
-============== ========================================== ==============================
-ダム               ダムの容量、放流量                       8.11 Dam option
-河道セル流量        河道流量設定（観測値など）               8.8 On Boundary Condition
-河道セル水深        河道水深設定（観測値など）               8.8 On Boundary Condition
-斜面セル流量        斜面流量設定（観測値など）               8.8 On Boundary Condition
-斜面セル水深        斜面水深設定（観測値など）               8.8 On Boundary Condition
-流量配分            分派（トンネル水路など）                 8.10 Diversion option
-============== ========================================== ==============================
+===================================  ==============================
+Boundary Condition                   RRI manual related section
+===================================  ==============================
+Dam                                  8.11 Dam option
+Time series for river discharge      8.8 On Boundary Condition
+Time series for river depth          8.8 On Boundary Condition
+Time series for slope discharge      8.8 On Boundary Condition
+Time series for slope depth          8.8 On Boundary Condition
+Flow diversion setting               8.10 Diversion option
+===================================  ==============================
 
 
 5.1 ダム
