@@ -47,37 +47,36 @@ After setting the conditions, click "Grid" > "Attribute Mapping" > "Execute". Ch
 
 ----
 
-5.2 河道セル流量
+5.2 River channel cell discharge
 ------------------------------
-河道流量が観測されている場合、その観測結果を時系列に与えることができます。
-詳しくはRRIのマニュアル、8.8 On Boundary Conditionをご確認ください。
+When observed discharge data is available, those can be set as a time series data. 
+For details, please refer to section 8.8 "On Boundary Conditions" in the RRI manual.
 
-
-5.3 河道セル水深
+5.3 River Channel Cell Water Depth
 ------------------------------
-河道水深が観測されている場合、その観測結果を時系列に与えることができます。
-詳しくはRRIのマニュアル、8.8 On Boundary Conditionをご確認ください。
+When water depth measurements are available for river channel cells, these observations can be input as a time series. 
+Please see section 8.8, "On Boundary Conditions," in the RRI manual for further details.
 
-5.4 斜面セル流量
+5.4 Hillslope Cell Discharge
 ------------------------------
-斜面セルで流量が観測されている場合、その観測結果を時系列に与えることができます。
-詳しくはRRIのマニュアル、8.8 On Boundary Conditionをご確認ください。
+When discharge observations are available for hillslope cells, you can input this data as a time series.
+Please see section 8.8, "On Boundary Conditions," of the RRI manual for more information.
 
-5.5 斜面セル水深
+5.5 Hillslope Cell Water Depth
 ------------------------------
-斜面セルで水深が観測されている場合、その観測結果を時系列に与えることができます。
-詳しくはRRIのマニュアル、8.8 On Boundary Conditionをご確認ください。
+When water depth measurements are available for hillslope cells, this observed data can be set as a time series. 
+Refer to section 8.8, "On Boundary Conditions," in the RRI manual for detailed instructions.
 
-5.6 流量配分
+5.6 Flow diversion
 ------------------------------
-本境界条件により、強制的に流量をを分配させることができます。
+This boundary condition allows you to forcibly divert flow from a cell.
 
-地形データでは表現が困難なトンネル水路などが設置されていることで、流量が河道とは異なる経路で流れる起点となるセルを選択します。
-セルは河道セルである必要があります。
-設定値には、分派先の出口セルのi,jと分派流量比を指定することができます。
+Select the starting cell where flow is diverted along a path different from the main river channel, such as when a tunnel or culvert (which is difficult to represent in the topographic data) is present. 
+The cell must be a river channel cell.
+You can specify the i, j coordinates of the outlet cell where the diverted flow goes, and the diversion flow ratio in the settings.
 
-    .. image:: img/bound_div.jpg
+    .. image:: img/bound_div_en.jpg
         :width: 480px
         :align: center
 
-詳しくはRRIのマニュアル、8.10 Diversion optionをご確認ください。
+For further details, please refer to section 8.10 "Diversion Option" in the RRI manual.
