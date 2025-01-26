@@ -21,27 +21,26 @@ Flow diversion setting               8.10 Diversion option
 ===================================  ==============================
 
 
-5.1 ダム
+5.1 Dam
 ------------------------------
-ダムは河道セル上に設定する必要があります。
-河道セルは、上流集水ピクセル数が「河道セル判定閾値」以上セルで、セル属性WidthやDepthなどから確認することできます。
-河道セルのうちダム堤体に近いセルをダムセルとして選択します。
+Dams must be set on river channel cells. 
+River channel cells are those with an upstream contributing area (number of pixels) equal to or greater than the "River Channel Determination Threshold." You can identify them by checking cell attributes such as Width and Depth.  
+Among the river channel cells, select the cell(s) closest to the dam embankment as the dam cell(s).
 
-    .. image:: img/river_cell.jpg
+    .. image:: img/river_cell_en.jpg
         :width: 480px
         :align: center
 
-各ダムに設定できるパラメータは以下のとおりです。
+The following parameters can be configured for each dam:
 
-    .. image:: img/dam_cond.jpg
+    .. image:: img/dam_cond_en.jpg
         :width: 320px
         :align: center
 
-境界条件も格子属性としてマッピングする必要があります。
-条件を設定したら、「格子＞属性マッピング＞実行」をクリックしてください。
-「境界条件設定＞New Dam」にチェックを入れ、「OK」ボタンをクリックしてください。
+Boundary conditions also need to be mapped as grid attributes. 
+After setting the conditions, click "Grid" > "Attribute Mapping" > "Execute". Check the box next to "Boundary Condition Setting > New Dam" and click the "OK" button.
 
-    .. image:: img/map_bound_dam.jpg
+    .. image:: img/map_bound_dam_en.jpg
         :width: 320px
         :align: center
 
