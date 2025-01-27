@@ -21,16 +21,16 @@ Example1：2016年8月 空知川
 --------------------------------------------------
 流域地形データセットは、「0.サンプルデータ」でダウンロードできるデータの中に入っていますが、以下の方法でも取得することができます。
 
-- [1]  `「流域データ抽出」 <http://153.126.130.135/RiverInformationDL/RiverInfoApi_Merit_6y.html>`_  にアクセスします
+- [1]  `「流域データ抽出」  <https://tools.i-ric.info/login/>`_    にアクセスします
 - [2] ここでは3秒メッシュであるMERIT Hydroのデータをダウンロードします。
 - [3] STEP1 空知川幾寅地区を拡大し、対象流域の下流端をクリックします。
 
-   .. image:: img_1/step1_click.jpg
+   .. image:: img_1/step1_click2.jpg
         :width: 640px
 
 - [4] STEP2 「検索」ボタンをクリックすると、対象流域が抽出されます。
 
-    .. image:: img_1/step2_extract.jpg
+    .. image:: img_1/step2_extract2.jpg
         :width: 640px
 
 - [5] STEP3 「取得」ボタンをクリックし、抽出されたデータを適当な場所にダウンロードしてください。
@@ -58,11 +58,24 @@ iRIC上で時系列のASC形式ファイルを以下の手順で可視化確認�
 - 時系列、ASC形式で降雨データが格納されているフォルダで、一つファイルを選択、「開く」をクリックします
 - ファイルのデータに利用されている座標系を指定する画面が表示されるので「OK」をクリックします
 
-   .. image:: img_1/set_coordinates_for_file.jpg
+   .. image:: img_1/set_coordinates_for_file2.jpg
         :width: 480px
         :align: center
 
 - ここではEPSG:4326: WGS84指定し、「OK」をクリックします。
+
+   .. image:: img_1/set_coordinates_for_file_2.jpg
+        :width: 480px
+        :align: center
+
+
+- 同様にファイルのデータに利用されている座標系を指定する画面が表示されるので「OK」をクリックします
+
+   .. image:: img_1/set_coordinates_for_file.jpg
+        :width: 480px
+        :align: center
+
+- 同じくEPSG:4326: WGS84指定し、「OK」をクリックします。
 
    .. image:: img_1/set_coordinates_for_file_2.jpg
         :width: 480px
@@ -72,30 +85,15 @@ iRIC上で時系列のASC形式ファイルを以下の手順で可視化確認�
 - iRICではファイル名に年月日時刻が含まれていることを前提にしています。ここではそのフォーマットを指定しています。
 - 認識結果に適当な年月日時刻が表示されればOKです。
 
-   .. image:: img_1/set_datetime.jpg
+   .. image:: img_1/set_datetime2.jpg
         :width: 480px
         :align: center
 
 - 正しく認識されたデータの一覧が表示されます。「OK」をクリックします。
 
-   .. image:: img_1/import_list.jpg
+   .. image:: img_1/import_list2.jpg
         :width: 480px
         :align: center
-
-
-- プロジェクトで利用する座標系を指定する画面が表示されるので、「OK」をクリックします。
-
-   .. image:: img_1/set_coordinates_for_prj.jpg
-        :width: 480px
-        :align: center
-
-
-- ここではEPSG:4326: WGS84指定し、「OK」をクリックします。
-
-   .. image:: img_1/set_coordinates_for_file_2.jpg
-        :width: 480px
-        :align: center
-
 
 - インポートが開始されます。インポートが完了する以下のように降雨データを可視化することができます。時系列変化を確認することもできます。背景画像に「国土地理院（標準地図）」などを表示するとより確認しやすくなります。
 
@@ -147,8 +145,9 @@ iRIC上で時系列のASC形式ファイルを以下の手順で可視化確認�
         :width: 480px
         :align: center
 
-計算実行前に必ずプロジェクトを保存してください。
-    .. image:: img_1/info_save.jpg
+以下のような警告が表示されるかもしれませんが、問題ないので無視してください。
+「OK」をクリックします。
+    .. image:: img_1/warning_mapping2.jpg
         :width: 480px
         :align: center
 
@@ -156,10 +155,10 @@ iRIC上で時系列のASC形式ファイルを以下の手順で可視化確認�
 保存はipro形式としてください。
     .. image:: img_1/save_ipro.jpg
         :width: 480px
-        :align: center
+        :align: centeraa
 
 データ処理が始まると以下の画面が表示されます。
-    .. image:: img_1/running.jpg
+    .. image:: img_1/running2.jpg
         :width: 640px
         :align: center
 
