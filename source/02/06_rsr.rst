@@ -1,7 +1,7 @@
 6. 降雨-土砂流出(RSR)モデル（オプション）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-6.1. 降雨-土砂流出(RSR)モデルの概要
+6.1. 降雨-土砂流出(RSR)モデルの概要 v17.16
 --------------------------------------------------
 
 RRIモデルで解析した斜面と河道の水理量に関する情報を用いて、単位河道モデルによって流域全体の水・土砂・流木の輸送を解析するモデルです。
@@ -20,10 +20,9 @@ RRIモデルで解析した斜面と河道の水理量に関する情報を用�
 
 ②河道の土砂輸送について：
 
+RRIモデルの河道セルで、掃流砂と浮遊砂を計算することによって、
 
 
-
-RRIモデルの河道セルで、掃流砂と浮遊砂を計算することで、
 
 
 .. [1] `Yamazaki, Y., Egashira, S., & Iwami, Y.: Method to Develop Critical Rainfall Conditions for Occurrences of Sediment-Induced Disasters and to Identify Areas Prone to Landslides, Journal of Disaster Research, 11(6), pp.1103-1111, 2016. <https://www.jstage.jst.go.jp/article/jdr/11/6/11_1103/_article/-char/en/>`_
