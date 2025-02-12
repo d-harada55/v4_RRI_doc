@@ -10,3 +10,4 @@ Welcome to RRI on iRIC Examples
    01_introduction
    02_overview
    03_examples
+   04_RSR model (sediment)
