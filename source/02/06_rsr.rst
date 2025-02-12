@@ -1,7 +1,7 @@
 6. 降雨-土砂流出(RSR)モデル（オプション）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-6.1. 降雨-土砂流出(RSR)モデルの概要 v17.21
+6.1. 降雨-土砂流出(RSR)モデルの概要
 --------------------------------------------------
 
 RRIモデルで解析した斜面と河道の水理量に関する情報を用いて、単位河道モデルによって流域全体の水・土砂・流木の輸送を解析するモデルです。
@@ -34,15 +34,23 @@ RRIモデルの河道セルで掃流砂と浮遊砂を計算することによ�
 
 .. [1] `Yamazaki, Y., Egashira, S., & Iwami, Y.: Method to Develop Critical Rainfall Conditions for Occurrences of Sediment-Induced Disasters and to Identify Areas Prone to Landslides, Journal of Disaster Research, 11(6), pp.1103-1111, 2016. <https://www.jstage.jst.go.jp/article/jdr/11/6/11_1103/_article/-char/en/>`_
 .. [2] `山崎祐介, & 江頭進治. (2021). 豪雨にともなう洪水・土砂流出ハイドログラフの推定手法. 河川技術論文集, 27, 469-474. <https://www.jstage.jst.go.jp/article/river/27/0/27_PS2-42/_article/-char/ja/>`_
-.. [3] `Qin, M., Harada, D., & Egashira, S. (2023). Influences of hillslope erosion on basin-scale sediment transport processes, proceedings of the 40th IAHR World Congress, August 2023.<https://www.iahr.org/library/infor?pid=29673>`_
+.. [3] `Qin, M., Harada, D., & Egashira, S. (2023). Influences of hillslope erosion on basin-scale sediment transport processes, proceedings of the 40th IAHR World Congress, August 2023. <https://www.iahr.org/library/infor?pid=29673>`_
 .. [4] `Harada, D., & Egashira, S. (2024). Methods to create hazard maps for flood disasters with sediment and driftwood. Proceedings of IAHS, 386, 159-164. <https://piahs.copernicus.org/articles/386/159/2024/>`_
 .. [5] `原田大輔, 江頭進治, 秦梦露. (2024). 降雨-土砂・流木流出モデルの特性-土砂粒度分布と流木の時空間変化に着目して. 河川技術論文集, 30, 335-340. <https://www.jstage.jst.go.jp/article/river/30/0/30_335/_article/-char/ja/>`_
 .. [6] `Harada, D., & Egashira, S. (2023). Method to evaluate large-wood behavior in terms of the convection equation associated with sediment erosion and deposition. Earth Surface Dynamics, 11(6), 1183-1197. <https://esurf.copernicus.org/articles/11/1183/2023/esurf-11-1183-2023.html>`_
 
-.. figure:: img/cond_9.jpg
+
+6.2. 計算条件の設定（基本条件） v17.22
+--------------------------------------------------
+
+.. figure:: img/RSR_cond_1.jpg
    :scale: 80%
    :alt:
 
-「計算＞実行」をクリックすると計算が開始されます。
+
+降雨-土砂流出（RSR）モデルの計算条件について説明します。
+
+- 土砂の解析(RSR)モデル：RSRモデルを用いる場合、「有効」を選択します。
+- 河床変動の開始時刻(hour)：RRIモデルの計算開始後、これ以前の時間は、土砂の計算を行いません。
 
 
