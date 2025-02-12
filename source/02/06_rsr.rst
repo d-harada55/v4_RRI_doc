@@ -40,11 +40,11 @@ RRIモデルの河道セルで掃流砂と浮遊砂を計算することによ�
 .. [6] `Harada, D., & Egashira, S. (2023). Method to evaluate large-wood behavior in terms of the convection equation associated with sediment erosion and deposition. Earth Surface Dynamics, 11(6), 1183-1197. <https://esurf.copernicus.org/articles/11/1183/2023/esurf-11-1183-2023.html>`_
 
 
-6.2. 計算条件の設定（基本条件） v17.22
+6.2. 計算条件の設定（基本条件） v17.23
 --------------------------------------------------
 
 .. figure:: img/RSR_cond_1.jpg
-   :scale: 80%
+   :scale: 60%
    :alt:
 
 
@@ -52,5 +52,8 @@ RRIモデルの河道セルで掃流砂と浮遊砂を計算することによ�
 
 - 土砂の解析(RSR)モデル：RSRモデルを用いる場合、「有効」を選択します。
 - 河床変動の開始時刻(hour)：RRIモデルの計算開始後、これ以前の時間は、土砂の計算を行いません。
+- 無次元限界掃流力：一様粒径を扱う場合に設定します。
+- 均一粒径/混合粒径：均一粒径、混合粒径のどちらも選択可能です。
+- 
 
 
