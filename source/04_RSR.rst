@@ -1,4 +1,4 @@
-RSR model (advanced):
+RSR model (Advanced):
 ====================================
 
 .. toctree::

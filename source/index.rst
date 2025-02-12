@@ -2,10 +2,10 @@ Welcome to RRI on iRIC Examples
 ==================================================
 
 .. contents: Contents
-   :depth: 3
+   :depth: 4
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    01_introduction
    02_overview
