@@ -44,6 +44,7 @@ Example3：(RSRモデル) 2017年7月 黒川
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 「計算条件＞設定」から計算条件設定画面を開きます。「グループ＞基本条件」で以下のように条件を設定します。
 
+土砂の計算を行う場合、掃流力の評価において川幅が重要なパラメータとなるため、現地の状況と対応するように設定します。また、本計算では土砂の堆積によって河道が埋まらないよう、河道深さに関するパラメータ（Cd）を大きくしています。
 
 .. list-table:: 基本条件グループ
    :widths: 80 20
@@ -63,7 +64,7 @@ Example3：(RSRモデル) 2017年7月 黒川
        |  - Acc: 上流集水グリッド数
        |  - Dir: 表面流向データ
 
-       | 河道形状をパラメータ-
+       | 河道形状パラメータ
        |  - :math:`C_w=12, S_w=0.5`
        |  - :math:`C_d=8, S_d=0.2`
        |  - 堤防高[m]=0, 堤防セル閾値=500
@@ -109,23 +110,22 @@ Example3：(RSRモデル) 2017年7月 黒川
 
 「オブジェクトブラウザ＞格子」の格子形状、および、セル属性で作成された値を確認することができます。
 
-格子形状（293×481=140933）
-    .. image:: img_1/ini_grid.jpg
-        :width: 640px
-        :align: center
+地図を表示するために、座標系は「WGS84」等に設定してください。「セルの属性」にチェックを入れ、各情報を表示します。
 
-Elevation[m] 各セルの標高値です。
-    .. image:: img_1/ini_elv.jpg
+格子形状（532×414=220248）
+
+標高(DEM)[m] 各セルの標高値です。
+    .. image:: img_3/ini_elv.jpg
         :width: 640px
         :align: center
 
 ACC　各セルの上流集水ピクセル数です。セル面積を乗じると上流集水面積:Aになります。
-    .. image:: img_1/ini_acc.jpg
+    .. image:: img_3/ini_acc.jpg
         :width: 640px
         :align: center
 
 DIR　各セルの流向です。East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)。
-    .. image:: img_1/ini_dir.jpg
+    .. image:: img_3/ini_dir.jpg
         :width: 640px
         :align: center
 
