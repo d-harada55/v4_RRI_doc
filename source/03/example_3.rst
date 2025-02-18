@@ -119,30 +119,22 @@ Example3：(RSRモデル) 2017年7月 黒川
         :width: 640px
         :align: center
 
-ACC　各セルの上流集水ピクセル数です。セル面積を乗じると上流集水面積:Aになります。
+集水面積セル数(ACC)　各セルの上流集水ピクセル数です。セル面積を乗じると上流集水面積:Aになります。
     .. image:: img_3/ini_acc.jpg
         :width: 640px
         :align: center
 
-DIR　各セルの流向です。East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)。
+流向(DIR)　各セルの流向です。East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)。
     .. image:: img_3/ini_dir.jpg
         :width: 640px
         :align: center
 
-Width[m]　上流集水面積:Aと指定したパラメータによる関数 :math:`W = C_w A^{S_w}` で河道幅が設定されています。
-    .. image:: img_1/ini_width.jpg
+川幅[m]　上流集水面積:Aと指定したパラメータによる関数 :math:`W = C_w A^{S_w}` で河道幅が設定されています。
+    .. image:: img_3/ini_width.jpg
         :width: 640px
         :align: center
 
-Depth[m]　上流集水面積:Aと指定したパラメータによる関数 :math:`D = C_d A^{S_d}` で河道深が設定されています。
-    .. image:: img_1/ini_depth.jpg
-        :width: 640px
-        :align: center
-
-Height[m]　上流集水ピクセル数が堤防セル閾値以上の箇所に、堤防高で指定された堤防が設定されています。
-    .. image:: img_1/ini_height.jpg
-        :width: 640px
-        :align: center
+河道深さ[m]　上流集水面積:Aと指定したパラメータによる関数 :math:`D = C_d A^{S_d}` で河道深が設定されています。
 
 -----
 
@@ -150,23 +142,21 @@ Height[m]　上流集水ピクセル数が堤防セル閾値以上の箇所に�
 3.2 降雨条件の設定
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 降雨条件は、「2.降雨データセットの作成」で示したデータ"rain.dat"を利用します。
-"rain.dat"には、2016年8月29日 0:00UTCから2016年8月31日 23:30UTC（71.5時間分）の北海道付近の降雨データが30分間隔で格納されています。
-ASCファイルをテキストエディタで開くことで、データ詳細を確認することができます。
 
 「計算条件＞設定」で計算条件設定画面を表示し、「グループ＞降雨データ」を選択し、以下のように設定します。
 
 .. list-table:: 降雨データ　グループ
-   :widths: 70 30
+   :widths: 80 20
    :header-rows: 1
 
    * - 画面
      - 条件
-   * - .. image:: img_1/cond_2.jpg
+   * - .. image:: img_3/cond_2.jpg
      - | 降雨データファイル：サンプルデータとして
        | ダウンロードした"rain.dat"を指定します。
        
-       | xllcorner_rain:139
-       | yllcorner_rain:41
+       | xllcorner_rain:130
+       | yllcorner_rain:33.33
        | cellsize_rain_x:0.0125
        | cellsize_rain_y:0.0083333
 
@@ -176,19 +166,19 @@ ASCファイルをテキストエディタで開くことで、データ詳細�
 
 3.3 計算時間の設定
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-計算条件設定画面で、「グループ＞時間管理」を選択し、以下のように設定します。
+計算条件設定画面で、「グループ＞時間管理」を選択し、以下のように設定します。今回は計算時間短縮のために、ピーク付近の13時間のみの解析としています。
 
 .. list-table:: 時間管理　グループ
-   :widths: 70 30
+   :widths: 80 20
    :header-rows: 1
 
    * - 画面
      - 条件
-   * - .. image:: img_1/cond_3.jpg
-     - | シミュレーション時間[hour]：70
+   * - .. image:: img_3/cond_3.jpg
+     - | シミュレーション時間[hour]：13
        | 斜面計算タイムステップ[sec]：600
        | 河道計算タイムステップ[sec]：60
-       | 出力回数：70
+       | 出力回数：13
 
 -----
 
