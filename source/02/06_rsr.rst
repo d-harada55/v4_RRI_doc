@@ -52,33 +52,32 @@ In the river channel, the transport of driftwood is analyzed using convection an
 6.2. Setting Calculation Conditions (Basic Conditions)
 --------------------------------------------------
 
-降雨-土砂流出（RSR）モデルの基本的な計算条件について説明します。
+This section describes the basic calculation conditions for the Rainfall-Sediment Runoff (RSR) model.
 
-.. figure:: img/RSR_cond_1.jpg
+.. figure:: img/RSR_cond_1_en.jpg
    :scale: 60%
    :alt:
 
-- 土砂の解析(RSR)モデル：「無効」、「セルごとに解析（非推奨）」または「単位河道モデル」を選択します。
-- 河床変動の開始時刻(hour)：RRIモデルの計算開始後、これ以前の時間は、土砂の計算を行いません。
-- 無次元限界掃流力：一様粒径を扱う場合に設定します。
-- 均一粒径/混合粒径：均一粒径、混合粒径のどちらも選択可能です。
-- 河床変動計算の時間刻み：一回のRRIモデルの河道の計算時間間隔（デフォルトは60秒）の間に、土砂の計算を何回行うかを設定します。浮遊砂を扱う場合、時間刻みを細かく（この数字を大きく）した方が計算が安定します。ただし値を大きくするほど計算時間が長くなります。
-- 掃流砂量式：芦田・道上式、MPM式、江頭らの式、から選択可能です。
-- 浮遊砂浮上量式：Lane-Kalinskeの式、Density stratified flow model、から選択可能です。
-- その他のパラメータは一般的なものです。
+- Sediment computation (RSR): Select "Disabled", "Cell model (not recommended)", or "Unit channel model".
+- Start time of bed deformation (hour)：After the start of the RRI model calculation, sediment calculations will not be performed for times earlier than this.
+- Critical shear stress：Set this value when calculating uniform sediment sizes.
+- Bed material type：Uniform or non-uniform
+- iidt (= dt_river/dt_sediment cal.)：Time Step for Riverbed Variation Calculation: Sets how many times sediment calculations are performed within one calculation time interval of the river channel in the RRI model. When dealing with suspended sediment, a smaller time step (larger iidt value here) will improve calculation stability.
+- Bedload transport formula：Select from Ashida-Michiue formula, MPM formula, or Egashira et al. formula.
+- Suspended sediment erosion formula：Select from Lane-Kalinske formula or Density stratified flow model.
+- Other parameters are standard values.
 
-次に、詳細な計算条件設定（制約条件）について説明します。
+Next, the detailed calculation conditions (regulations) are explained.
 
-.. figure:: img/RSR_cond_2.jpg
+.. figure:: img/RSR_cond_2_en.jpg
    :scale: 60%
    :alt:
 
-- 単位河道の最小セル数：RSRモデルでは、RRIモデルで設定した河道セルの合流点を自動的に判別し、流域全体で単位河道を生成します。ただしあまりにも小さい単位河道が生成されれば計算が不安定になることがあるので、この値よりも小さいセルでの単位河道は生成しません。
-- 最大侵食深(m)：初期の河床高に対して、この深さ以上の単位河道の侵食を許容せず、岩盤として扱います。
-- 単位河道の最小勾配：掃流砂量式として江頭らの式を使う場合、交換層厚を動的に評価します。単位河道の河床勾配として、この値より勾配が緩い場合にこの値を採用します。
-- 単位河道の最大勾配（度）：河道セルの勾配がこの値より大きい場合、その河道セルよりも上流側の河道セルは単位河道として設定しません。
-- 流砂を計算する最小の水深(m)：単位河道の水深として、単位河道内の河道セルの水深の平均値を用います。水深がこの値より小さい場合に、流砂の計算を行いません。
-
+- Unit channel is not formed below this cell number：The RSR model automatically identifies confluence points of the river channel cells set in the RRI model and generates unit river channels for the entire watershed. However, if extremely small unit river channels are generated, calculations may become unstable. Therefore, unit river channels with fewer cells than this value will not be generated.
+- Maximum erosion depth (m)：Erosion in a unit river channel is not allowed below this depth relative to the initial riverbed elevation, treating it as bedrock.
+- Minimum unit channel slope：When employing the Egashira et al. formula for bed load transport, the exchange layer thickness is dynamically evaluated. If the bed slope of the unit river channel is milder than this value, this value will be set as the unit river channel bed slope.
+- Maximum unit channel slope (degree)：If the gradient of a channel cell is greater than this value, cells upstrem of this degree will not be treated as the unit channel.
+- Minimum river depth for sediment computation(m)：The average water depth of the river channel cells within a unit channel is employed as the water depth for the unit channel. If the water depth is shallower than this value, sediment transport calculations will not be performed at that unit channel.
 
 6.3. 混合粒径土砂の粒度分布
 --------------------------------------------------
