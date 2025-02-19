@@ -1,13 +1,13 @@
-5. 計算実行
+5. Running the Calculation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-計算条件設定で、格子・格子属性を作成し、その他の計算条件を設定できたら次は計算を実行します。
-「計算条件＞設定」から計算条件設定画面を表示し、「基本条件」を選択します。
-「実行モード＞モード」で「計算実行」を選択し、「保存して閉じる」をクリックします。
+After creating the grid and grid attributes and setting other calculation conditions in the Calculation Condition Setting, the next step is to execute the calculation. 
+Go to "Calculation Condition" > "Setting" to open the Calculation Condition Setting window and select "Basic Conditions." 
+In "RunType", choose "Run only" and click "OK."
 
-.. figure:: img/cond_9.jpg
+.. figure:: img/cond_9_en.jpg
    :scale: 80%
    :alt:
 
-「計算＞実行」をクリックすると計算が開始されます。
+Clicking "Run" will start the calculation.
 
 

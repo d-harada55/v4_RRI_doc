@@ -1,84 +1,82 @@
-4. 境界条件の設定
+4. Boundary condition settings
 ==============================
 
-「オブジェクトブラウザ＞境界条件設定」を右クリックすると以下選択肢が表示されます。
+Right-clicking on "Object Browser > Boundary Condition Setting" displays the following options.
 
-    .. image:: img/bound_select.jpg
+    .. image:: img/bound_select_en.jpg
         :width: 480px
         :align: center
 
 
 
-============== ========================================== ==============================
-境界条件名           境界条件概要                             RRIマニュアル関連セクション
-============== ========================================== ==============================
-ダム               ダムの容量、放流量                       8.11 Dam option
-河道セル流量        河道流量設定（観測値など）               8.8 On Boundary Condition
-河道セル水深        河道水深設定（観測値など）               8.8 On Boundary Condition
-斜面セル流量        斜面流量設定（観測値など）               8.8 On Boundary Condition
-斜面セル水深        斜面水深設定（観測値など）               8.8 On Boundary Condition
-流量配分            分派（トンネル水路など）                 8.10 Diversion option
-============== ========================================== ==============================
+===================================  ==============================
+Boundary Condition                   RRI manual related section
+===================================  ==============================
+Dam                                  8.11 Dam option
+Time series for river discharge      8.8 On Boundary Condition
+Time series for river depth          8.8 On Boundary Condition
+Time series for slope discharge      8.8 On Boundary Condition
+Time series for slope depth          8.8 On Boundary Condition
+Flow diversion setting               8.10 Diversion option
+===================================  ==============================
 
 
-5.1 ダム
+5.1 Dam
 ------------------------------
-ダムは河道セル上に設定する必要があります。
-河道セルは、上流集水ピクセル数が「河道セル判定閾値」以上セルで、セル属性WidthやDepthなどから確認することできます。
-河道セルのうちダム堤体に近いセルをダムセルとして選択します。
+Dams must be set on river channel cells. 
+River channel cells are those with an upstream contributing area (number of pixels) equal to or greater than the "River Channel Determination Threshold." You can identify them by checking cell attributes such as Width and Depth.  
+Among the river channel cells, select the cell(s) closest to the dam embankment as the dam cell(s).
 
-    .. image:: img/river_cell.jpg
+    .. image:: img/river_cell_en.jpg
         :width: 480px
         :align: center
 
-各ダムに設定できるパラメータは以下のとおりです。
+The following parameters can be configured for each dam:
 
-    .. image:: img/dam_cond.jpg
+    .. image:: img/dam_cond_en.jpg
         :width: 320px
         :align: center
 
-境界条件も格子属性としてマッピングする必要があります。
-条件を設定したら、「格子＞属性マッピング＞実行」をクリックしてください。
-「境界条件設定＞New Dam」にチェックを入れ、「OK」ボタンをクリックしてください。
+Boundary conditions also need to be mapped as grid attributes. 
+After setting the conditions, click "Grid" > "Attribute Mapping" > "Execute". Check the box next to "Boundary Condition Setting > New Dam" and click the "OK" button.
 
-    .. image:: img/map_bound_dam.jpg
+    .. image:: img/map_bound_dam_en.jpg
         :width: 320px
         :align: center
 
 
 ----
 
-5.2 河道セル流量
+5.2 River channel cell discharge
 ------------------------------
-河道流量が観測されている場合、その観測結果を時系列に与えることができます。
-詳しくはRRIのマニュアル、8.8 On Boundary Conditionをご確認ください。
+When observed discharge data is available, those can be set as a time series data. 
+For details, please refer to section 8.8 "On Boundary Conditions" in the RRI manual.
 
-
-5.3 河道セル水深
+5.3 River Channel Cell Water Depth
 ------------------------------
-河道水深が観測されている場合、その観測結果を時系列に与えることができます。
-詳しくはRRIのマニュアル、8.8 On Boundary Conditionをご確認ください。
+When water depth measurements are available for river channel cells, these observations can be input as a time series. 
+Please see section 8.8, "On Boundary Conditions," in the RRI manual for further details.
 
-5.4 斜面セル流量
+5.4 Hillslope Cell Discharge
 ------------------------------
-斜面セルで流量が観測されている場合、その観測結果を時系列に与えることができます。
-詳しくはRRIのマニュアル、8.8 On Boundary Conditionをご確認ください。
+When discharge observations are available for hillslope cells, you can input this data as a time series.
+Please see section 8.8, "On Boundary Conditions," of the RRI manual for more information.
 
-5.5 斜面セル水深
+5.5 Hillslope Cell Water Depth
 ------------------------------
-斜面セルで水深が観測されている場合、その観測結果を時系列に与えることができます。
-詳しくはRRIのマニュアル、8.8 On Boundary Conditionをご確認ください。
+When water depth measurements are available for hillslope cells, this observed data can be set as a time series. 
+Refer to section 8.8, "On Boundary Conditions," in the RRI manual for detailed instructions.
 
-5.6 流量配分
+5.6 Flow diversion
 ------------------------------
-本境界条件により、強制的に流量をを分配させることができます。
+This boundary condition allows you to forcibly divert flow from a cell.
 
-地形データでは表現が困難なトンネル水路などが設置されていることで、流量が河道とは異なる経路で流れる起点となるセルを選択します。
-セルは河道セルである必要があります。
-設定値には、分派先の出口セルのi,jと分派流量比を指定することができます。
+Select the starting cell where flow is diverted along a path different from the main river channel, such as when a tunnel or culvert (which is difficult to represent in the topographic data) is present. 
+The cell must be a river channel cell.
+You can specify the i, j coordinates of the outlet cell where the diverted flow goes, and the diversion flow ratio in the settings.
 
-    .. image:: img/bound_div.jpg
+    .. image:: img/bound_div_en.jpg
         :width: 480px
         :align: center
 
-詳しくはRRIのマニュアル、8.10 Diversion optionをご確認ください。
+For further details, please refer to section 8.10 "Diversion Option" in the RRI manual.

@@ -1,16 +1,22 @@
-2. 降雨データセットの作成
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-RRIで流出・氾濫計算を行うためには、対象流域の対象期間の降雨データセットが必要になります。
-降雨データセットは、計算対象流域は包括するデータで、対象期間（例えば、2020年7月2日 20:00から2020年7月4日 10:00まで）、一定時間間隔（例えば、1時間間隔）の降雨強度のデータです。
-降雨強度のデータは、観測、予測含め様々なデータが気象庁で作成され配信されています。また、研究者によっては個別にメソスケールモデル等を利用した降雨データを作成していることと想像されます。
-いずれのデータを利用しても良いのですが、RRIの計算に以下の形式の降雨データ必要となります。
+2. Preparation for a rainfall dataset
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A rainfall dataset for the target basin during a specific period is required for the calculation.
+The dataset should include rainfall data that covers the target watershed, for the specified period (e.g., from July 2, 2020, 20:00 to July 4, 2020, 10:00), at regular time intervals (e.g., hourly intervals).
+
+Rainfall intensity data, including both observed and forecasted data, is created and distributed by the Japan Meteorological Agency. Additionally, researchers may generate their own rainfall data using mesoscale models or other methods.
+
+For instructions on preparing the rainfall dataset, please refer to Chapter 4 or Chapter 9 of the RRI_Manual.
+The iRIC-UC tool also provides a tool for extracting rainfall data within Japan.
+
+You can use any type of data, but the rainfall data for RRI calculations must be in the following format:
+
 
 .. figure:: img/rain_dat_fmt.jpg
    :scale: 50%
    :alt:
 
-   降雨データのフォーマット 
-   ヘッダー行は、time（sec)　ncols nrows　でtime分繰り返しになります。
-   メッシュサイズは同一である必要があります。
+   Rainfall data format:  
+   The header row repeats for each time step with `time (sec)`, `ncols`, and `nrows`.
+   The mesh size must be consistent.
 
-RRI on iRICでは、解析雨量データを用いて計算することを想定しています。

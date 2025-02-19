@@ -1,74 +1,72 @@
-1. 流域地形データセットの取得
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-RRIは流域を対象とした計算モデルです。計算には同一格子形状で作成された以下のデータセットが必要になります。
+1. Preparation for the Basin Terrain Dataset
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+First, we need to prepare the following Basin Terrain Datasets. All data must be prepared using the same grid structure:
 
-- 標高データ      :　各セルの標高 [必須]
-- 集水ピクセル数  :　各セルの上流集水ピクセル数 [必須]
-- 落水方向        :　各セルの落水方向（1, 2, 4, 8, 16, 32, 64, 128） [必須]
-- 土地利用種別      :　各セルの土地利用 [任意]
+- Elevation data (DEM): Elevation of each cell [Required]
+- Flow accumulation (ACC): Number of upstream flow accumulation pixels for each cell [Required]
+- Flow direction (DIR): Flow direction of each cell (1, 2, 4, 8, 16, 32, 64, 128) [Required]
+- Land use type: Land use for each cell [Optional]
 
-つまり、RRIで流出・氾濫計算を行う場合、計算前に対象とした流域について上記データを準備する必要があります。
-（一社）iRIC-UCの会員は、　`UC tools <https://tools.i-ric.info/login/>`を利用してデータを入手することができます。
+For instructions on preparing these datasets, please refer to Chapter 3 of the `RRI_Manual <https://www.pwri.go.jp/icharm/research/rri/index.html>`_ for the method using GIS software, and Chapter 9 for the method using the RRI-GUI.
+
+Members of iRIC-UC can obtain the data using `UC tools <https://tools.i-ric.info/login/>`_, which currently provides Japanese domestic data only.
 
 .. note::
-   UC toolsを利用すると、日本全国の流域の地形データセットを抽出・ダウンロードすることができます。
-   ダウンロードできるデータは、メッシュサイズ（１秒メッシュ）となっています。
-   
-   オリジナルデータは、東京大学、生産技術研究所の山崎大准教授らにより作成され、2020年9月時点で山崎大准教授のウェブページで公開されている「日本表面流向マップ」データです。
-   「流域データ抽出」サイトでは、それらオリジナルデータから必要な流域のデータを抽出する機能を付与し、データを取得、利用できるようにしています。
-   そのため、データ自体は山崎大准教授のホームページに記載されているライセンスに準拠しているため、それらライセンスをご確認の上、データをご利用いただければと思います。
+   By using UC tools, you can extract and download watershed terrain datasets across Japan.
+   The downloadable data is in 1-second mesh size.
 
-   `詳細はこちら <http://hydro.iis.u-tokyo.ac.jp/~yamadai/JapanDir/>`_ 
+   The original data was created by Associate Professor Yamazaki Dai of the Institute of Industrial Science, the University of Tokyo, and is available on Associate Professor Yamazaki's webpage as of September 2020 under the name "Japan Surface Flow Direction Map" data.
+   The "Watershed Data Extraction" site adds a function to extract necessary watershed data from the original data, making the data available for use.
+   Therefore, the data itself complies with the licenses listed on Associate Professor Yamazaki's webpage, so please review the licenses before using the data.
 
+   `For more details, click here <http://hydro.iis.u-tokyo.ac.jp/~yamadai/JapanDir/>`_
 
-以下に取得手順を示します。
+Below are the steps to obtain the data using UC tools:
 
-- [1]  `「流域データ抽出」 <https://tools.i-ric.info/login/>`_  にアクセス
-- [2] STEP1:対象流域河道の下流端をクリックします。（下図は豊平川の下流端点です。クリックした位置にピンマークが表示されます。）
-   .. image:: img/extract_basin_1_click2.jpg
+- [1] Access the `“Watershed Data Extraction” <https://tools.i-ric.info/login/>`_ 
+- [2] STEP1: Click on the downstream end of the target watershed river channel. (The image below shows the downstream endpoint of the Toyohira River. A pin mark will appear at the clicked location.)
+   .. image:: img/extract_basin_1_click.jpg
 
-- [3] STEP2:「検索」ボタンをクリックします。しばらく待つと[2]で指定した地点を下流端とする流域が表示されます。
-   .. image:: img/extract_basin_2_extracted2.jpg
+- [3] STEP2: Click the "Search" button. After a while, the watershed with the downstream end specified in [2] will be displayed.
+   .. image:: img/extract_basin_2_extracted.jpg
 
-- [4] STEP3:「取得」ボタンをクリックします。[2]で抽出された流域の地形データセットをダウンロードすることができます。ダウンロードしたファイルを解凍すると以下データが格納されていることが確認できます。
-   - export_dir.asc　表面流向データ(*)
-   - export_elv.asc　水文補正標高(*)
-   - export_hnd.asc　直近の河道からの相対高さ(*)
-   - export_upa.asc　上流集水面積(*)
-   - export_upg.asc　上流集水グリッド数(*)
-   - export_wth.asc　河道幅(*)
-   - export_ldu.asc　土地利用データ(**)
+- [4] STEP3: Click the "Obtain" button. You can download the watershed terrain dataset extracted in [2]. After unzipping the downloaded file, you can confirm that the following data is included:
+   - dir_export.asc: Surface flow direction data (*)
+   - elv_export.asc: Hydrologically corrected elevation (*)
+   - hnd_export.asc: Relative height from the nearest river channel (*)
+   - upa_export.asc: Upstream drainage area (*)
+   - upg_export.asc: Number of upstream drainage grids (*)
+   - wth_export.asc: River channel width (*)
+   - ldu_export.asc: Land use data (**)
 
+(*) For details of each data, please refer to the `“Japan Surface Flow Direction Map” <http://hydro.iis.u-tokyo.ac.jp/~yamadai/JapanDir/>`_ 
 
-(*)各データの詳細については、  `「日本域表面流向マップ」 <http://hydro.iis.u-tokyo.ac.jp/~yamadai/JapanDir/>`_   をご確認ください。
+(**) The land use data is maintained primarily by Associate Professor Takahiro Sayama (Disaster Prevention Research Institute, Kyoto University), who is also the developer of RRI, and covers all of Japan. The data is lent and distributed as a reference for executing RRI, but its accuracy is not guaranteed. Please use it at your own risk.
 
-(**) 土地利用データは、RRIの開発者である佐山敬洋准教授（京都大学防災研究所）らが中心になって整備されたデータで、日本全国のデータがあります。データはRRI実行のための参考として貸与、配布許可いただいたもので、内容の正確性を保証するものではありません。ご利用は自己責任でお願いいたします。
-
-
-- [5] [4]でダウンロードしたデータは、QGISなどGISソフトで開き内容を確認することができます。RRIの計算には以下必須（３種類）＋任意（１種類）のデータを利用します。
+- [5] The data downloaded in [4] can be opened and reviewed using GIS software. The following data are used for RRI calculations:
 
 .. figure:: img/elv_img.png
    :scale: 50%
    :alt:
 
-   水文補正標高を可視化
+   Visualizing hydrologically corrected elevation
 
 .. figure:: img/dir_img.png
    :scale: 50%
    :alt:
 
-   表面流向データを可視化　値は1,2,4,8,16,32,64,128の8方向
+   Visualizing surface flow direction data. Values represent the 8 directions (1, 2, 4, 8, 16, 32, 64, 128).
    
 
 .. figure:: img/acc_img.png
    :scale: 50%
    :alt:
 
-   上流集水グリッド数を可視化
+   Visualizing the number of upstream drainage grids
 
 
 .. figure:: img/ldu_img.png
    :scale: 50%
    :alt:
 
-   土地利用データを可視化。土地利用を5種類に区分している。オリジナルデータは「国土数値情報 土地利用細分メッシュデータ」です。
+   Visualizing land use data. Land use is classified into five categories. The original data is "National Land Numerical Information Land Use Detailed Mesh Data."

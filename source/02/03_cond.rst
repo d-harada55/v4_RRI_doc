@@ -1,237 +1,246 @@
-3. 計算条件設定
+3. Set calculation conditions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-iRICソフトウェアを起動し、「新しいプロジェクト」から"RRIv1.4.2.3 on iRIC"を選択します。
-警告ウィンドウが表示されますが、無視して「OK」ボタンをクリックしてください。
+Launch the iRIC software and select "Rainfall-Runoff-Inundation v1.4.2.3" from "New Project."
 
-オブジェクトブラウザーに地理情報としていくつか属性が表示されますが、RRI on iRICは「計算条件」から格子、格子属性の値を指定、作成することを基本としています。
-「計算条件＞設定」をクリックしてください。
+RRI on iRIC primarily involves specifying and creating grid and grid attribute values through the "Calculation Conditions" menu.
+
+Click on "Calculation Conditions > Settings."
 
 
-3.1 格子・格子属性作成・確認
-++++++++++++++++++++++++++++++
-"RRI on iRIC"では、計算格子を作成しない代わりに、計算条件の基本条件グループで入力された値をもとに格子、格子属性を自動生成します。
+3.1 Creating Grids and Grid Attributes
++++++++++++++++++++++++++++++++++++++++
+In "RRI on iRIC," grids and grid attributes are created based on the values entered in the Basic Conditions group of the calculation conditions.
 
-.. list-table:: 基本条件グループ
+.. list-table:: Basic Conditions Group
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img/cond_1.jpg
-     - | モード：
-       |  「格子・格子属性生成」を選択
+   * - Screen
+     - Condition
+   * - .. image:: img/cond_1_en.jpg
+     - | Runtype：
+       |  Select 'Make Geographic Condition Only'
 
-       | 1.でダウンロードしたファイルを指定
-       |  - DEM: 水文補正標高
-       |  - Acc: 上流集水グリッド数
-       |  - Dir: 表面流向データ
+       | Geograpic Data file：
+       | Specify the files downloaded in step 1
+       |  - DEM: Hydrologically corrected elevation
+       |  - Acc: Number of upstream drainage grids
+       |  - Dir: Surface flow direction data
 
-       | 河道形状をパラメータ指定
-       |  - 河道幅: :math:`W = C_w A^{S_w}`
-       |  - 河道深: :math:`D = C_D A^{S_D}`
-       |  - 堤防: 堤防高[m], 堤防セル閾値
+       | River Shape parameters：
+       | Specify river channel parameters
+       |  - River width: :math:`W = C_w A^{S_w}`
+       |  - River depth: :math:`D = C_D A^{S_D}`
+       |  - Levee: Levee height [m], Levee cell threshold
 
 
-基本条件グループの値を設定後、「保存して閉じる」ボタンをクリックしてください。
-「計算＞実行」から計算を実行します。以下の警告が表示されますが、問題ありませんので「はい」をクリックしてください。
+After setting these values, click the "OK" button.
+Run the calculation by ckicking "Run" button. A warning will appear, but it is not an issue, so click "Yes."
 
-.. figure:: img/nogrid_error2.jpg
-   :scale: 80%
+.. figure:: img/nogrid_error_en.jpg
+   :scale: 40%
    :alt:
 
-さらに保存方法を選択する画面が表示されますので、「ファイルに保存（ipro）」を選択して「OK」ボタンをクリックし、適当な名前を設定して保存してください。
+A message recommending that you save the data before running the calculation will appear. Click "Yes."
 
-.. figure:: img/save_type.jpg
-   :scale: 80%
+.. figure:: img/info_save_en.jpg
+   :scale: 40%
    :alt:
 
-データ処理が始まりまり以下のウィンドウが表示されます。STEP1からSTEP10までの処理があります。
+Next, a screen will prompt you to choose a save method. Select "Save to file (ipro)" and click the "OK" button. Then, set an appropriate name and save the file.
 
-.. figure:: img/rri_exe_console2.jpg
-   :scale: 80%
+.. figure:: img/save_type_en.jpg
+   :scale: 50%
    :alt:
 
+Data processing will begin, and the following window will be displayed. There are processes from STEP1 to STEP8 or 10.
 
-処理が完了すると、以下のウィンドウが表示されます。
-「OK」ボタンをクリックし、 **プロジェクトを保存してください** 。
-
-.. figure:: img/calc_end.jpg
-   :scale: 80%
+.. figure:: img/rri_exe_console_en.jpg
+   :scale: 60%
    :alt:
+
+Once processing is complete, click the "OK" button and **save the project**.
 
 -----
 
-上記処理が完了すると、RRIの計算で利用する格子、および、格子属性が確認できるようになります。**「ファイル＞開く」から、先程保存したファイルを再度開いてください** 。
-ファイルを開くと上記処理によって作成された格子および格子属性を以下のように確認することができます。
+Once the above process is complete, you will be able to review the grids and grid attributes for the calculation. **Please reopen the file you saved earlier by selecting "File > Open."**
 
-.. figure:: img/ini_grid2.jpg
-   :scale: 80%
+To review the grids and grid attributes, it is necessary to decignate the coordinate system. After setting your own coordinate, click 'OK'.
+
+.. figure:: img/coordinate_en.jpg
+   :scale: 40%
    :alt:
 
-   格子　2,642,654 = 1981 × 1334
+After setting the coordinate system, you will be able to review the grid shape and grid atteibutes.
 
-
-.. figure:: img/ini_elv2.jpg
-   :scale: 80%
+.. figure:: img/grid_shape_en.jpg
+   :scale: 50%
    :alt:
 
-   格子属性：Elavation[m]　水文補正標高値。
+   Grid system
 
-.. figure:: img/ini_dir2.jpg
-   :scale: 80%
+.. figure:: img/ini_elv_en.jpg
+   :scale: 50%
    :alt:
 
-   格子属性：DIR　流向。East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)
+   Cell attributes：Elavation[m]　DEM 
 
-.. figure:: img/ini_acc.jpg
-   :scale: 80%
+.. figure:: img/ini_dir_en.jpg
+   :scale: 50%
    :alt:
 
-   格子属性：ACC　上流集水ピクセル数。1セルあたりの面積は同じとしているため、この値に１セルあたりの面積を乗じると、そのセルの集水面積が算出できる。
+   Cell attributes：DIR　Flow direction; East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)
 
-.. figure:: img/ini_width.jpg
-   :scale: 80%
+.. figure:: img/ini_acc_en.jpg
+   :scale: 50%
+   :alt:
+
+   Cell attributes：ACC;　Number of upstream cells. Since cell size is set to be uniform for the entire basin, multiplying this value by the area per cell will give the upstream drainage area for that cell.
+
+.. figure:: img/ini_width_en.jpg
+   :scale: 50%
    :alt:
    
-   格子属性：Width[m]　河道幅。指定されたパラメータと上流流域面積の関数 :math:`W = C_w A^{S_w}` で河道幅が設定されている。
+   Cell attributes：Width[m]　River width; Defined as :math:`W = C_w A^{S_w}` 
 
-.. figure:: img/ini_dep.jpg
-   :scale: 80%
+.. figure:: img/ini_dep_en.jpg
+   :scale: 50%
    :alt:
 
-   格子属性：Depth[m] 河道深さ。指定されたパラメータをと上流流域面積の関数 :math:`D = C_d A^{S_d}` で河道深さが設定されている。
+   Cell attributes：Depth[m] River depth; Defined as :math:`D = C_d A^{S_d}`
 
-.. figure:: img/ini_height.jpg
-   :scale: 80%
+.. figure:: img/ini_height_en.jpg
+   :scale: 50%
    :alt:
 
-   格子属性：堤防フラグ。赤い箇所に堤防が設置されている。
-   堤防セル閾値よりも上流集水ピクセル数が大きいセルに、堤防高[m]で指定した高さの堤防が一律に設置されることになります。
-
+   Cell attributes：Levees are set in the red-colored locations.  
+   Levees with the height specified by the levee height [m] are uniformly set in cells where the number of upstream drainage pixels exceeds the levee cell threshold.
 
 ----
 
-3.2 降雨条件の設定
+3.2 Rainfall conditions
 ++++++++++++++++++++++++++++++
-格子および格子属性の確認が完了したら、次に降雨条件の設定を行います。
-計算対象地域、期間の降雨データを「2.降雨データセットの作成」に示したフォーマットで準備します。
-準備したデータについて以下の値を設定します。
+The next step is to set the rainfall conditions.  
+Prepare the rainfall data for the target region and period in the format described in "2. Preparation for a rainfall dataset".  
 
-.. list-table:: 降雨データの設定
+Set the following values for your own prepared data:
+
+.. list-table:: Rainfall Data Settings
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img/cond_2.jpg
-     - | - 降雨データファイルを指定
-       | - xllcorner_rainを経度(radian)で指定
-       | - yllcorner_rainを緯度(radian)で指定
-       | - cellsize_rain_xをdx(radian)で指定
-       | - cellsize_rain_yをdy(radian)で指定
+   * - Screen
+     - Conditions
+   * - .. image:: img/cond_2_en.jpg
+     - | - Specify the rainfall data file
+       | - Specify xllcorner_rain in longitude (radians)
+       | - Specify yllcorner_rain in latitude (radians)
+       | - Specify cellsize_rain_x as dx (radians)
+       | - Specify cellsize_rain_y as dy (radians)
+
 
 ----
 
-3.3 計算時間の設定
+3.3 Time control
 ++++++++++++++++++++++++++++++
-シミュレーションを行う時間数を指定します。
-降雨データや境界データの時間数に関わらず、ここで設定する値で計算対象時間が決定されます。
-斜面計算と河道計算のタイムステップは別々に指定することができます。
-計算結果出力回数を指定します。初期値は除いて指定します。
+Set the number of hours for the simulation.  
+Regardless of the duration of the rainfall data or boundary data, the calculation period will be determined by the value set here.  
+Though the calculation time step is automatically controled by the adaptive Runge-Kutta method,
+initial time steps for slope calculations and river channel calculations can be specified separately.  
+Set the number of output times for the calculation results, excluding the initial time output.
 
-.. list-table:: 降雨データの設定
+.. list-table:: Calculation time control
+   :widths: 80 20
+   :header-rows: 1
+
+   * - Screen
+     - Conditions
+   * - .. image:: img/cond_3_en.jpg
+     - | - Simulation Time (hour)
+       | - Time Step for Slope Simulation (sec)
+       | - Time Step for River channel
+       | Simulation (sec)
+       | - Number for output times
+
+----
+
+3.4 River simulation parameters
+++++++++++++++++++++++++++++++
+The parameters for the river channel simulation are as follows:
+
+- Threshold of flow accumulation: Cells are designated as river channels if their upstream contributing area (number of cells) exceeds this threshold
+- Manning's roughness for River Region: This parameter sets the Manning's roughness coefficient for cells identified as river channels.
+
+.. list-table:: River channel settings
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img/cond_3.jpg
-     - | - シミュレーション時間(hour)
-       | - 斜面計算タイムステップ(sec)
-       | - 河道計算タイムステップ(sec)
-       | - 計算結果出力回数（初期値出力はカウントしない）
+   * - Screen
+     - Conditions
+   * - .. image:: img/cond_4_en.jpg
+     - | - Manning's roughness for River Region
+     - | - Threshold of flow accumulation
 
 ----
 
-3.4 河道シミュレーション設定
+3.5 Slope simulation parameters
 ++++++++++++++++++++++++++++++
-河道シミュレーションのパラメータは以下２つです。
+The parameters for the slope simulation can be defined individually for each land use category. 
+Land use categories are assigned to each grid cell as attributes, with values from 1 to 5, allowing for up to five distinct categories. 
+To set these up, import the land use data file (ldu_export.asc downloaded in step "1. Preparation for the Basin Terrain Dataset") by right-clicking "Land Use Type" in the Object Browser and selecting "Import". 
+Once imported, the display will visually differentiate the cells by color, based on their assigned land use flags.
 
-- 河道セル判定閾値で指定した値よりも上流集水ピクセル数が大きいセルが河道となります。
-- 河道セルと判定された箇所のマニング粗度係数を以下で指定できます。
-
-.. list-table:: 河道シミュレーション設定
-   :widths: 70 30
-   :header-rows: 1
-
-   * - 画面
-     - 条件
-   * - .. image:: img/cond_4.jpg
-     - | - 河道マニング粗度係数
-       | - 河道セル閾値
-
-
-----
-
-3.5 斜面シミュレーション設定
-++++++++++++++++++++++++++++++
-斜面シミュレーションのパラメータは、土地利用属性ごとに指定することができます。
-土地利用属性は、格子属性として各セルに1から5まで（最大５種類）の値を設定することができます。
-ここでは「オブジェクトブラウザ＞Land Use Type」を右クリック、インポートから「1.流域地形データセットの取得」でダウンロードした土地利用データ:export_ldu.ascをインポートします。
-インポートが終了すると以下のように土地利用フラグにより、色付け表示されます。
-
-.. figure:: img/geo_lnd2.jpg
+.. figure:: img/geo_lnd_en.jpg
    :width: 420pt
    :alt:
 
-   インポートした土地利用データ
+   Imported Land Use Data
 
-インポートしたデータから格子属性：Land Use Typeを作成します。
-「格子＞属性のマッピング」から「実行」をクリックすると、
-マッピングする属性を指定する画面が表示されるので、「Land Use Type」を選択し、「OK」ボタンをクリックします。
+Mapping the Imported Land Use Data to the Grid:
+To map the imported land use data to the grid, go to "Grid" > "Attribute Mapping" and click "Execute". 
+This will open a window where you can specify the attribute to map. Select "Land Use Type" and click the "OK" button.
 
-.. figure:: img/select_attr.jpg
+.. figure:: img/select_attr_en.jpg
    :width: 210pt
 
-   マッピング属性選択画面
+   Attribute Mapping Selection Window
 
-マッピングが完了すると、
-「格子＞セル属性＞Land Use Type」にチェック入れて、格子属性：Land Use Typeを確認することができるようになります。
+Once the mapping process is finished, the land use types will be associated with the grid cells. 
+You can verify this by navigating to "Grid" > "Cell Attributes" in the menu and then checking the box labeled "Land Use Type". 
+This will display the mapped land use type as a cell attribute.
 
-.. figure:: img/ini_lnd2.jpg
+.. figure:: img/ini_lnd_en.jpg
    :width: 420pt
    :alt:
 
-   格子属性：Land Use Type
+   Cell attributes：Land Use Type
 
-格子属性として各セルに設定した1から5の数値に応じたモデルパラメータ群を以下画面で指定します。
+The following screen allows you to specify model parameter sets. Each set corresponds to the numerical values 1 to 5 assigned as grid attributes to each cell.
 
-.. list-table:: 斜面シミュレーション設定
+.. list-table:: Slope simulation parameters
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img/cond_5.jpg
-     - | - モデルパラメータについては
-       | - `RRIのマニュアル <https://www.pwri.go.jp/icharm/research/rri/rri_top.html>`_ を参照ください。
+   * - Screen
+     - Conditions
+   * - .. image:: img/cond_5_en.jpg
+     - | - Information regarding
+       | model parameters can be
+       | found in the `RRI manual <https://www.pwri.go.jp/icharm/research/rri/rri_top.html>`_ .
 
 ----
 
-3.6 ホットスタート
+3.6 Hotstart
 ++++++++++++++++++++++++++++++
-ホットスタートは、以前行った計算結果を初期値として計算を開始するような場合に利用します。
-そのため出力と入力の設定があります。
-出力設定では、ホットスタート用の出力を「行う/行わない」スイッチと、行う場合にはその出力先フォルダを指定します。出力先にはホットスタートの入力設定に必要なファイルが出力されます。
-入力設定では、出力された斜面水深、河道水深、gampt_ffのファイルを指定しています。
+Hot start is used when you want to start a calculation using the results of a previous calculation as the initial values. This screen allows you to set the previously calculated slope water depth (hs), river channel water depth (hr), etc., as initial conditions.
 
-.. list-table:: ホットスタート設定
+.. list-table:: Hotstart
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img/cond_82.jpg
-     - | - ホットスタート設定
+   * - Screen
+     - Conditions
+   * - .. image:: img/cond_8_en.jpg
+     - | - Hotstart 
 
