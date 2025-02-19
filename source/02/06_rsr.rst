@@ -1,50 +1,55 @@
-6. 降雨-土砂流出(RSR)モデル（オプション）
+6. Rainfall-Sediment-Wood Runoff (RSR) model（option）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-6.1. 降雨-土砂流出(RSR)モデルの概要
+6.1. Overview of the Rainfall-Sediment-Wood Runoff (RSR) Model
 --------------------------------------------------
 
-RRIモデルで解析した斜面と河道の水理量に関する情報を用いて、RRIモデルの河道セルの合流点間を「単位河道」とする
-単位河道モデルによって流域全体の水・土砂・流木の輸送を解析するモデルです。
-いわゆる「土砂・洪水氾濫」などの災害の解析や、流域の長期土砂流出などの解析を行うことができます。
-単位河道モデルを用いず、それぞれのセルで流砂・河床変動の計算を行うことも可能です。
-基礎方程式等、より詳細な情報については参考文献を参照してください。なお、RSRモデルは開発中であり、逐次アップデートされる予定です。
+The RSR model is designed to analyze the water, sediment, and driftwood runoff in a watershed, using the hydraulic information of slopes and river channels calculated by the RRI model. 
+The model employs a "unit river channel" model, where each unit river channel is defined as the section between confluences of the river channel cells in the RRI model. 
+This model enables the analysis of flood disasters induced by sediment, as well as the long-term sediment treansport of the watershed. 
+It is also possible to perform sediment transport and riverbed variation calculations in each cell without using the unit river channel model. 
+For more detailed information, including the governing equations, please refer to the cited references. Note that the RSR model is currently under development and will be updated sequentially.
 
-
-.. figure:: img/RSR_scheme_1.jpg
+.. figure:: img/RSR_1_en.jpg
    :scale: 60%
    :alt:
 
 
-①河道への土砂供給（オプション）：
+① Sediment Supply to River Channels (Optional)：
 
-①-1：崩壊・土石流による土砂供給 [1]_ ,  [2]_ , ：斜面セルの水深の情報を用いて、流域内全ての斜面セルで斜面安定・不安定解析を行い、崩壊の発生を判定します。
-斜面崩壊が起きた場合、質点系の方程式を用いて斜面の最急勾配方向へと崩土の移動を追跡します。その結果河道セルに土石流が到達すれば、河道に土砂が横流入したものとして扱います。
-このモデルを用いる場合、斜面崩壊を評価できるよう、10~30mといった細かいメッシュを用いる必要があります。
+①-1：Sediment Supply from Landslides and Debris Flows [1]_ ,: 
+Using calculated water depth information at slope cells, slope stability analysis is performed for all slope cells within the watershed to determine the occurrence of landslides. 
+If a landslide occurs, the movement of the collapsed soil is tracked using a mass-point-based model along the steepest direction of the slope. 
+If the debris flow reaches a river channel cell, the sediment is treated as lateral inflow to the river channel. 
+When using this model, a fine mesh size (e.g., 10-30m) is required to accurately evaluate slope failures.
 
-①-2：斜面侵食による河道への土砂供給 [3]_ ,：斜面セルの水深の情報を用いて、浮遊砂浮上量式によって斜面の土砂侵食量を求めます。侵食された浮遊砂は斜面を移動して河道へと供給されます。
+①-2：Sediment Supply to River Channels from Hillslope Erosion [2]_ ,: 
+Using calculated water depth information at slope cells, the amount of soil erosion on the slopes is calculated using a suspended sediment erosion rate formula. 
+The eroded suspended sediment is transported at the slope and is supplied to the river channel.
 
-②河道の土砂輸送 [4]_ ,  [5]_ , ：
 
-計算開始後、河道セルにおいて合流点間を単位とする「単位河道」を自動的に生成します。
-単位河道内の河道セルの水理量（水深、流量、川幅等）の平均値を用いて掃流砂・浮遊砂を評価し、単位河道を直列及び並列に配置することによって流域全体の土砂輸送を解析します。
-本プログラムではセル一つ一つでの解析も可能ですが、計算の安定性の観点からあまり推奨しません。
+②Sediment Transport in River Channels [3]_ , [4]_ ,：
 
-③流木の輸送 [6]_ , ：
+After the calculation starts, the program automatically generates "unit river channels," with each unit defined as the reach between confluences within the river channel cells. 
+Using the average hydraulic quantities (water depth, discharge, channel width, etc.) of the river channel cells within each unit river channel, bed load and suspended load transport are evaluated. 
+By arranging these unit river channels in series and parallel, sediment transport throughout the entire watershed is analyzed. 
+Although the program allows for analysis at the individual cell level, this is not recommended due to computational stability concerns.
 
-流域全体の流木の流出を解析するものです。①-1で崩壊・土石流を解析すれば、崩土の移動経路上にある立木は全て土石流に取り込まれ、土石流が河道に到達すれば、これを河道への横流入として評価します。
-河道では移流方程式と貯留方程式を用いて、単位河道モデルによって流木の輸送を解析します。
+③Driftwood Transport  [5]_ , ：
 
+This component analyzes the transport of driftwood throughout the entire watershed. 
+If landslides and debris flows are analyzed in ①-1, all standing trees on the path of the debris flow are assumed to be incorporated into the debris flow. 
+If the debris flow reaches a river channel, this driftwood is evaluated as lateral inflow to the river channel. 
+In the river channel, the transport of driftwood is analyzed using convection and storage equations within the unit river channel model.
 
 .. [1] `Yamazaki, Y., Egashira, S., & Iwami, Y.: Method to Develop Critical Rainfall Conditions for Occurrences of Sediment-Induced Disasters and to Identify Areas Prone to Landslides, Journal of Disaster Research, 11(6), pp.1103-1111, 2016. <https://www.jstage.jst.go.jp/article/jdr/11/6/11_1103/_article/-char/en/>`_
-.. [2] `山崎祐介, & 江頭進治. (2021). 豪雨にともなう洪水・土砂流出ハイドログラフの推定手法. 河川技術論文集, 27, 469-474. <https://www.jstage.jst.go.jp/article/river/27/0/27_PS2-42/_article/-char/ja/>`_
-.. [3] `Qin, M., Harada, D., & Egashira, S. (2023). Influences of hillslope erosion on basin-scale sediment transport processes, proceedings of the 40th IAHR World Congress, August 2023. <https://www.iahr.org/library/infor?pid=29673>`_
-.. [4] `Harada, D., & Egashira, S. (2024). Methods to create hazard maps for flood disasters with sediment and driftwood. Proceedings of IAHS, 386, 159-164. <https://piahs.copernicus.org/articles/386/159/2024/>`_
-.. [5] `原田大輔, 江頭進治, 秦梦露. (2024). 降雨-土砂・流木流出モデルの特性-土砂粒度分布と流木の時空間変化に着目して. 河川技術論文集, 30, 335-340. <https://www.jstage.jst.go.jp/article/river/30/0/30_335/_article/-char/ja/>`_
-.. [6] `Harada, D., & Egashira, S. (2023). Method to evaluate large-wood behavior in terms of the convection equation associated with sediment erosion and deposition. Earth Surface Dynamics, 11(6), 1183-1197. <https://esurf.copernicus.org/articles/11/1183/2023/esurf-11-1183-2023.html>`_
+.. [2] `Qin, M., Harada, D., & Egashira, S. (2023). Influences of hillslope erosion on basin-scale sediment transport processes, proceedings of the 40th IAHR World Congress, August 2023. <https://www.iahr.org/library/infor?pid=29673>`_
+.. [3] `Harada, D., & Egashira, S. (2024). Methods to create hazard maps for flood disasters with sediment and driftwood. Proceedings of IAHS, 386, 159-164. <https://piahs.copernicus.org/articles/386/159/2024/>`_
+.. [4] `原田大輔, 江頭進治, 秦梦露. (2024). 降雨-土砂・流木流出モデルの特性-土砂粒度分布と流木の時空間変化に着目して. 河川技術論文集, 30, 335-340. <https://www.jstage.jst.go.jp/article/river/30/0/30_335/_article/-char/ja/>`_
+.. [5] `Harada, D., & Egashira, S. (2023). Method to evaluate large-wood behavior in terms of the convection equation associated with sediment erosion and deposition. Earth Surface Dynamics, 11(6), 1183-1197. <https://esurf.copernicus.org/articles/11/1183/2023/esurf-11-1183-2023.html>`_
 
 
-6.2. 計算条件の設定（基本条件）
+6.2. Setting Calculation Conditions (Basic Conditions)
 --------------------------------------------------
 
 降雨-土砂流出（RSR）モデルの基本的な計算条件について説明します。
