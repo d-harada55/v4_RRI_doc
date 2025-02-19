@@ -79,20 +79,20 @@ Next, the detailed calculation conditions (regulations) are explained.
 - Maximum unit channel slope (degree)：If the gradient of a channel cell is greater than this value, cells upstrem of this degree will not be treated as the unit channel.
 - Minimum river depth for sediment computation(m)：The average water depth of the river channel cells within a unit channel is employed as the water depth for the unit channel. If the water depth is shallower than this value, sediment transport calculations will not be performed at that unit channel.
 
-6.3. 混合粒径土砂の粒度分布
+6.3. Non-uniform GSDs for river and slope
 --------------------------------------------------
 
-混合粒径土砂の粒度分布の設定方法について説明します。
+This section describes how to set the grain size distribution (GSD) for non-uniform sediment.
 
-.. figure:: img/RSR_cond_3.jpg
+.. figure:: img/RSR_cond_3_en.jpg
    :scale: 60%
    :alt:
 
-- 表層の河床材料粒度分布（割合）：河床表層の粒度分布について、初期条件を設定します。エリア毎（Section1～10）に異なる初期条件を設定することも可能で、その場合はオブジェクトブラウザ＞河道の粒度分布　で各エリアを指定します。
-- 堆積層粒度分布の与え方：表層とそれより下の交換層とで異なる粒度分布を与える場合に設定します。
-- 交換層の厚さ：掃流砂量式として芦田・道上式を用いる場合、交換層を固定値として与えるためここで設定します。
-- 掃流砂層の最小厚さ：掃流砂量式として江頭らの式を用いる場合、交換層を動的に与えるため、その最小値をここで設定します。
-- 斜面の供給土砂：崩壊・土石流（①ー１）、及び斜面侵食によって河道に流入する土砂の粒度分布について設定します。
+- Initial grain size distribution in mixed layer (fraction)：Sets the initial conditions for the grain size distribution of the surface layer of the river channels. It is possible to set different initial conditions for each area (Section 1-10). In that case, specify each area in the Object Browser > Grain Size Distribution for channel
+- Grain size distribution in deposited layer：Set this when providing different grain size distributions for the surface layer and the exchange layer below it.
+- Thickness of exchange layer(m)：When employing the Ashida-Michiue formula for bed load transport, the exchange layer thickness is given as a fixed value and is set here.
+- Minimum bedload layer thickness(m)：When employing the Egashira et al. formula for bed load transport, the exchange layer thickness is dynamically calculated, and its minimum value is set here.
+- GSD for slope area：Sets the grain size distribution of sediment supplied to the river channel from landslides and debris flows (①-1) and hillslope erosion (①-2).
 
 6.4. 崩壊・土石流の条件設定
 --------------------------------------------------
