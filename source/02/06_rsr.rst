@@ -11,7 +11,7 @@ It is also possible to perform sediment transport and riverbed variation calcula
 For more detailed information, including the governing equations, please refer to the cited references. Note that the RSR model is currently under development and will be updated sequentially.
 
 .. figure:: img/RSR_1_en.jpg
-   :scale: 60%
+   :scale: 45%
    :alt:
 
 
@@ -96,7 +96,7 @@ This section describes how to set the grain size distribution (GSD) for non-unif
 
 6.4. Landslide and debris flow
 --------------------------------------------------
-This section describes how to set the calcilation conditions and parameters when performing landslide and debris flow analysis (①-1).
+This section describes the calcilation conditions and parameters when performing landslide and debris flow analysis (①-1).
 
 .. figure:: img/RSR_cond_4_en.jpg
    :scale: 60%
@@ -107,56 +107,54 @@ This section describes how to set the calcilation conditions and parameters when
 - Exclude landslides below this rainfall (mm): In landslide analysis, stability calculations are performed for all slope cells within the watershed. Due to the influence of the initial elevation (DEM), slope failures may be triggered even with small amounts of rainfall. To avoid this, slope failure calculations are not performed for slopes that would fail with rainfall amounts below this threshold.
 - End time for LS and DF (hour): Landslide and debris flow calculations takes time because they are performed for all slope cells in the watershed. However, landslides and debris flows tend to occur primarily during the peak of heavy rainfall events. By stopping the landslide and debris flow analysis after a specified "End time for LS and DF (hour)", the total calculation time can be reduced. Landslide and debris flow analysis will not be performed after the time set here.
 
-6.5. 斜面セルの土砂輸送
+6.5. Sediment transport at slope area
 --------------------------------------------------
-斜面セルでの土砂輸送解析（①ー２）を行う場合、解析条件、解析パラメータ等をここで設定します。
+This section describes the calculation conditions and parameters when performing sediment transport analysis on slope cells (①-2).
 
-.. figure:: img/RSR_cond_5.jpg
+.. figure:: img/RSR_cond_5_en.jpg
    :scale: 60%
    :alt:
 
-- パラメータはエリア毎に設定できます（Area1-10）。エリア毎に設定する場合は、オブジェクトブラウザ＞斜面の粒度分布　で各エリアを指定します。
-- 流域で一様のパラメータを設定する場合、Area1のパラメータのみを設定します。
-- Width_gully/Width_cell：斜面のグリッドサイズが大きい場合、土砂輸送はそのセルの一部のみで生じている場合があります。その場合、セルサイズに対して土砂輸送が生じるgullyの川幅を設定します。
-- Depth of gully：侵食許容深さを設定します。
-- (dt slope)/(dt sediment in slope)：一回のRRIモデルの斜面の計算時間間隔（デフォルトは600秒）の間に、斜面セルでの土砂輸送解析を何回行うかについて設定します。
-- 斜面侵食解析の最小水深：各斜面セルで、表流水の水深がこの水深より小さいときには、斜面セルでの土砂輸送解析を行いません。
+- Parameters can be set for each area (Area 1-10). To set parameters for each area, specify each area in the Object Browser > Grain Size Distribution for slope area.
+- To set uniform parameters for the entire watershed, set only the parameters for Area 1.
+- Width_gully/Width_cell: When the grid size of the slope cells is large, sediment transport may occur only in a portion of the cell. In this case, set the width of the gully where sediment transport occurs relative to the cell size.
+- Depth of gully (m): Set the allowable slope erosion depth.
+- (dt slope)/(dt sediment in slope): Sets how many times sediment transport analysis on slope cells is performed within one calculation time interval of the slope in the RRI model.
+- Minimum flow depth for slope erosion (m): Sediment transport analysis on each slope cell is not performed when the surface water depth is less than this value.
 
-6.6. 流木の計算
+6.6. Driftwood computation
 --------------------------------------------------
-移流方程式と貯留方程式を用いた流木の解析法については、文献 [6]_ ,等を参照してください。
-6.4で説明した崩壊・土石流の解析（①ー１）を行う場合に、流木の計算も行うことができます。
-これは、現在のところ崩壊・土石流により流木が生産され、土石流が河道に到達すれば河道に供給されるモデルとしているためです。
-パラメータとして立木の密度を設定し、土石流の移動経路上の流木は全て土石流に取り込まれるものとしています。
+Driftwood calculations can be performed when conducting landslide and debris flow analysis (①-1), as described in Section 6.4. 
+For details on the method of analyzing driftwood using convection and storage equations, please refer to references such as [6]_.
+Currently, the model assumes that all standing trees on the path of the debris flow is assumed to be incorporated into the debris flow, 
+and if the debris flow reaches a river channel, the driftwood is supplied to the channel. 
+The density of standing trees is set as a parameter.
 
-.. figure:: img/RSR_cond_6.jpg
+.. figure:: img/RSR_cond_6_en.jpg
    :scale: 60%
    :alt:
 
-6.7. RSRモデルの詳細設定
+6.7. Advanced settings for the RSR model
 --------------------------------------------------
-RRIモデルの解析はAdaptive Runge-Kutta法を用いており、収束計算の過程で誤差が一定値（eps）以下になるよう、
-計算時間間隔（デフォルトで斜面600秒、河道60秒、3.3章を参照）を自動的に調整します。
-RSRモデルの解析で10mなど小さいメッシュを用いる場合、epsの値を（例えば１オーダー程度）小さくすることで、計算の破綻を回避することができます。
+The RRI model uses the Adaptive Runge-Kutta method, which automatically adjusts the calculation time step (default: 600 seconds for slopes, 60 seconds for river channels, see Section 3.3) 
+to ensure that the error in the convergence calculation is below a certain value (eps). 
+When using a small mesh size, such as 10m, in the RSR model analysis, reducing the value of eps (for example, by one order of magnitude) can stabilize the calculation.
+Similarly, ddt_min_riv is the truncation error for river channel calculations, and ddt_min_slo is the truncation error for slope calculations.
+When using a small mesh size like 10m, reducing these values by about one order of magnitude can help prevent calculation failures.
 
-同様に、ddt_min_rivは河道計算の打ち切り誤差、ddt_min_sloは斜面計算の打ち切り誤差で、
-10mなど小さいメッシュを用いる場合にこれを１オーダー程度小さくすることで、計算の破綻を回避できます。ただし小さくするほど計算時間が長くなります。
-
-.. figure:: img/RSR_cond_7.jpg
+.. figure:: img/RSR_cond_7_en.jpg
    :scale: 60%
    :alt:
 
-6.8. 計算の実行
+6.8. Running the Calculation
 --------------------------------------------------
-条件の設定を終えた後、計算を実行します。
-「計算条件＞設定」から計算条件設定画面を表示し、「基本条件」を選択します。
-「実行モード＞モード」で「計算実行」を選択し、「保存して閉じる」をクリックします。
-「計算＞実行」をクリックすると計算が開始されます。
+After setting the calculation conditions, execute the calculation. 
+From "Calculation Condition > Setting", open the calculation condition setting screen and select "Base Conditions". In "Runtype", select "Run only", and click "Save and Close". Click "Simulation > Run" to start the calculation.
 
-.. figure:: img/cond_9.jpg
+.. figure:: img/cond_9_en.jpg
    :scale: 80%
    :alt:
 
-計算結果の可視化等については、「Examples」にて説明します。
+Visualization of the calculation results will be explained in "Examples".
 
 
