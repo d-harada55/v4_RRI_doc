@@ -94,18 +94,18 @@ This section describes how to set the grain size distribution (GSD) for non-unif
 - Minimum bedload layer thickness(m)：When employing the Egashira et al. formula for bed load transport, the exchange layer thickness is dynamically calculated, and its minimum value is set here.
 - GSD for slope area：Sets the grain size distribution of sediment supplied to the river channel from landslides and debris flows (①-1) and hillslope erosion (①-2).
 
-6.4. 崩壊・土石流の条件設定
+6.4. Landslide and debris flow
 --------------------------------------------------
-崩壊・土石流の解析（①ー１）を行う場合、解析条件、解析パラメータ等をここで設定します。
+This section describes how to set the calcilation conditions and parameters when performing landslide and debris flow analysis (①-1).
 
-.. figure:: img/RSR_cond_4.jpg
+.. figure:: img/RSR_cond_4_en.jpg
    :scale: 60%
    :alt:
 
 
-- 一般的なパラメータ設定法については文献 [1]_ ,等を参照してください。
-- この雨量以下の斜面崩壊を無視：崩壊・土石流の解析では流域内の全ての斜面セルで安定解析を行います。初期の地形データ（DEM）の影響で、わずかの雨でも斜面崩壊が判定される場合があります。それを避けるために、この雨量以下で崩壊する斜面に対しては斜面崩壊の計算を行いません。
-- 一定時間経過以降　崩壊・土石流を計算しない：崩壊・土石流の計算は流域内全ての斜面セルで行うため、計算時間が長くなります。一方で、崩壊・土石流の発生は豪雨のピーク時に限られており、豪雨のピーク以降崩壊・土石流の解析を行わないことで総計算時間を短縮できます。ここで設定する「崩壊・土石流解析の終了時刻」以降は崩壊・土石流の解析を行いません。
+- For general parameter setting methods, please refer to references such as [1]_.
+- Exclude landslides below this rainfall (mm): In landslide analysis, stability calculations are performed for all slope cells within the watershed. Due to the influence of the initial elevation (DEM), slope failures may be triggered even with small amounts of rainfall. To avoid this, slope failure calculations are not performed for slopes that would fail with rainfall amounts below this threshold.
+- End time for LS and DF (hour): Landslide and debris flow calculations takes time because they are performed for all slope cells in the watershed. However, landslides and debris flows tend to occur primarily during the peak of heavy rainfall events. By stopping the landslide and debris flow analysis after a specified "End time for LS and DF (hour)", the total calculation time can be reduced. Landslide and debris flow analysis will not be performed after the time set here.
 
 6.5. 斜面セルの土砂輸送
 --------------------------------------------------
