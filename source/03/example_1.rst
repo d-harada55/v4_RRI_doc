@@ -114,16 +114,15 @@ The data imported here is not used for calculation. This function is only for vi
 
 3.1 Creating and Verifying the Grid and Grid Attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-「計算条件＞設定」から計算条件設定画面を開きます。「グループ＞基本条件」で以下のように条件を設定します。
 Open the calculation condition setting screen from "Calculation Condition > Setting".  Set the conditions as follows in the "Group > Base Conditions" section.
 
 
-.. list-table:: 基本条件グループ
+.. list-table:: Base conditions
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
+   * - Screen
+     - Condition
    * - .. image:: img_1/cond_1_en.jpg
      - | Run type：Make Geographic Condition Only
 
@@ -132,14 +131,15 @@ Open the calculation condition setting screen from "Calculation Condition > Sett
        |  - Number for DIR Directions: 8
 
        | Geographic Data file
-       |  - DEM: Hydrologically corrected elevation (elv_export.asc)
-       |  - Acc: Number of upstream accumulated grids (upg_export.asc)
-       |  - Dir: Surface flow direction data (dir_export.asc)
+       |  - DEM: (elv_export.asc)
+       |  - Acc: (upg_export.asc)
+       |  - Dir: (dir_export.asc)
 
        | River Shape Parameters
        |  - :math:`C_w=5, S_w=0.35`
        |  - :math:`C_d=0.95, S_d=0.2`
-       |  - Levee Height [m] = 2, Levee Cell Threshold = 1000
+       |  - Levee Height [m] = 2, 
+       |  - Levee Cell Threshold = 1000
 
 
 Click "Save and Close", then click "Calculation > Run".
@@ -152,7 +152,7 @@ You may see the following warnings, but they can be ignored.
 
 When processing is complete, the following screen will be displayed.
     .. image:: img_1/end_run_en.jpg
-        :width: 240px
+        :width: 480px
         :align: center
 
 Save the project in ipro format. Erom "File > Save as file (ipro)".
@@ -160,11 +160,6 @@ Save the project in ipro format. Erom "File > Save as file (ipro)".
 Close the iRIC and reopen it the saved file.
 
 You can check the grid shape and the created cell attribute values in "Object Browser > Grid".
-
-
-プロジェクトを保存し、「ファイル＞開く」から再度プロジェクトを開いてください。
-
-「オブジェクトブラウザ＞格子」の格子形状、および、セル属性で作成された値を確認することができます。
 
 Grid Shape (293 × 481 = 140933)
     .. image:: img_1/ini_grid_en.jpg
@@ -176,192 +171,192 @@ Elevation [m]: Elevation value of each cell.
         :width: 640px
         :align: center
 
-ACC　各セルの上流集水ピクセル数です。セル面積を乗じると上流集水面積:Aになります。
-    .. image:: img_1/ini_acc.jpg
+ACC: Number of upstream accumulated pixels for each cell. Multiplying this value by the cell area gives the upstream accumulation area (A).
+    .. image:: img_1/ini_acc_en.jpg
         :width: 640px
         :align: center
 
-DIR　各セルの流向です。East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)。
-    .. image:: img_1/ini_dir.jpg
+DIR: Flow direction for each cell. East(1), South-East(2), South(4), South-West(8), West(16), North-West(32), North(64), North-East(128).
+    .. image:: img_1/ini_dir_en.jpg
         :width: 640px
         :align: center
 
-Width[m]　上流集水面積:Aと指定したパラメータによる関数 :math:`W = C_w A^{S_w}` で河道幅が設定されています。
-    .. image:: img_1/ini_width.jpg
+Width[m]　Width [m]: Channel width is set using the function  :math:`W = C_w A^{S_w}`, where A is the upstream accumulation area and the parameters are those specified.
+    .. image:: img_1/ini_width_en.jpg
         :width: 640px
         :align: center
 
-Depth[m]　上流集水面積:Aと指定したパラメータによる関数 :math:`D = C_d A^{S_d}` で河道深が設定されています。
-    .. image:: img_1/ini_depth.jpg
+Depth [m]: Channel depth is set using the function :math:`D = C_d A^{S_d}`, where A is the upstream accumulation area and the parameters are those specified.
+    .. image:: img_1/ini_depth_en.jpg
         :width: 640px
         :align: center
 
-Height[m]　上流集水ピクセル数が堤防セル閾値以上の箇所に、堤防高で指定された堤防が設定されています。
-    .. image:: img_1/ini_height.jpg
+Height [m]: Levees are set at locations where the number of upstream accumulated pixels is greater than or equal to the Levee Cell Threshold, with a height specified by the Levee Height.
+    .. image:: img_1/ini_height_en.jpg
         :width: 640px
         :align: center
 
 -----
 
 
-3.2 降雨条件の設定
+3.2 Rainfall conditions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-降雨条件は、「2.降雨データセットの作成」で示したデータ"rain.dat"を利用します。
-"rain.dat"には、2016年8月29日 0:00UTCから2016年8月31日 23:30UTC（71.5時間分）の北海道付近の降雨データが30分間隔で格納されています。
-ASCファイルをテキストエディタで開くことで、データ詳細を確認することができます。
+Use the "rain.dat" data file shown in "2. Preparation of Rainfall dataset" for the rainfall conditions. 
+"rain.dat" contains rainfall data for the Hokkaido region from August 29, 2016, 0:00 UTC to August 31, 2016, 23:30 UTC (71.5 hours) at 30-minute intervals. 
+You can check the details of the data by opening the ASC files with a text editor.
 
-「計算条件＞設定」で計算条件設定画面を表示し、「グループ＞降雨データ」を選択し、以下のように設定します。
+Open the calculation condition setting screen from "Calculation Condition > Setting", select "Group > Rain", and set the following:
 
-.. list-table:: 降雨データ　グループ
+.. list-table:: Rain
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img_1/cond_2.jpg
-     - | 降雨データファイル：サンプルデータとして
-       | ダウンロードした"rain.dat"を指定します。
-       
-       | xllcorner_rain:139
-       | yllcorner_rain:41
-       | cellsize_rain_x:0.0125
-       | cellsize_rain_y:0.0083333
+   * - Screen
+     - Condition
+   * - .. image:: img_1/cond_2_en.jpg
+     - | Rain file: Specify the "rain.dat" file
+     - | you downloaded as sample data.
 
-以上で降雨データを設定は完了です。
+     - | xllcorner_rain: 139
+     - | yllcorner_rain: 41
+     - | cellsize_rain_x: 0.0125
+     - | cellsize_rain_y: 0.0083333
+  
+This completes the rainfall data settings.
 
 -----
 
-3.3 計算時間の設定
+3.3 Time Control
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-計算条件設定画面で、「グループ＞時間管理」を選択し、以下のように設定します。
+On the calculation condition setting screen, select "Group > Time Control" and set the following:
 
-.. list-table:: 時間管理　グループ
+.. list-table:: Time Control
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img_1/cond_3.jpg
-     - | シミュレーション時間[hour]：70
-       | 斜面計算タイムステップ[sec]：600
-       | 河道計算タイムステップ[sec]：60
-       | 出力回数：70
+   * - Screen
+     - Condition
+   * - .. image:: img_1/cond_3_en.jpg
+     - | Simulation Time [hour]: 70
+       | Slope Calculation Time Step [sec]: 600
+       | River Channel Calculation Time Step [sec]: 60
+       | Number of Outputs: 70
 
 -----
 
-3.4 河道シミュレーション設定
+3.4 River Simulation Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ここでは、河道セルの判定値と河道セルと認識されたセルのマニング粗度係数を指定します。
+Here, you specify the threshold value for identifying river channel cells and the Manning's roughness coefficient for cells identified as river channel cells.
 
 
-.. list-table:: 河道シミュレーション　グループ
+.. list-table:: River Simulation Parameters
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img_1/cond_4.jpg
-     - | 河道のマニング粗度係数：0.03
-       | 河道セル判定閾値：100
+   * - Screen
+     - Condition
+   * - .. image:: img_1/cond_4_en.jpg
+     - | Manning's Roughness Coefficient 
+       | for River Channel: 0.03
+       | River Channel Cell Threshold: 100
 
 
-3.5 斜面シミュレーション設定
+3.5 Slope Simulation Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-斜面シミュレーションは、セル属性"Land Use Type"と関連してパラメータ設定を行います。
-この事例では、"Land Use Type"を全く指定していないため、すべてのセルの"Land Use Type"は"Region1"となります。
-ここでは地下浸透、地下水流れは考慮しないことにするため、以下のように設定します。
+Slope simulation parameters are set in relation to the cell attribute "Land Use Type". 
+In this example, since "Land Use Type" is not specified at all, "Land Use Type" for all cells will be "Region1". 
+Here, we will not consider subsurface infiltration or groundwater flow, so set the following:
 
-.. list-table:: 斜面シミュレーション　グループ
+.. list-table:: Slope Simulation Parameters
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img_1/cond_5.jpg
-     - | Region1のパラメータのみ有効
+   * - Screen
+     - Condition
+   * - .. image:: img_1/cond_5_en.jpg
+     - | Only parameters for Region1 are enabled.
        
        | Green-Ampt ...
-       | ksv[m/s]：0
+       | ksv[m/s]: 0
 
        | lateral subsurface...
-       | ka[m/s]：0
+       | ka[m/s]: 0
 
-       | 上記以外のデフォルトのまま
+       | Leave other parameters at their default.
 
 
 -----
 
-４．計算実行
+４．Run the calculation
 --------------------------------------------------
-計算条件画面で、「基本条件」の実行モードを「計算実行」にします。
-「保存して閉じる」で、計算条件設定画面を閉じます。
+On the calculation condition screen, set the execution mode in "Basi Conditions" to "Run only". Click "Save and Close" to close the calculation condition setting screen.
 
-.. image:: img_1/cond_0.jpg
-        :width: 480px
-        :align: center
+.. image:: img_1/cond_0_en.jpg
+:width: 480px
+:align: center
 
+Execute the calculation by clicking "Calculation > Run". 
+Always you should save your data before running the calculation. 
+When the calculation starts, the following screen will be displayed:
 
-「計算＞実行」から計算を実行してください。
-計算実行前には必ず、データを保存してください。
-計算が開始されると以下の画面が表示されます。
+.. image:: img_1/calc_status_en.jpg
+:width: 640px
+:align: center
 
-.. image:: img_1/calc_status.jpg
-        :width: 640px
-        :align: center
-
-計算が終了すると、終了を知らせる画面が表示されます。
+When the calculation is complete, a screen will appear indicating completion.
 
 -----
 
-５．計算結果分析・可視化
+５．Analyzing and Visualizing Calculation Results
 --------------------------------------------------
-計算が正常に終了すると、可視化ウィンドウの表示が可能となります。
-RRI on iRICは以下の値を計算結果として出力しています。
+Once the calculation has finished successfully, the visualization window becomes available. 
 
-============== ========================================== ======
-表示名            意味                                      補足
-============== ========================================== ======
-total_qp_t[mm]  総雨量[mm]                                  1
-qp_t[mm/h]      雨量強度[mm/h]                              1
-hs[m]           氾濫原水深[m]                               1
-hr[m]           河道水深[m]                                 1 
-qr[m]           河道流量[m3/s]                              1
-qu              斜面流量x方向[m/s]                          1
-qv              斜面流量y方向[m/s]                          1
-hg[m]           地下水深[m]                                 1
-gu              地下流量x方向[m/s]                          1
-gv              地下流量y方向[m/s]                          1
-gampt_ff        Green-Ampt cumulative water depth [m]      1
-============== ========================================== ======
+RRI on iRIC outputs the following values as calculation results:
+================ =======================================================
+Display Name       Meaning                               
+================ =======================================================
+total_qp_t[mm]   Total Rainfall [mm]                 
+qp_t[mm/h]       Rainfall Intensity [mm/h]          
+hs[m]            Inundation Depth on Slopes (including ground water) [m] 
+Surface depth[m] Inundation Depth on Slopes (surface water only) [m]     
+hr[m]            River Channel Water Depth [m]        
+qr[m]            River Channel Discharge [m³/s]         
+qu               Slope Discharge, x-direction [m/s]               
+qv               Slope Discharge, y-direction [m/s]     
+hg[m]            Groundwater Depth [m]                            
+gu               Groundwater Flow, x-direction [m/s]       
+gv               Groundwater Flow, y-direction [m/s]   
+gampt_ff         Green-Ampt cumulative water depth [m]   
+================ ======================================================= 
 
-iRICソフトウェアの基本機能を利用して、様々な角度から計算結果を確認することができます。
-以下に可視化例を表示します。
+Using the functions of the iRIC software, you can examine the calculation results from various perspectives. 
+The following are some visualization examples:
 
-流域総雨量：2016年8月29日 0:00UTCから2016年8月31日 22:00UTC（70時間）の間に500mm以上降った箇所が複数地点あることが確認できます
-    .. image:: img_1/res_sum_rain.png
+Total Rainfall: You can find that there are multiple locations where more than 500 mm of rain fell between August 29, 2016, 0:00 UTC and August 31, 2016, 22:00 UTC (70 hours).
+    .. image:: img_1/res_sum_rain_en.png
         :width: 640px
         :align: center
 
-河道流出流量（i=107, j=163)　ピーク流量は1100m3/s程度であったという結果でした。
+River Channel Discharge (i=107, j=163): The peak discharge was approximately 1100 m³/s.
     .. image:: img_1/res_runoff.png
         :width: 640px
         :align: center
 
-ピーク時（2016年8月31日 1:00時）の河道水深と斜面水深
+River Channel Water Depth and Inundation Depth on Slopes at Peak Time (August 31, 2016, 1:00)
     .. image:: img_1/res_depth.png
         :width: 640px
         :align: center
 
-ピーク時（2016年8月31日 1:00時）の河道水深と斜面水深　市街地部分を拡大。市街地部分で氾濫が生じている様子が確認できます。
+River Channel Water Depth and Inundation Depth on Slopes at Peak Time (August 31, 2016, 1:00) - Zoomed in on the urban area. You can see that flooding occurred in the urban area.
     .. image:: img_1/res_depth_2.png
         :width: 640px
         :align: center
 
 -----
 
-まとめ
+Summary
 --------------------------------------------------
-ここではRRI on iRICの使い方として、地形と降雨データを準備、それらを計算条件として設定し、計算を実行し、計算結果を可視化、確認する流れを紹介しました。
-得られた計算結果と実現象との比較は、ここでは行いません。各自実践してみてください。
-必要に応じて、パラメータを調整し再計算するなどして、現象に対する理解を深めていただければと思います。
+This section presented the workflow for using RRI on iRIC: preparing terrain and rainfall data, setting them as calculation conditions, running the calculation, and visualizing and confirming the calculation results.
+
+Comparison of the obtained calculation results with the actual event is not performed here. We encourage you to try this yourself. We hope that you will deepen your understanding of the phenomena by adjusting parameters and recalculating as necessary.
 
