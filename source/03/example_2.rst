@@ -268,10 +268,6 @@ gampt_ff         Green-Ampt cumulative water depth [m]
 
 Using the functions of the iRIC software, you can examine the calculation results from various perspectives. The following are some visualization examples:
 
-
-iRICソフトウェアの基本機能を利用して、様々な観点から計算結果を確認することができます。
-以下に可視化例を表示します。
-
 Total Rainfall: You can check the spatial distribution of the total rainfall amount from the analyzed rainfall over the calculation time (13 hours).
     .. image:: img_3/sum_rain.png
         :width: 640px
@@ -285,356 +281,170 @@ In the graph window, use the "Controller" below to select the coordinates of the
 
 -----
 
+６．Calculation Condition for RSR model
+--------------------------------------------------
 
+6.1 Basic Settings for the Sediment Runoff (RSR) Model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Open the calculation condition setting screen from "Calculation Condition > Setting".  Under "+ RSR Model", set the conditions related to sediment runoff.
 
-
-
-
-「計算条件＞設定」から計算条件設定画面を開きます。「グループ＞基本条件」で以下のように条件を設定します。
-
-土砂の計算を行う場合、掃流力の評価において川幅が重要なパラメータとなるため、現地の状況と対応するように設定します。また、本計算では土砂の堆積によって河道が埋まらないよう、河道深さに関するパラメータ（Cd）を大きくしています。
-
-.. list-table:: 基本条件グループ
-   :widths: 80 20
+.. list-table:: RSR Model
+   :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img_3/cond_1.jpg
-     - | 実行モード：「格子・格子属性生成」
+   * - Screen
+     - Condition
+   * - .. image:: img_2/cond_6.jpg
+     - | Sediment computation (RSR): "Unit channel model"
 
-       | 基本パラメータ
-       |  - 座標系: 緯度経度
-       |  - 流向数: 8
+       |  - Start time of bed deformation (hour): 2
+       |  - Bed material type: Non-uniform
+       |  - iidt (= dt_river/dt_sediment cal.): 1000
+       |  - Bedload transport formula
+       |  - Suspended sediment erosion formula
 
-       | データファイル設定
-       |  - DEM: 水文補正標高(filldem)
-       |  - Acc: 上流集水グリッド数
-       |  - Dir: 表面流向データ
-
-       | 河道形状パラメータ
-       |  - :math:`C_w=12, S_w=0.5`
-       |  - :math:`C_d=8, S_d=0.2`
-       |  - 堤防高[m]=0, 堤防セル閾値=500
+To shorten the calculation time, sediment analysis is not performed during the period after the start of the calculation when there is no rainfall (2 hours here). 
+For the time step for riverbed variation calculation, set how many times sediment calculations are performed within one calculation time interval of the river channel in the RRI model. 
+When dealing with suspended sediment, a smaller time step (larger value here) will improve calculation stability. However, a larger value will increase calculation time.
 
 
-「保存して閉じる」をクリックし、「計算＞実行」をクリックします。
-以下のような警告が表示されるかもしれませんが、問題ないので無視してください。
-
-「いいえ」をクリックします。
-
-
-
-
-
-
-
-１．流域地形データセットの取得
---------------------------------------------------
-流域地形データセットは、「0.サンプルデータ」でダウンロードできるデータの中に入っていますが、以下の方法でも取得することができます。
-
-- [1]  `「流域データ抽出」  <https://tools.i-ric.info/login/>`_    にアクセスします
-- [2] ここでは1秒メッシュであるMERIT Hydroのデータをダウンロードします。
-- [3] STEP1 球磨川流域を拡大し、対象流域の下流端をクリックします。
-
-   .. image:: img_2/step1_click2.jpg
-        :width: 640px
-
-- [4] STEP2 「検索」ボタンをクリックすると、対象流域が抽出されます。
-
-    .. image:: img_2/step2_extract2.jpg
-        :width: 640px
-
-- [5] STEP3 「取得」ボタンをクリックし、抽出されたデータを適当な場所にダウンロードしてください。
-
-
-
------
-
-２．降雨データセットの作成
---------------------------------------------------
-降雨データセット、「0.サンプルデータ」ダウンロードできるデータの"data_2/02_rain"の中に対象地域の対象期間の解析雨量を切り出したデータを格納しています。
-解析雨量については、 `気象庁のホームページ <https://www.jma.go.jp/jma/kishou/know/kurashi/kaiseki.html#:~:text=%E8%A7%A3%E6%9E%90%E9%9B%A8%E9%87%8F%E3%81%A8%E9%80%9F%E5%A0%B1%E7%89%88,%E3%81%94%E3%81%A8%E3%81%AB%E4%BD%9C%E6%88%90%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%E3%80%82>`_ をご確認ください。
-
-ファイル名に含まれる時刻の降雨データがそれぞれASC形式のファイルに格納されています。時刻はUTCです。なおASC形式のデータはGISで可視化表示することができます。
-
-"asc2raindat.py"はフォルダに含まれるASC形式の複数のデータから、RRI用の降雨データ形式のファイルを作成するPythonスクリプトです。
-Python実行環境がある方はそれを利用してみてください。Python実行環境がなくても、すでにRRI用の降雨データ形式に変換したファイル"rain.dat"も一緒に格納しています。
-
------
-
-３．計算条件設定
---------------------------------------------------
-
-3.1 格子・格子属性の作成・確認
+6.2 Detailed Settings for the RSR Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-「計算条件＞設定」から計算条件設定画面を開きます。「グループ＞基本条件」で以下のように条件を設定します。
+Next, configure the detailed settings. For the most part, the default values for the detailed settings are used, however, the maximum erosion depth for each unit river channel, the minimum unit river channel slope, and maximum unit river channel slope are parameters that need to be set carefully. 
+Here, the maximum erosion depth is set to 3m, and the minimum unit river channel slope is set to 0.00005.
+
+.. list-table:: Detailed Settings for the RSR Model
+   :widths: 70 30
+   :header-rows: 1
+
+   * - Screen
+     - Condition
+   * - .. image:: img_2/cond_7.jpg
+     - | - Maximum Erosion Depth (m): 3
+     - | - Minimum Unit River Channel Slope：0.00005
+
+      
+6.3 Non-uniform Grain size distributions for river and slope
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When you emplloy non-uniform sediment, set the conditions related to the grain size distribution here. Click "Edit" for "Initial grain size distribution in mixed layer (fraction)" to open it. 
+The grain size distribution used in this case is included in the data downloadable from "0. Sample Data". Click "Import" at the bottom of the screen and import the `sed_bed.csv` file.
+
+.. image:: img_2/ini_GSD.jpg
+    :width: 640px
+    :align: center
+
+Also, to provide the grain size distribution of sediment flowing into the river channel due to debris flows, set "GSD for slope area", click "Edit" for "GSDs at slope areas (supplied to the river)". 
+The grain size distribution used in this case is included in the data downloadable from "0. Sample Data". Click "Import" at the bottom of the screen and import the `sed_debris.csv` file.
+
+.. image:: img_2/ini_GSD_debris.jpg
+    :width: 640px
+    :align: center
 
 
-.. list-table:: 基本条件グループ
+6.4 Landslide and debris flow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When conducting landslide and debris flow analysis, open "+ Landslides and Debris Flows" and set the conditions.
+
+.. list-table:: +Landslide and debris flow
+   :widths: 70 30
+   :header-rows: 1
+
+   * - Screen
+     - Condition
+   * - .. image:: img_2/cond_8.jpg
+     - | - Landslide and Debris Flow Computation: Enabled
+
+       |  - cohesion(KN/m2): 1.5
+       |  - Critical volume water content for subsurface flow：0.1
+       |  - Fine material content in the debris flow：0.3
+       |  - Width of debris flow (m):10
+       |  - Erosion depth of debris flow (m):1
+       |  - Exclude landslides below this rainfall (mm):10  
+     
+
+6.5 流木の解析条件設定
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+流木の解析を行う場合、「+流木の計算」を開き、条件を設定します。
+
+
+.. list-table:: +土砂流出(RSR)モデル
    :widths: 70 30
    :header-rows: 1
 
    * - 画面
      - 条件
-   * - .. image:: img_2/cond_1.jpg
-     - | モード：「格子・格子属性生成」
-       
-       | データファイル設定
-       |  - DEM: 水文補正標高(elv_export.asc)
-       |  - Acc: 上流集水グリッド数(upg_export.asc)
-       |  - Dir: 表面流向データ(dir_export.asc)
+   * - .. image:: img_3/cond_9.jpg
+     - | 流木の計算：有効
 
-       | 河道形状をパラメータ-
-       |  - :math:`C_w=5, S_w=0.35`
-       |  - :math:`C_d=0.95, S_d=0.2`
-       |  - 堤防高[m]=2, 堤防セル閾値=1000
+       |  - 立木の密度(m3/m2): 0.1 
 
 
-「保存して閉じる」をクリックし、「計算＞実行」をクリックします。
-
-プロジェクトを保存し、「ファイル＞開く」から再度プロジェクトを開いてください。
-
-「オブジェクトブラウザ＞格子」の格子形状、および、セル属性で作成された値を確認することができます。
-
-格子形状（696×605=421080）
-    .. image:: img_2/ini_grid.jpg
-        :width: 640px
-        :align: center
-
-Elevation[m] 各セルの標高値です。
-    .. image:: img_2/ini_elv.jpg
-        :width: 640px
-        :align: center
-
-ACC　各セルの上流集水ピクセル数です。セル面積を乗じると上流集水面積:Aになります。
-    .. image:: img_2/ini_acc.jpg
-        :width: 640px
-        :align: center
-
-DIR　各セルの流向です。East(1),South-East(2),South(4),South-West(8),West(16),North-West(32),North(64),North-East(128)。
-    .. image:: img_2/ini_dir.jpg
-        :width: 640px
-        :align: center
-
-Width[m]　上流集水面積:Aと指定したパラメータによる関数 :math:`W = C_w A^{S_w}` で河道幅が設定されています。
-    .. image:: img_2/ini_width.jpg
-        :width: 640px
-        :align: center
-
-Depth[m]　上流集水面積:Aと指定したパラメータによる関数 :math:`D = C_d A^{S_d}` で河道深が設定されています。
-    .. image:: img_2/ini_depth.jpg
-        :width: 640px
-        :align: center
-
-Height[m]　上流集水ピクセル数が堤防セル閾値以上の箇所に、堤防高で指定された堤防が設定されています。
-    .. image:: img_2/ini_height.jpg
-        :width: 640px
-        :align: center
-
------
-
-
-3.2 降雨条件の設定
+6.6 計算実行
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-降雨条件は、「2.降雨データセットの作成」で示したデータ"rain.dat"を利用します。
-"rain.dat"には、2020年7月3日 0:00UTCから2020年7月4日 3:00UTC（27時間分）の九州付近の降雨データが30分間隔で格納されています。
-ASCファイルをテキストエディタで開くことで、データ詳細を確認することができます。
-
-「計算条件＞設定」で計算条件設定画面を表示し、「グループ＞降雨データ」を選択し、以下のように設定します。
-
-.. list-table:: 降雨データ　グループ
-   :widths: 70 30
-   :header-rows: 1
-
-   * - 画面
-     - 条件
-   * - .. image:: img_2/cond_2.jpg
-     - | 降雨データファイル：サンプルデータとして
-       | ダウンロードした"rain.dat"を指定します。
-       
-       | xllcorner_rain:129
-       | yllcorner_rain:30
-       | cellsize_rain_x:0.0125
-       | cellsize_rain_y:0.0083333
-
-以上で降雨データを設定は完了です。
-
------
-
-3.3 計算時間の設定
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-計算条件設定画面で、「グループ＞時間管理」を選択し、以下のように設定します。
-
-.. list-table:: 時間管理　グループ
-   :widths: 70 30
-   :header-rows: 1
-
-   * - 画面
-     - 条件
-   * - .. image:: img_2/cond_3.jpg
-     - | シミュレーション時間[hour]：27
-       | 斜面計算タイムステップ[sec]：600
-       | 河道計算タイムステップ[sec]：60
-       | 出力回数：27
-
------
-
-3.4 河道シミュレーション設定
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ここでは、河道セルの判定値と河道セルと認識されたセルのマニング粗度係数を指定します。
-
-
-.. list-table:: 河道シミュレーション　グループ
-   :widths: 70 30
-   :header-rows: 1
-
-   * - 画面
-     - 条件
-   * - .. image:: img_2/cond_4.jpg
-     - | 河道のマニング粗度係数：0.03
-       | 河道セル判定閾値：100
-
------
-
-3.5 斜面シミュレーション設定
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-斜面シミュレーションは、セル属性"Land Use Type"と関連してパラメータ設定を行います。
-まずダウンロードした地形データセットの"ldu_export.asc"を利用して、セル属性を設定します。
-
-「オブジェクトブラウザー＞Land Use Type」、インポートをクリックし、ラスタデータを選択します。
-"ldu_export.asc"を選択し、「開く」をクリックします。
-座標系を指定する画面が表示されるので「OK」をクリックし、"EPSG:4326: WGS84"を指定し「OK」をクリックします。
-
-.. image:: img_2/ldu_coordinates.jpg
-        :width: 360px
-        :align: center
-
-インポートすると以下のようにデータを確認することができます。
-
-本土地利用区分データは佐山氏らが参考値として作成したもので、なんら正確性が保証されたものではありません。
-が、本事例ではこのデータを利用して計算することにします。
-
-.. image:: img_2/ldu_import.jpg
-        :width: 640px
-        :align: center
-
-各領域の土地利用区分は以下のようです。
-
-============== ==========================================
-Region           土地利用区分
-============== ==========================================
-Region1         水田
-Region2         畑地
-Region3         山地
-Region4         都市
-Region5         水域
-============== ==========================================
-
-
-ここまでの操作では、「地理情報」に土地利用データを読み込んだに過ぎず、計算に利用される格子属性としての土地利用データが作成されていません。
-「格子＞属性マッピング＞実行」をクリックします。マッピング属性を選択する画面が表示されます。
-"Land Use Type"のみを選択し、「OK」ボタンをクリックしてください。
-
-.. image:: img_2/mapping.jpg
-        :width: 240px
-        :align: center
-
-.. note::
-    マッピング処理は、地理情報から格子属性を作成する処理になります。
-    「オブジェクトブラウザ＞地理情報」下に読み込まれているデータが、格子形状に応じてマッピングされます。
-    逆に、「オブジェクトブラウザ＞地理情報」下に何もデータが読み込まれていない場合は、既存格子属性がすべて削除されます。
-
-
-マッピングが完了すると、「格子＞セル属性＞Land Use Type」をチェックすることで格子属性を確認することができます。
-
-.. image:: img_2/ldu_grid_attr.jpg
-        :width: 640px
-        :align: center
-
-
-計算条件設定画面で「グループ＞斜面シミュレーション設定」を選択します。
-1から5の土地利用区分を踏まえ、地下浸透、地下水流れに係るパラメータを以下のように設定します。
-Region1からResion5すべてのパラメータが有効になります。
-
-.. image:: img_2/cond_5.jpg
-        :width: 640px
-        :align: center
-
-
------
-
-４．計算実行
---------------------------------------------------
-計算条件画面で、「基本条件」の実行モードを「計算実行」にします。
-「保存して閉じる」で、計算条件設定画面を閉じます。
-
-.. image:: img_2/cond_0.jpg
-        :width: 480px
-        :align: center
-
+土砂・流木の解析条件の設定が終わったら、計算を実行します。
 
 「計算＞実行」から計算を実行してください。
 計算実行前には必ず、データを保存してください。
-計算が開始されると以下の画面が表示されます。
-
-.. image:: img_2/calc_status.jpg
-        :width: 640px
-        :align: center
-
+一般的なデスクトップコンピュータで、10-15分程度の計算時間です。
 計算が終了すると、終了を知らせる画面が表示されます。
 
 -----
 
-５．計算結果分析・可視化
+７．計算結果分析・可視化（土砂の計算後）
 --------------------------------------------------
 計算が正常に終了すると、可視化ウィンドウの表示が可能となります。
-RRI on iRICは以下の値を計算結果として出力しています。
+以下の項目について確認できます。
 
-============== ========================================== ======
-表示名            意味                                      補足
-============== ========================================== ======
-total_qp_t[mm]  総雨量[mm]                                  1
-qp_t[mm/h]      雨量強度[mm/h]                              1
-hs[m]           氾濫原水深[m]                               1
-hr[m]           河道水深[m]                                 1 
-qr[m]           河道流量[m3/s]                              1
-qu              斜面流量x方向[m/s]                          1
-qv              斜面流量y方向[m/s]                          1
-hg[m]           地下水深[m]                                 1
-gu              地下流量x方向[m/s]                          1
-gv              地下流量y方向[m/s]                          1
-gampt_ff        Green-Ampt cumulative water depth [m]      1
-============== ========================================== ======
+===================================== ==========================================
+表示名                                 意味                                     
+===================================== ==========================================
+Bedload transport rate                掃流砂量(m3/s)
+Suspended sediment transport rate     浮遊砂量(m3/s)
+Elevation change (m)                  河床変動量(m)
+Total bedload transport(m3)           掃流砂の総通過量(m3)
+Total S.S. transport(m3)              浮遊砂の総通過量(m3)
+Mean diameter(mm)                     河床材料（表層）の平均粒径(mm)
+Land slide Occurrence                 崩壊の発生（発生した箇所を1と表示）
+Elevation change (debris flow)(m)     土石流による侵食と堆積(m)
+Total sediment supply (debris flow)   土石流による河道への土砂供給量
+Wood_deposition(m3/m2)                単位面積あたりの流木堆積量(m3/m2) 
+Wood_concentration                    流木の濃度
+===================================== ==========================================
 
-iRICソフトウェアの基本機能を利用して、様々な角度から計算結果を確認することができます。
-以下に可視化例を表示します。
+iRICソフトウェアの基本機能を利用して、様々な観点から計算結果を確認することができます。
+以下に例を表示します。
 
-流域総雨量：2020年7月3日 0:00-4日 3:00UTC（2020年7月3日 9:00-4日 12:00JST)の27時間でに700mm以上降った箇所が複数地点あることが確認できます
-    .. image:: img_2/res_sum_rain.png
+
+Bedload transport rate：掃流砂の空間分布を確認できます。
+    .. image:: img_3/bedload.png
         :width: 640px
         :align: center
 
-氾濫被害が生じた人吉地区 紅取橋付近の河道流出流量（i=219, j=169)　ピーク流量は800m3/s程度であったという結果でした。
-    .. image:: img_2/res_runoff.png
+Elevation change：河道についての侵食と堆積の空間分布を確認できます。
+    .. image:: img_3/elv_change.png
         :width: 640px
         :align: center
 
-ピーク時（2020年7月4日 10:00時）の河道水深と斜面水深
-    .. image:: img_2/res_depth.png
+Land slide occurence：崩壊の発生セルについての空間分布を確認できます。崩壊の発生箇所を１と表示しています。
+    .. image:: img_3/landslide.png
+        :width: 640px
+        :align: center
+        
+Elevation change (debris flow)：土石流による侵食と堆積の空間分布を確認できます。上記の「崩壊の発生セル」と重ねると、崩壊の発生地点から最急勾配方向に向かって土石流が解析されていることを確認できます。
+    .. image:: img_3/debris.png
         :width: 640px
         :align: center
 
-ピーク時（2020年7月4日 10:00時）の河道水深と斜面水深　市街地部分を拡大。市街地部分で氾濫が生じている様子が確認できます。
-    .. image:: img_2/res_depth_2.png
+Wood_deposition(m3/m2) ：単位面積あたりの流木堆積量について、空間分布を確認できます。
+    .. image:: img_3/wood.png
         :width: 640px
-        :align: center
+        :align: center        
 
 -----
 
 まとめ
 --------------------------------------------------
-ここではRRI on iRICの使い方として、地形と降雨データを準備、それらを計算条件として設定し、計算を実行し、計算結果を可視化、確認する流れを紹介しました。
-得られた計算結果と実現象との比較は、ここでは行いません。各自実践してみてください。
-必要に応じて、パラメータを調整し再計算するなどして、現象に対する理解を深めていただければと思います。
+九州北部豪雨の黒川を例に、RSRモデルの計算設定、実行、結果の可視化に関する流れを紹介しました。
+解析結果の検証等については、文献 [1]_ を参照してください。
+必要に応じて、パラメータを調整し再計算するなどして、理解を深めていただければと思います。
 
