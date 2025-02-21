@@ -1,45 +1,47 @@
-Example1：2016年8月 空知川
+Example 1: Sorachi River, August 2016
 ==================================================
-2016年8月29日から31日の大雨で空知川幾寅地区で堤防決壊による河川氾濫が生じました。大雨や氾濫の状況などについては調査報告書 [1]_ や石田義明らの論文 [2]_ 等に詳しく記載されています。
-ここでは、そのときの空知川流域（幾寅地区よりも上流）の状況をRRI on iRICでシミュレーションする手順を示します。
+From August 29th to 31st, 2016, heavy rainfall caused a levee breach and river flooding in the Sorachi River. Details on the heavy rainfall and flooding conditions are described in the investigation report [1]_, and the paper [2]_ (Sorry those literatures are in Japanese).
+
+This section demonstrates the procedure for simulating the flooding in the Sorachi River basin during that event using RRI on iRIC.
 
 .. [1] `2016 年 8 月北海道豪雨災害 調査団報告書, 土木学会災害調査団 <http://committees.jsce.or.jp/report/system/files/2016%E5%B9%B48%E6%9C%88%E5%8C%97%E6%B5%B7%E9%81%93%E8%B1%AA%E9%9B%A8%E5%9C%9F%E6%9C%A8%E5%AD%A6%E4%BC%9A%E8%AA%BF%E6%9F%BB%E5%9B%A3%E5%A0%B1%E5%91%8A%E6%9B%B8_20170501.pdf>`_ 
 .. [2] `2016年8月北海道豪雨における空知川幾寅地区の氾濫被害に関する調査および要因検証, 土木学会論文集B1（水工学）Vol.73, No.4, I_1429-I_1434, 2017. <https://www.jstage.jst.go.jp/article/jscejhe/73/4/73_I_1429/_pdf>`_ 
 
 -----
 
-0. サンプルデータ
+0. Sample data
 --------------------------------------------------
-この事例で利用するサンプルデータは以下からダウンロードすることができます。
+The sample data used in this example can be downloaded from the following links:
 
-- 地形および降雨データセット → `data_1 <https://uc.i-ric.org/uc_products/rri_examples/data_1.7z>`_ 
-- iRICソフトウェア用プロジェクトファイル　→ `data_1_iRIC <https://uc.i-ric.org/uc_products/rri_examples/2016_minami-furano.ipro>`_  
+- Terrain and rainfall dataset  → `data_1 <https://uc.i-ric.org/uc_products/rri_examples/data_1.7z>`_ 
+- iRIC software project file 　→ `data_1_iRIC <https://uc.i-ric.org/uc_products/rri_examples/2016_minami-furano.ipro>`_  
 
 
 
-１．流域地形データセットの取得
+１．Preparation for the Basin Topographic Dataset
 --------------------------------------------------
-流域地形データセットは、「0.サンプルデータ」でダウンロードできるデータの中に入っていますが、以下の方法でも取得することができます。
+The basin topographic dataset is included in the data downloadable from "0. Sample Data".
+(Please also refer to the section 'Overview 1.')
+Members of iRIC-UC can obtain those using the following method:
 
-- [1]  `「流域データ抽出」  <https://tools.i-ric.info/login/>`_    にアクセスします
-- [2] ここでは3秒メッシュであるMERIT Hydroのデータをダウンロードします。
-- [3] STEP1 空知川幾寅地区を拡大し、対象流域の下流端をクリックします。
+- [1] Access the tool `'Basin Data Extraction'  <https://tools.i-ric.info/login/>`_ 
+- [2] Download the 3-second mesh MERIT Hydro data.
+- [3] STEP 1: Zoom in on the Ikutora area of the Sorachi River and click on the downstream end of the target watershed.
 
    .. image:: img_1/step1_click2.jpg
         :width: 640px
 
-- [4] STEP2 「検索」ボタンをクリックすると、対象流域が抽出されます。
+- [4] STEP 2: Click the "Search" button, and the target watershed will be extracted.
 
     .. image:: img_1/step2_extract2.jpg
         :width: 640px
 
-- [5] STEP3 「取得」ボタンをクリックし、抽出されたデータを適当な場所にダウンロードしてください。
-
+- [5] STEP 3: Click the "Download" button and download the extracted data to a suitable location.
 
 
 -----
 
-２．降雨データセットの作成
+２．Preparation of Rainfall dataset
 --------------------------------------------------
 降雨データセット、「0.サンプルデータ」ダウンロードできるデータの"data_1/02_rain"の中に対象地域の対象期間の解析雨量を切り出したデータを格納しています。
 解析雨量については、 `気象庁のホームページ <https://www.jma.go.jp/jma/kishou/know/kurashi/kaiseki.html#:~:text=%E8%A7%A3%E6%9E%90%E9%9B%A8%E9%87%8F%E3%81%A8%E9%80%9F%E5%A0%B1%E7%89%88,%E3%81%94%E3%81%A8%E3%81%AB%E4%BD%9C%E6%88%90%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%E3%80%82>`_ をご確認ください。
