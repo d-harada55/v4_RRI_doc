@@ -1,6 +1,6 @@
 Example 1: Sorachi River, August 2016
 ==================================================
-From August 29th to 31st, 2016, heavy rainfall caused a levee breach and river flooding in the Sorachi River. Details on the heavy rainfall and flooding conditions are described in the investigation report [1]_, and the paper [2]_ (Sorry those literatures are in Japanese).
+From August 29th to 31st, 2016, heavy rainfall caused a levee breach and river flooding in the Sorachi River. Details on the heavy rainfall and flooding conditions are described in the investigation report [1]_, and the paper [2]_ (we apologize, but those references are in Japanese.).
 
 This section demonstrates the procedure for simulating the flooding in the Sorachi River basin during that event using RRI on iRIC.
 
@@ -9,7 +9,7 @@ This section demonstrates the procedure for simulating the flooding in the Sorac
 
 -----
 
-0. Sample data
+1. Sample data
 --------------------------------------------------
 The sample data used in this example can be downloaded from the following links:
 
@@ -43,63 +43,67 @@ Members of iRIC-UC can obtain those using the following method:
 
 ２．Preparation of Rainfall dataset
 --------------------------------------------------
-降雨データセット、「0.サンプルデータ」ダウンロードできるデータの"data_1/02_rain"の中に対象地域の対象期間の解析雨量を切り出したデータを格納しています。
-解析雨量については、 `気象庁のホームページ <https://www.jma.go.jp/jma/kishou/know/kurashi/kaiseki.html#:~:text=%E8%A7%A3%E6%9E%90%E9%9B%A8%E9%87%8F%E3%81%A8%E9%80%9F%E5%A0%B1%E7%89%88,%E3%81%94%E3%81%A8%E3%81%AB%E4%BD%9C%E6%88%90%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%E3%80%82>`_ をご確認ください。
-ファイル名に含まれる時刻の降雨データがそれぞれASC形式のファイルに格納されています。時刻はUTCです。なおASC形式のデータはGISで可視化表示することができます。
-"asc2raindat.py"は、フォルダに含まれるASC形式のデータから、RRI用の降雨データ形式のファイルを作成するPythonスクリプトです。Python実行環境がある方はそれを利用してみてください。
-Python実行環境がなくても、すでにRRI用の降雨データ形式に変換したファイル"rain.dat"も一緒に格納しています。
+The rainfall dataset is included in the "data_1/02_rain" folder of the data downloadable from "0. Sample Data". 
+This folder contains processed rainfall data for the target area and period, extracted from analyzed rainfall data. 
+For details on analyzed rainfall data, please refer to the `Japan Meteorological Agency website <https://www.jma.go.jp/jma/kishou/know/kurashi/kaiseki.html#:~:text=%E8%A7%A3%E6%9E%90%E9%9B%A8%E9%87%8F%E3%81%A8%E9%80%9F%E5%A0%B1%E7%89%88,%E3%81%94%E3%81%A8%E3%81%AB%E4%BD%9C%E6%88%90%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%E3%80%82>`_ をご確認ください。
+
+The rainfall data for each time step, indicated in the filename, is stored in a separate file in ASC format. 
+The time is in UTC. Data in ASC format can be visualized and displayed in GIS.
+"asc2raindat.py" is a Python script that creates a rainfall data file in the RRI format from the ASC format data in the folder. 
+If you have a Python execution environment, you can use it. 
+If you do not have a Python execution environment, a file "rain.dat", which has already been converted to the RRI rainfall data format, is also included.
+
+**<Data check>**
+
+Time-series ASC format files can be visualized and checked on iRIC using the following procedure. 
+The data imported here is not used for calculation. This function is only for visualization and confirmation.
+
+- Launch iRIC and select RRI.
+- Right-click on "Rain[mm/h]: Data Check Only" in the Object Browser and select "Import".
+- Select one file in the folder where the time-series, ASC format rainfall data is stored, and click "Open".
+- A screen will appear asking you to specify the coordinate system used for the file data. Click "OK".
 
 
-**<データ確認>**
-
-iRIC上で時系列のASC形式ファイルを以下の手順で可視化確認することができます。
-**ここでインポートするデータは計算には利用されません。あくまでも確認のために可視化する機能です。**
-
-- iRICを起動し、RRIを選択します
-- 「オブジェクトブラウザー＞Rain[mm/h]:Data Check Only」を右クリックし、インポートを選択します。
-- 時系列、ASC形式で降雨データが格納されているフォルダで、一つファイルを選択、「開く」をクリックします
-- ファイルのデータに利用されている座標系を指定する画面が表示されるので「OK」をクリックします
-
-   .. image:: img_1/set_coordinates_for_file2.jpg
+   .. image:: img_1/set_coordinates_for_file2_en.jpg
         :width: 480px
         :align: center
 
-- ここではEPSG:4326: WGS84指定し、「OK」をクリックします。
+- Select "EPSG:4326: WGS84" and click "OK".
 
-   .. image:: img_1/set_coordinates_for_file_2.jpg
-        :width: 480px
-        :align: center
-
-
-- 同様にファイルのデータに利用されている座標系を指定する画面が表示されるので「OK」をクリックします
-
-   .. image:: img_1/set_coordinates_for_file.jpg
-        :width: 480px
-        :align: center
-
-- 同じくEPSG:4326: WGS84指定し、「OK」をクリックします。
-
-   .. image:: img_1/set_coordinates_for_file_2.jpg
+   .. image:: img_1/set_coordinates_for_file_2_en.jpg
         :width: 480px
         :align: center
 
 
-- iRICではファイル名に年月日時刻が含まれていることを前提にしています。ここではそのフォーマットを指定しています。
-- 認識結果に適当な年月日時刻が表示されればOKです。
+-  screen will appear again asking you to specify the coordinate system used for the file data. Click "OK".
 
-   .. image:: img_1/set_datetime2.jpg
+   .. image:: img_1/set_coordinates_for_file_en.jpg
         :width: 480px
         :align: center
 
-- 正しく認識されたデータの一覧が表示されます。「OK」をクリックします。
+- Select "EPSG:4326: WGS84" again and click "OK".
 
-   .. image:: img_1/import_list2.jpg
+   .. image:: img_1/set_coordinates_for_file_2_en.jpg
         :width: 480px
         :align: center
 
-- インポートが開始されます。インポートが完了する以下のように降雨データを可視化することができます。時系列変化を確認することもできます。背景画像に「国土地理院（標準地図）」などを表示するとより確認しやすくなります。
 
-   .. image:: img_1/finish_import_data.jpg
+- iRIC assumes that the file name includes the date and time. Here, you specify the format. 
+- If an appropriate date and time are displayed in the recognition result, click "OK."
+
+   .. image:: img_1/set_datetime2_en.jpg
+        :width: 480px
+        :align: center
+
+- A list of correctly recognized data will be displayed. Click "OK".
+
+   .. image:: img_1/import_list2_en.jpg
+        :width: 480px
+        :align: center
+
+- Import will begin. Once the import is complete, you can visualize the rainfall data as shown below. You can also check the time-series changes. It will be easier to check if you display map on the background image.
+
+   .. image:: img_1/finish_import_data_en.jpg
         :width: 640px
         :align: center
 
