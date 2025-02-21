@@ -197,6 +197,31 @@ The smaller the threshold value for identifying river channel cells, the further
      - | Manning Roughness for River Region：0.03
        | threshold of flow accumulation：500
 
+-----
+
+3.5 Slope Simulation Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Slope simulation parameters are set in relation to the cell attribute "Land Use Type". In this example, since "Land Use Type" is not specified, "Land Use Type" for all cells will be "Region1". 
+Here, the parameters are adjusted for the inflow to the Terauchi Dam, and are set as follows:
+
+.. list-table:: Slope Simulation Parameters
+   :widths: 70 30
+   :header-rows: 1
+
+   * - Screen
+     - Condition
+   * - .. image:: img_2/cond_5.jpg
+     - | Only parameters for Region1 are enabled.
+
+       | Manning's Roughness for Slope: 0.4
+       | Soil Layer Thickness (m): 0.7
+       | Void Ratio: 0.471
+
+       | ksv[m/s]: 0
+
+       | ka[m/s]: 0.06
+       | Unsat.porosity: 0.1
+       | beta: 8
 
 
 
