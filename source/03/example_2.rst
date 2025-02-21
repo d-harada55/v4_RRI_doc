@@ -1,21 +1,205 @@
-Example2：2020年7月 球磨川
+Example3：(RSR model) Kurokawa river, July 2017
 ==================================================
-2020年7月3日から4日の大雨で球磨川流域人吉地区では大規模な河川氾濫が生じました。気象情報については [1]_ に詳しく記載されています。
-ここでは、そのときの球磨川流域の状況をRRI on iRICでシミュレーションする手順を示します。
+From July 5, 2017, heavy rainfall (the July 2017 Northern Kyushu Heavy Rain) caused numerous flood inundation with a large amount of sediment and driftwood in Asakura City, Fukuoka Prefecture, resulting in significant damage. 
+This example demonstrates the procedure for applying the RSR model to the Terauchi Dam basin, located in the upper reaches of the Sada River, a tributary of the Chikugo River system, referencing the analysis results in [1]_.  (we apologize that the reference is in Japanese at this moment.).
+This example alanlyze a sub-basin of the Sada River, the Kurokawa River basin (catchment area approximately 12.8 km²).
 
-.. [1] `災害時気象資料　令和２年７月５日　熊本地方気象台 <https://www.jma-net.go.jp/fukuoka/chosa/saigai/20200705_kumamoto.pdf>`_ 
-.. [2] `令和2年7月豪雨に関する情報　国土地理院 <https://www.gsi.go.jp/BOUSAI/R2_kyusyu_heavyrain_jul.html>`_ 
+.. [1] `原田大輔, 江頭進治, 秦梦露. (2024). 降雨-土砂・流木流出モデルの特性-土砂粒度分布と流木の時空間変化に着目して. 河川技術論文集, 30, 335-340. <https://www.jstage.jst.go.jp/article/river/30/0/30_335/_article/-char/ja/>`_ 
+-----
 
+0. Sample data
+--------------------------------------------------
+The sample data used in this example can be downloaded from the following links:
 
+- Terrain and rainfall dataset → data_2 (under Preparation)
+- iRIC software project file → data_2_iRIC (under Preparation)
+-----
+
+１．Creating the Watershed Topographic Dataset
+--------------------------------------------------
+This analysis involves landslide and debris flow calculations, requiring the creation of a watershed topographic dataset using a fine mesh size, such as 10m. 
+The watershed topographic dataset consists of elevation data (DEM), the number of accumulated upslope cells (ACC), and the flow direction (DIR), and the creation method is described in Chapter 3 of the RRI manual and elsewhere. 
+The watershed topographic dataset for this example is included in the data downloadable from "0. Sample Data," and the creation method is as follows:
+
+- [1] Within Japan, 10m mesh elevation data (DEM) can be downloaded from the Geospatial Information Authority of Japan's Fundamental Geospatial Data (Digital Elevation Model). You can also obtain high-resolution terrain data from `ASTER GDEM <https://www.jspacesystems.or.jp/ersdac/GDEM/E/1.html>`_
+- [2] Using hydrological analysis tools such as Arc Hydro tools, perform filling (Fill DEM) on the DEM elevation data, then extract the watershed and create the number of accumulated upslope cells (ACC) and flow direction (DIR).
+- [3] Store the created data (DEM, ACC, DIR) in a suitable location.
+-----
+
+２．Creating the Rainfall Dataset
+--------------------------------------------------
+The rainfall dataset is included in the "data_3/02_rain" folder of the data downloadable from "0. Sample Data". This folder contains processed rainfall data for the target area and period, extracted from analyzed rainfall data. 
+For details on analyzed rainfall data, please refer to the  `Japan Meteorological Agency website <https://www.jma.go.jp/jma/kishou/know/kurashi/kaiseki.html#:~:text=%E8%A7%A3%E6%9E%90%E9%9B%A8%E9%87%8F%E3%81%A8%E9%80%9F%E5%A0%B1%E7%89%88,%E3%81%94%E3%81%A8%E3%81%AB%E4%BD%9C%E6%88%90%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%E3%80%82>`_
+
+For this example, the file "rain.dat", which has already been converted to the RRI rainfall data format, is provided. 
+Members of the iRIC-UC can create rainfall data files ("rain.dat") using `UC tools <https://tools.i-ric.info/login/>`.
 
 -----
 
-0. サンプルデータ
+３．Calculation condition (Flow only)
 --------------------------------------------------
-この事例で利用するサンプルデータは以下からダウンロードすることができます。
 
-- 地形および降雨データセット → `data_2 <https://uc.i-ric.org/uc_products/rri_examples/data_2.7z>`_  
-- iRICソフトウェア用プロジェクトファイル　→ `data_2_iRIC <https://uc.i-ric.org/uc_products/rri_examples/2020_kumagawa.ipro>`_  
+3.1 Creating and Verifying the Grid and Grid Attributes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Open the calculation condition setting screen from "Calculation Condition > Setting". Set the conditions as follows in the "Group > Base Conditions" section.
+
+When performing sediment calculations, the channel width is an important parameter for evaluating bed shear stress, so set it to correspond to the actual conditions in the field. 
+Also, in this calculation, the parameters related to channel depth (`Cd`) are set to large values to prevent the river channel from being completely filled with sediment.
+
+.. list-table:: Base Conditions Group
+   :widths: 80 20
+   :header-rows: 1
+
+   * - Screen
+     - Condition
+   * - .. image:: img_2/cond_1.jpg
+     - | Execution Mode: "Make Geographic Condition Only"
+
+       | Basic Parameters
+       |  - Coordinate System: LatLon
+       |  - Number of Flow Directions: 8
+
+       | Data File Settings
+       |  - DEM: filldem.txt
+       |  - Acc: acc.txt
+       |  - Dir: dir_kurokawa.txt
+
+       | Channel Shape Parameters
+       |  - :math:`C_w=12, S_w=0.5`
+       |  - :math:`C_d=8, S_d=0.2`
+       |  - Levee Height [m] = 0, Levee Cell Threshold = 500
+
+Click "Save and Close", then click "Calculation > Run".
+
+You may see the following warnings, but they can be ignored.
+
+Click "Yes".
+    .. image:: img_2/warning_nogrid.jpg
+        :width: 480px
+        :align: center
+
+Click "OK".
+    .. image:: img_2/warning_mapping2.jpg
+        :width: 480px
+        :align: center
+
+Save the project in ipro format.
+    .. image:: img_2/save_ipro.jpg
+    :width: 480px
+    :align: center
+
+When data processing begins, the following screen will be displayed.
+    .. image:: img_2/running2.jpg
+        :width: 640px
+        :align: center
+
+When processing is complete, the following screen will be displayed.
+    .. image:: img_2/end_run.jpg
+    :width: 240px
+    :align: center
+
+Save the project and reopen it from "File > Open".
+
+You can check the grid shape and the created cell attribute values in "Object Browser > Grid".
+
+To display the map, set the coordinate system from "File > Propaty > Coordinate System" and select "WGS84" or a similar system. 
+
+Check the "Cell Attributes" box to display each information type.
+
+Grid Shape (532 × 414 = 220248)
+
+Elevation (DEM) [m]: Elevation value of each cell.
+.. image:: img_3/ini_elv.jpg
+    :width: 640px
+    :align: center
+
+Accumulated Cell Count (ACC): Number of upstream accumulated pixels for each cell. Multiplying this value by the cell area gives the upstream accumulation area (A).
+.. image:: img_3/ini_acc.jpg
+    :width: 640px
+    :align: center
+
+Flow Direction (DIR): Flow direction for each cell. East(1), South-East(2), South(4), South-West(8), West(16), North-West(32), North(64), North-East(128).
+.. image:: img_3/ini_dir.jpg
+    :width: 640px
+    :align: center
+
+Channel Width [m]: Channel width is set using the function  :math:`W = C_w A^{S_w}`, where A is the upstream accumulation area and the parameters are those specified.
+.. image:: img_3/ini_width.jpg
+    :width: 640px
+    :align: center
+
+Channel Depth [m]: Channel depth is set using the function :math:`D = C_d A^{S_d}`, where A is the upstream accumulation area and the parameters are those specified.
+
+Other set parameters, such as Levee Height (m), can also be confirmed here. If you map land use, rainfall distribution set in 3.2, rainfall (mm/h), and grain size distribution (area) set on slopes and river channels as cell attributes, you can also check them here.
+
+-----
+
+3.2 Setting Rainfall 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Use the "rain.dat" data file shown in "2. Creating the Rainfall Dataset" for the rainfall conditions.
+
+Open the calculation condition setting screen from "Calculation Condition > Setting", select "Group > Rain", and set the following:
+
+.. list-table:: Rainfall
+   :widths: 70  30
+   :header-rows: 1
+
+   * - Screen
+     - Condition
+   * - .. image:: img_2/cond_2.jpg
+     - | Rain file: Specify the "rain.dat" file
+     - | downloaded as sample data.
+
+     - | xllcorner_rain: 130
+     - | yllcorner_rain: 33.33
+     - | cellsize_rain_x: 0.0125
+     - | cellsize_rain_y: 0.0083333
+
+
+
+
+
+
+
+
+
+「計算条件＞設定」から計算条件設定画面を開きます。「グループ＞基本条件」で以下のように条件を設定します。
+
+土砂の計算を行う場合、掃流力の評価において川幅が重要なパラメータとなるため、現地の状況と対応するように設定します。また、本計算では土砂の堆積によって河道が埋まらないよう、河道深さに関するパラメータ（Cd）を大きくしています。
+
+.. list-table:: 基本条件グループ
+   :widths: 80 20
+   :header-rows: 1
+
+   * - 画面
+     - 条件
+   * - .. image:: img_3/cond_1.jpg
+     - | 実行モード：「格子・格子属性生成」
+
+       | 基本パラメータ
+       |  - 座標系: 緯度経度
+       |  - 流向数: 8
+
+       | データファイル設定
+       |  - DEM: 水文補正標高(filldem)
+       |  - Acc: 上流集水グリッド数
+       |  - Dir: 表面流向データ
+
+       | 河道形状パラメータ
+       |  - :math:`C_w=12, S_w=0.5`
+       |  - :math:`C_d=8, S_d=0.2`
+       |  - 堤防高[m]=0, 堤防セル閾値=500
+
+
+「保存して閉じる」をクリックし、「計算＞実行」をクリックします。
+以下のような警告が表示されるかもしれませんが、問題ないので無視してください。
+
+「いいえ」をクリックします。
+
+
+
+
+
 
 
 １．流域地形データセットの取得

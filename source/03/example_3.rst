@@ -1,4 +1,4 @@
-Example3：(RSRモデル) 2017年7月 黒川
+Example3：(RSR model) 
 ==================================================
 2017年7月5日からの大雨（九州北部豪雨）で、福岡県朝倉市ではいわゆる土砂・洪水氾濫が多数発生し、大きな被害を受けました。
 筑後川水系佐田川の上流域の寺内ダム流域にRSRモデルを適用して解析した結果 [1]_ について、
@@ -9,14 +9,17 @@ Example3：(RSRモデル) 2017年7月 黒川
 
 0. サンプルデータ (置き場所検討中)
 --------------------------------------------------
-この事例で利用するサンプルデータは以下からダウンロードすることができます。
+The sample data used in this example can be downloaded from the following links:
 
-- 地形および降雨データセット → `data_1 <https://uc.i-ric.org/uc_products/rri_examples/data_1.7z>`_ 
-- iRICソフトウェア用プロジェクトファイル　→ `data_1_iRIC <https://uc.i-ric.org/uc_products/rri_examples/2016_minami-furano.ipro>`_  
+- Terrain and rainfall dataset → data_2 (under Preparation)
+- iRIC software project file → data_2_iRIC (under Preparation)
 
-
-１．流域地形データセットの作成
+１．Creating the Watershed Topographic Dataset
 --------------------------------------------------
+This analysis involves landslide and debris flow calculations, requiring the creation of a watershed topographic dataset using a fine mesh size, such as 10m. The watershed topographic dataset consists of elevation data (DEM), the number of accumulated upslope cells (ACC), and the flow direction (DIR), and the creation method is described in Chapter 3 of the RRI manual and elsewhere.  The watershed topographic dataset for this example is included in the data downloadable from "0. Sample Data," and the creation method is as follows:
+
+
+
 本解析では、崩壊・土石流の解析を行うため、10mメッシュ等の細かいメッシュを用いて流域地形データセットを作成します。
 流域地形データセットは標高データ（DEM）、集水ピクセル数（ACC）、落水方向（DIR）から構成され、その作成方法はRRIマニュアルの第３章等に記載されています。
 本解析例の流域地形データセットは、「0.サンプルデータ」でダウンロードできるデータの中に入っており、作成方法は以下の通りです。
