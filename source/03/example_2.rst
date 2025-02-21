@@ -223,6 +223,26 @@ Here, the parameters are adjusted for the inflow to the Terauchi Dam, and are se
        | Unsat.porosity: 0.1
        | beta: 8
 
+-----
+
+4．Run Calculation (Flow only)
+--------------------------------------------------
+Before performing sediment calculations, it is recommended to run a flow-only calculation first to verify that the calculation conditions are set correctly and to perform calibration. 
+In this example, the parameters used have been calibrated for water runoff for the entire Terauchi Dam basin.
+
+On the calculation condition screen, set the execution mode in "Basse Conditions" to "Run only". Click "OK" to close the calculation condition setting screen.
+
+.. image:: img_3/cond_0.jpg
+        :width: 480px
+        :align: center
+
+Execute the calculation by clicking "Calculation > Run".
+  **Always save your data before running the calculation.** 
+On a typical desktop computer, the calculation time is about 5-10 minutes. When the calculation is complete, a screen will appear indicating completion.
+
+
+
+
 
 
 
