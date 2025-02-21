@@ -1,4 +1,4 @@
-Example3：(RSR model) Kurokawa river, July 2017
+Example 2：(RSR model) Kurokawa river, July 2017
 ==================================================
 From July 5, 2017, heavy rainfall (the July 2017 Northern Kyushu Heavy Rain) caused numerous flood inundation with a large amount of sediment and driftwood in Asakura City, Fukuoka Prefecture, resulting in significant damage. 
 This example demonstrates the procedure for applying the RSR model to the Terauchi Dam basin, located in the upper reaches of the Sada River, a tributary of the Chikugo River system, referencing the analysis results in [1]_.  (we apologize that the reference is in Japanese at this moment.).
@@ -53,7 +53,8 @@ Also, in this calculation, the parameters related to channel depth (`Cd`) are se
    * - Screen
      - Condition
    * - .. image:: img_2/cond_1.jpg
-     - | Execution Mode: "Make Geographic Condition Only"
+     - | Execution Mode: 
+       | "Make Geographic Condition Only"
 
        | Basic Parameters
        |  - Coordinate System: LatLon
@@ -67,7 +68,8 @@ Also, in this calculation, the parameters related to channel depth (`Cd`) are se
        | Channel Shape Parameters
        |  - :math:`C_w=12, S_w=0.5`
        |  - :math:`C_d=8, S_d=0.2`
-       |  - Levee Height [m] = 0, Levee Cell Threshold = 500
+       |  - Levee Height [m] = 0 
+       |  - Levee Cell Threshold = 500
 
 Click "Save and Close", then click "Calculation > Run".
 
@@ -85,8 +87,8 @@ Click "OK".
 
 Save the project in ipro format.
     .. image:: img_2/save_ipro.jpg
-    :width: 480px
-    :align: center
+        :width: 480px
+        :align: center
 
 When data processing begins, the following screen will be displayed.
     .. image:: img_2/running2.jpg
@@ -95,8 +97,8 @@ When data processing begins, the following screen will be displayed.
 
 When processing is complete, the following screen will be displayed.
     .. image:: img_2/end_run.jpg
-    :width: 240px
-    :align: center
+        :width: 240px
+        :align: center
 
 Save the project and reopen it from "File > Open".
 
@@ -109,22 +111,22 @@ Check the "Cell Attributes" box to display each information type.
 Grid Shape (532 × 414 = 220248)
 
 Elevation (DEM) [m]: Elevation value of each cell.
-.. image:: img_3/ini_elv.jpg
+.. image:: img_2/ini_elv.jpg
     :width: 640px
     :align: center
 
 Accumulated Cell Count (ACC): Number of upstream accumulated pixels for each cell. Multiplying this value by the cell area gives the upstream accumulation area (A).
-.. image:: img_3/ini_acc.jpg
+.. image:: img_2/ini_acc.jpg
     :width: 640px
     :align: center
 
 Flow Direction (DIR): Flow direction for each cell. East(1), South-East(2), South(4), South-West(8), West(16), North-West(32), North(64), North-East(128).
-.. image:: img_3/ini_dir.jpg
+.. image:: img_2/ini_dir.jpg
     :width: 640px
     :align: center
 
 Channel Width [m]: Channel width is set using the function  :math:`W = C_w A^{S_w}`, where A is the upstream accumulation area and the parameters are those specified.
-.. image:: img_3/ini_width.jpg
+.. image:: img_2/ini_width.jpg
     :width: 640px
     :align: center
 
@@ -155,7 +157,26 @@ Open the calculation condition setting screen from "Calculation Condition > Sett
      - | cellsize_rain_x: 0.0125
      - | cellsize_rain_y: 0.0083333
 
+This completes the rainfall data settings.
+-----
 
+3.3 Time Control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+On the calculation condition setting screen, select "Group > Time Control" and set the following:  
+This time, to shorten the calculation time, the analysis is performed only for the 13 hours around the peak rainfall time.
+
+.. list-table:: Time Control
+   :widths: 70 30
+   :header-rows: 1
+
+   * - Screen
+     - Condition
+   * - .. image:: img_3/cond_3.jpg
+
+     - | Simulation Time [hour]: 13
+     - | Slope Calculation Time Step [sec]: 600
+     - | River Channel Calculation Time Step [sec]: 60
+     - | Number of Outputs: 13
 
 
 
