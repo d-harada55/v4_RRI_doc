@@ -146,8 +146,8 @@ Open the calculation condition setting screen from "Calculation Condition > Sett
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
+   * - Screen
+     - Condition
    * - .. image:: img_2/cond_2.jpg
      - | Rain file: Specify the "rain.dat" file
        | downloaded as sample data.
@@ -159,6 +159,7 @@ Open the calculation condition setting screen from "Calculation Condition > Sett
 
 
 This completes the rainfall data settings.
+
 -----
 
 3.3 Time Control
@@ -172,14 +173,29 @@ This time, to shorten the calculation time, the analysis is performed only for t
 
    * - Screen
      - Condition
-   * - .. image:: img_3/cond_3.jpg
-
+   * - .. image:: img_2/cond_3.jpg
      - | Simulation Time [hour]: 13
-     - | Slope Calculation Time Step [sec]: 600
-     - | River Channel Calculation Time Step [sec]: 60
-     - | Number of Outputs: 13
+       | Time Step for Slope Simulation [sec]: 600
+       | Time Step for River Simulation [sec]: 60
+       | Number for Output Times: 13
 
+-----
 
+3.4 River Simulation Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Here, specify the threshold value for identifying river channel cells and the Manning's roughness coefficient for cells identified as river channel cells.
+
+The smaller the threshold value for identifying river channel cells, the further upstream the river channel (where bed load and suspended load calculations are performed) will be considered, making this threshold value as a kind of parameter.
+
+.. list-table:: River Simulation Parameters
+   :widths: 70 30
+   :header-rows: 1
+
+   * - Screen
+     - Condition
+   * - .. image:: img_2/cond_4.jpg
+     - | Manning Roughness for River Region：0.03
+       | threshold of flow accumulation：500
 
 
 
