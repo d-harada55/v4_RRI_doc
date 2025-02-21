@@ -109,12 +109,13 @@ The data imported here is not used for calculation. This function is only for vi
 
 -----
 
-３．計算条件設定
+３．Calculation conditions
 --------------------------------------------------
 
-3.1 格子・格子属性の作成・確認
+3.1 Creating and Verifying the Grid and Grid Attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 「計算条件＞設定」から計算条件設定画面を開きます。「グループ＞基本条件」で以下のように条件を設定します。
+Open the calculation condition setting screen from "Calculation Condition > Setting".  Set the conditions as follows in the "Group > Base Conditions" section.
 
 
 .. list-table:: 基本条件グループ
@@ -123,67 +124,55 @@ The data imported here is not used for calculation. This function is only for vi
 
    * - 画面
      - 条件
-   * - .. image:: img_1/cond_1.jpg
-     - | モード：「格子・格子属性生成」
-       
-       | データファイル設定
-       |  - DEM: 水文補正標高(elv_export.asc)
-       |  - Acc: 上流集水グリッド数(upg_export.asc)
-       |  - Dir: 表面流向データ(dir_export.asc)
+   * - .. image:: img_1/cond_1_en.jpg
+     - | Run type：Make Geographic Condition Only
 
-       | 河道形状をパラメータ-
+       | Base Parameters
+       |  - Coordinate System: LatLon
+       |  - Number for DIR Directions: 8
+
+       | Geographic Data file
+       |  - DEM: Hydrologically corrected elevation (elv_export.asc)
+       |  - Acc: Number of upstream accumulated grids (upg_export.asc)
+       |  - Dir: Surface flow direction data (dir_export.asc)
+
+       | River Shape Parameters
        |  - :math:`C_w=5, S_w=0.35`
        |  - :math:`C_d=0.95, S_d=0.2`
-       |  - 堤防高[m]=2, 堤防セル閾値=1000
+       |  - Levee Height [m] = 2, Levee Cell Threshold = 1000
 
 
-「保存して閉じる」をクリックし、「計算＞実行」をクリックします。
-以下のような警告が表示されるかもしれませんが、問題ないので無視してください。
+Click "Save and Close", then click "Calculation > Run".
 
-「いいえ」をクリックします。
-    .. image:: img_1/warning_mapping.jpg
+You may see the following warnings, but they can be ignored.
+
+    .. image:: img_1/warning_mapping_en.jpg
         :width: 480px
         :align: center
 
-
-「はい」をクリックします。
-    .. image:: img_1/warning_nogrid.jpg
-        :width: 480px
-        :align: center
-
-以下のような警告が表示されるかもしれませんが、問題ないので無視してください。
-「OK」をクリックします。
-    .. image:: img_1/warning_mapping2.jpg
-        :width: 480px
-        :align: center
-
-
-保存はipro形式としてください。
-    .. image:: img_1/save_ipro.jpg
-        :width: 480px
-        :align: centeraa
-
-データ処理が始まると以下の画面が表示されます。
-    .. image:: img_1/running2.jpg
-        :width: 640px
-        :align: center
-
-処理が完了すると以下の画面が表示されます。
-    .. image:: img_1/end_run.jpg
+When processing is complete, the following screen will be displayed.
+    .. image:: img_1/end_run_en.jpg
         :width: 240px
         :align: center
+
+Save the project in ipro format. Erom "File > Save as file (ipro)".
+
+Close the iRIC and reopen it the saved file.
+
+You can check the grid shape and the created cell attribute values in "Object Browser > Grid".
+
 
 プロジェクトを保存し、「ファイル＞開く」から再度プロジェクトを開いてください。
 
 「オブジェクトブラウザ＞格子」の格子形状、および、セル属性で作成された値を確認することができます。
 
-格子形状（293×481=140933）
-    .. image:: img_1/ini_grid.jpg
+Grid Shape (293 × 481 = 140933)
+    .. image:: img_1/ini_grid_en.jpg
         :width: 640px
         :align: center
 
-Elevation[m] 各セルの標高値です。
-    .. image:: img_1/ini_elv.jpg
+Elevation [m]: Elevation value of each cell.
+    .. image:: img_1/ini_elv_en.jpg
         :width: 640px
         :align: center
 
