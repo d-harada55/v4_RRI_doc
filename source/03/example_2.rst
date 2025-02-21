@@ -56,22 +56,22 @@ Also, in this calculation, the parameters related to channel depth (`Cd`) are se
      - | Execution Mode: 
        | "Make Geographic Condition Only"
 
-       | Basic Parameters
+       | Base Parameters
        |  - Coordinate System: LatLon
-       |  - Number of Flow Directions: 8
+       |  - Number for DIR Directions: 8
 
-       | Data File Settings
+       | Geographic data file
        |  - DEM: filldem.txt
        |  - Acc: acc.txt
        |  - Dir: dir_kurokawa.txt
 
-       | Channel Shape Parameters
+       | River Shape Parameters
        |  - :math:`C_w=12, S_w=0.5`
        |  - :math:`C_d=8, S_d=0.2`
        |  - Levee Height [m] = 0 
        |  - Levee Cell Threshold = 500
 
-Click "Save and Close", then click "Calculation > Run".
+Click "OK", then click "Calculation > Run".
 
 You may see the following warnings, but they can be ignored.
 
@@ -111,24 +111,24 @@ Check the "Cell Attributes" box to display each information type.
 Grid Shape (532 × 414 = 220248)
 
 Elevation (DEM) [m]: Elevation value of each cell.
-.. image:: img_2/ini_elv.jpg
-    :width: 640px
-    :align: center
+    .. image:: img_2/ini_elv.jpg
+        :width: 640px
+        :align: center
 
 Accumulated Cell Count (ACC): Number of upstream accumulated pixels for each cell. Multiplying this value by the cell area gives the upstream accumulation area (A).
-.. image:: img_2/ini_acc.jpg
-    :width: 640px
-    :align: center
+    .. image:: img_2/ini_acc.jpg
+        :width: 640px
+        :align: center
 
 Flow Direction (DIR): Flow direction for each cell. East(1), South-East(2), South(4), South-West(8), West(16), North-West(32), North(64), North-East(128).
-.. image:: img_2/ini_dir.jpg
-    :width: 640px
-    :align: center
+    .. image:: img_2/ini_dir.jpg
+        :width: 640px
+        :align: center
 
 Channel Width [m]: Channel width is set using the function  :math:`W = C_w A^{S_w}`, where A is the upstream accumulation area and the parameters are those specified.
-.. image:: img_2/ini_width.jpg
-    :width: 640px
-    :align: center
+    .. image:: img_2/ini_width.jpg
+        :width: 640px
+        :align: center
 
 Channel Depth [m]: Channel depth is set using the function :math:`D = C_d A^{S_d}`, where A is the upstream accumulation area and the parameters are those specified.
 
@@ -143,19 +143,20 @@ Use the "rain.dat" data file shown in "2. Creating the Rainfall Dataset" for the
 Open the calculation condition setting screen from "Calculation Condition > Setting", select "Group > Rain", and set the following:
 
 .. list-table:: Rainfall
-   :widths: 70  30
+   :widths: 70 30
    :header-rows: 1
 
-   * - Screen
-     - Condition
+   * - 画面
+     - 条件
    * - .. image:: img_2/cond_2.jpg
      - | Rain file: Specify the "rain.dat" file
-     - | downloaded as sample data.
+       | downloaded as sample data.
+       
+       | xllcorner_rain:130
+       | yllcorner_rain:33.33
+       | cellsize_rain_x:0.0125
+       | cellsize_rain_y:0.0083333
 
-     - | xllcorner_rain: 130
-     - | yllcorner_rain: 33.33
-     - | cellsize_rain_x: 0.0125
-     - | cellsize_rain_y: 0.0083333
 
 This completes the rainfall data settings.
 -----
