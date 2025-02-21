@@ -362,89 +362,86 @@ When conducting landslide and debris flow analysis, open "+ Landslides and Debri
        |  - Exclude landslides below this rainfall (mm):10  
      
 
-6.5 流木の解析条件設定
+6.5 Driftwood computation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-流木の解析を行う場合、「+流木の計算」を開き、条件を設定します。
+When conducting driftwood analysis, open "+ Driftwood Calculation" and set the conditions.
 
-
-.. list-table:: +土砂流出(RSR)モデル
+.. list-table:: +Driftwood
    :widths: 70 30
    :header-rows: 1
 
-   * - 画面
-     - 条件
-   * - .. image:: img_3/cond_9.jpg
-     - | 流木の計算：有効
+   * - Screen
+     - Condition
+   * - .. image:: img_2/cond_9.jpg
+     - | - Driftwood Computation: Enabled
 
-       |  - 立木の密度(m3/m2): 0.1 
+       |  - Density of Standing Trees (m³/m²): 0.1
 
 
-6.6 計算実行
+6.6 Running the Calculation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-土砂・流木の解析条件の設定が終わったら、計算を実行します。
+After setting the sediment and driftwood analysis conditions, run the calculation.
 
-「計算＞実行」から計算を実行してください。
-計算実行前には必ず、データを保存してください。
-一般的なデスクトップコンピュータで、10-15分程度の計算時間です。
-計算が終了すると、終了を知らせる画面が表示されます。
+Click "Calculation > Run" to execute the calculation.  
+Always save your data before running the calculation.  
+On a typical desktop computer, the calculation time is about 10-15 minutes. 
+When the calculation is complete, a screen will appear indicating completion.
+
 
 -----
 
-７．計算結果分析・可視化（土砂の計算後）
+７．Analyzing and Visualizing Calculation Results (with RSR model)
 --------------------------------------------------
-計算が正常に終了すると、可視化ウィンドウの表示が可能となります。
-以下の項目について確認できます。
+Once the calculation has finished successfully, the visualization window becomes available. You can check the following items:
 
-===================================== ==========================================
-表示名                                 意味                                     
-===================================== ==========================================
-Bedload transport rate                掃流砂量(m3/s)
-Suspended sediment transport rate     浮遊砂量(m3/s)
-Elevation change (m)                  河床変動量(m)
-Total bedload transport(m3)           掃流砂の総通過量(m3)
-Total S.S. transport(m3)              浮遊砂の総通過量(m3)
-Mean diameter(mm)                     河床材料（表層）の平均粒径(mm)
-Land slide Occurrence                 崩壊の発生（発生した箇所を1と表示）
-Elevation change (debris flow)(m)     土石流による侵食と堆積(m)
-Total sediment supply (debris flow)   土石流による河道への土砂供給量
-Wood_deposition(m3/m2)                単位面積あたりの流木堆積量(m3/m2) 
-Wood_concentration                    流木の濃度
-===================================== ==========================================
+===================================== ==========================================================
+Display name                            Meaning                                   
+===================================== ==========================================================
+Bedload transport rate                Bed load transport rate (m³/s)
+Suspended sediment transport rate     Suspended sediment transport rate (m³/s)
+Elevation change (m)                  Riverbed elevation change (m)
+Total bedload transport(m3)           Total bed load transport volume (m³)
+Total S.S. transport(m3)              Total suspended sediment transport volume (m³)
+Mean diameter(mm)                     Mean grain size of riverbed material (surface layer) (mm)
+Land slide Occurrence                 Landslide occurrence (indicate 1 where landslides occur)
+Elevation change (debris flow)(m)     Erosion and deposition due to debris flows (m)
+Total sediment supply (debris flow)   Sediment supply to the river channel from debris flows
+Wood_deposition(m3/m2)                Driftwood deposition amount per unit area (m³/m²)
+Wood_concentration                    Driftwood concentration
+===================================== =========================================================
 
-iRICソフトウェアの基本機能を利用して、様々な観点から計算結果を確認することができます。
-以下に例を表示します。
+Using the basic functions of the iRIC software, you can examine the calculation results from various perspectives. The following are some examples:
 
-
-Bedload transport rate：掃流砂の空間分布を確認できます。
-    .. image:: img_3/bedload.png
+Bedload transport rate：You can check the spatial distribution of the bed load transport rate.
+    .. image:: img_2/bedload.png
         :width: 640px
         :align: center
 
-Elevation change：河道についての侵食と堆積の空間分布を確認できます。
-    .. image:: img_3/elv_change.png
+Elevation change：You can check the spatial distribution of erosion and deposition in the river channel.
+    .. image:: img_2/elv_change.png
         :width: 640px
         :align: center
 
-Land slide occurence：崩壊の発生セルについての空間分布を確認できます。崩壊の発生箇所を１と表示しています。
-    .. image:: img_3/landslide.png
+Land slide occurence：You can check the spatial distribution of landslide occurrence cells. Landslide occurrence locations are indicated as 1.
+    .. image:: img_2/landslide.png
         :width: 640px
         :align: center
         
-Elevation change (debris flow)：土石流による侵食と堆積の空間分布を確認できます。上記の「崩壊の発生セル」と重ねると、崩壊の発生地点から最急勾配方向に向かって土石流が解析されていることを確認できます。
-    .. image:: img_3/debris.png
+Elevation change (debris flow)：ou can check the spatial distribution of erosion and deposition due to debris flows.  
+By overlaying this with the "Landslide occurrence cells" above, you can confirm that debris flows are analyzed along the steepest descent direction from the landslide initiation points.
+    .. image:: img_2/debris.png
         :width: 640px
         :align: center
 
-Wood_deposition(m3/m2) ：単位面積あたりの流木堆積量について、空間分布を確認できます。
-    .. image:: img_3/wood.png
+Wood_deposition(m3/m2) ：ou can check the spatial distribution of driftwood deposition per unit area.
+    .. image:: img_2/wood.png
         :width: 640px
         :align: center        
 
 -----
 
-まとめ
+Summary
 --------------------------------------------------
-九州北部豪雨の黒川を例に、RSRモデルの計算設定、実行、結果の可視化に関する流れを紹介しました。
-解析結果の検証等については、文献 [1]_ を参照してください。
-必要に応じて、パラメータを調整し再計算するなどして、理解を深めていただければと思います。
-
+This section presented the workflow for setting up calculations, running, and visualizing results for the RSR model, using the Kurokawa River during the July 2017 Northern Kyushu Heavy Rain as an example. 
+For verification of the analysis results, please refer to reference [1]_. 
+We hope that you will deepen your understanding by adjusting parameters and recalculating as necessary.
