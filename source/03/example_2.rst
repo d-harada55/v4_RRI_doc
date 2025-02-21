@@ -227,7 +227,7 @@ Here, the parameters are adjusted for the inflow to the Terauchi Dam, and are se
 
 4．Run Calculation (Flow only)
 --------------------------------------------------
-Before performing sediment calculations, it is recommended to run a flow-only calculation first to verify that the calculation conditions are set correctly and to perform calibration. 
+Before conducting sediment calculations, it is recommended to run a flow-only calculation first to verify that the calculation conditions are set correctly and to perform calibration. 
 In this example, the parameters used have been calibrated for water runoff for the entire Terauchi Dam basin.
 
 On the calculation condition screen, set the execution mode in "Basse Conditions" to "Run only". Click "OK" to close the calculation condition setting screen.
@@ -236,10 +236,54 @@ On the calculation condition screen, set the execution mode in "Basse Conditions
         :width: 480px
         :align: center
 
+
 Execute the calculation by clicking "Calculation > Run".
-  **Always save your data before running the calculation.** 
+
+**Always save your data before running the calculation.** 
+
 On a typical desktop computer, the calculation time is about 5-10 minutes. When the calculation is complete, a screen will appear indicating completion.
 
+
+５．Visualizing Calculation Results (Before Sediment Calculation)
+--------------------------------------------------
+Once the calculation has finished successfully, the visualization window becomes available. 
+Even before conducting sediment calculations, you can check the following items:
+
+================ =======================================================
+Display Name       Meaning                               
+================ =======================================================
+total_qp_t[mm]   Total Rainfall [mm]                 
+qp_t[mm/h]       Rainfall Intensity [mm/h]          
+hs[m]            Inundation Depth on Slopes (including ground water) [m] 
+Surface depth[m] Inundation Depth on Slopes (surface water only) [m]     
+hr[m]            River Channel Water Depth [m]        
+qr[m]            River Channel Discharge [m³/s]         
+qu               Slope Discharge, x-direction [m/s]               
+qv               Slope Discharge, y-direction [m/s]     
+hg[m]            Groundwater Depth [m]                            
+gu               Groundwater Flow, x-direction [m/s]       
+gv               Groundwater Flow, y-direction [m/s]   
+gampt_ff         Green-Ampt cumulative water depth [m]   
+================ ======================================================= 
+
+Using the functions of the iRIC software, you can examine the calculation results from various perspectives. The following are some visualization examples:
+
+
+iRICソフトウェアの基本機能を利用して、様々な観点から計算結果を確認することができます。
+以下に可視化例を表示します。
+
+Total Rainfall: You can check the spatial distribution of the total rainfall amount from the analyzed rainfall over the calculation time (13 hours).
+    .. image:: img_3/sum_rain.png
+        :width: 640px
+        :align: center
+
+Open a new graph window, select the "Calculation Result" tab, set "Glid Location: Cell center", add qr(m_s), and press OK. 
+In the graph window, use the "Controller" below to select the coordinates of the downstream end of the Kurokawa River (near the confluence with the Sada River) (I=41, J=410) and you can check the discharge hydrograph.
+    .. image:: img_3/res_runoff.png
+        :width: 640px
+        :align: center
+
+-----
 
 
 

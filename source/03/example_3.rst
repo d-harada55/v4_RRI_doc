@@ -254,10 +254,10 @@ This analysis involves landslide and debris flow calculations, requiring the cre
 
 -----
 
-５．計算結果分析・可視化（土砂の計算前）
+５．Visualizing Calculation Results (Before Sediment Calculation)
 --------------------------------------------------
-計算が正常に終了すると、可視化ウィンドウの表示が可能となります。
-土砂の計算を行う前でも、以下の項目について確認できます。
+Once the calculation has finished successfully, the visualization window becomes available. 
+Even before conducting sediment calculations, you can check the following items:
 
 ================ ==========================================
 表示名            意味                                     
