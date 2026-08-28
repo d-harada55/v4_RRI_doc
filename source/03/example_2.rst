@@ -232,7 +232,7 @@ In this example, the parameters used have been calibrated for water runoff for t
 
 On the calculation condition screen, set the execution mode in "Basse Conditions" to "Run only". Click "OK" to close the calculation condition setting screen.
 
-.. image:: img_3/cond_0.jpg
+.. image:: img_2/cond_0.jpg
         :width: 480px
         :align: center
 
@@ -269,13 +269,13 @@ gampt_ff         Green-Ampt cumulative water depth [m]
 Using the functions of the iRIC software, you can examine the calculation results from various perspectives. The following are some visualization examples:
 
 Total Rainfall: You can check the spatial distribution of the total rainfall amount from the analyzed rainfall over the calculation time (13 hours).
-    .. image:: img_3/sum_rain.png
+    .. image:: img_2/sum_rain.png
         :width: 640px
         :align: center
 
 Open a new graph window, select the "Calculation Result" tab, set "Glid Location: Cell center", add qr(m_s), and press OK. 
 In the graph window, use the "Controller" below to select the coordinates of the downstream end of the Kurokawa River (near the confluence with the Sada River) (I=41, J=410) and you can check the discharge hydrograph.
-    .. image:: img_3/res_runoff.png
+    .. image:: img_2/res_runoff.png
         :width: 640px
         :align: center
 

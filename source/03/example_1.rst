@@ -25,7 +25,7 @@ The basin topographic dataset is included in the data downloadable from "0. Samp
 Members of iRIC-UC can obtain those using the following method:
 
 - [1] Access the tool `'Basin Data Extraction'  <https://tools.i-ric.info/login/>`_ 
-- [2] Download the 3-second mesh MERIT Hydro data.
+- [2] Download the J-FlwDir v1.4 data.
 - [3] STEP 1: Zoom in on the Ikutora area of the Sorachi River and click on the downstream end of the target watershed.
 
    .. image:: img_1/step1_click2.jpg
@@ -52,6 +52,8 @@ The time is in UTC. Data in ASC format can be visualized and displayed in GIS.
 "asc2raindat.py" is a Python script that creates a rainfall data file in the RRI format from the ASC format data in the folder. 
 If you have a Python execution environment, you can use it. 
 If you do not have a Python execution environment, a file "rain.dat", which has already been converted to the RRI rainfall data format, is also included.
+
+**Currently, it is more convenient to skip the steps described here and use**\ `UC tools <https://tools.i-ric.info/login/>`_\ **to prepare the rainfall data. For the procedure using UC tools, please refer to "2. Preparation of Rainfall Dataset" in the Overview.**
 
 **<Data check>**
 
@@ -337,7 +339,7 @@ Total Rainfall: You can find that there are multiple locations where more than 5
         :width: 640px
         :align: center
 
-River Channel Discharge (i=107, j=163): The peak discharge was approximately 1100 m³/s.
+River Channel Discharge (i=107, j=163): The peak discharge was approximately 1,300 m³/s.
     .. image:: img_1/res_runoff.png
         :width: 640px
         :align: center
